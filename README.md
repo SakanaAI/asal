@@ -32,6 +32,7 @@ With the recent Nobel Prize awarded for radical advances in protein discovery, f
 ## Repo Description
 This repo contains a minimalistic implementation of ASAL to get you started ASAP.
 Everything is implemented in the [Jax framework](https://github.com/jax-ml/jax), making everything end-to-end jittable and very fast.
+If you are looking for a PyTorch implementation, check [this](https://github.com/fredericowieser/ASAL-PyTorch) out.
 
 
 The important code is here:
