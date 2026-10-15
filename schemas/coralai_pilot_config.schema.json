@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:coralai:pilot:config:1",
+  "title": "Coralai pilot configuration v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "simulation", "evaluation", "output"],
+  "properties": {
+    "schema_version": {"type": "integer", "const": 1},
+    "simulation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "seed", "shape", "steps", "env", "env_param", "backend", "device",
+        "infra_decay", "defense_coeff", "radiate_interval", "cleanup_interval",
+        "emergency_pop_cap", "checkpoint_interval", "log_interval"
+      ],
+      "properties": {
+        "seed": {"type": "integer", "minimum": 0, "maximum": 4294967295},
+        "shape": {"type": "integer", "minimum": 1},
+        "steps": {"type": "integer", "minimum": 1},
+        "env": {"enum": ["flat", "patches"]},
+        "env_param": {"type": ["integer", "null"], "minimum": 1},
+        "backend": {"enum": ["cpu", "cuda", "metal"]},
+        "device": {"enum": ["cpu", "cuda", "mps"]},
+        "infra_decay": {"type": "number", "minimum": 0, "maximum": 1},
+        "defense_coeff": {"type": "number", "minimum": 0},
+        "radiate_interval": {"type": "integer", "minimum": 1},
+        "cleanup_interval": {"type": "integer", "minimum": 1},
+        "emergency_pop_cap": {"type": "integer", "minimum": 0},
+        "checkpoint_interval": {"type": "integer", "minimum": 0},
+        "log_interval": {"type": "integer", "minimum": 1}
+      },
+      "allOf": [
+        {
+          "oneOf": [
+            {"properties": {"env": {"const": "flat"}, "env_param": {"type": "null"}}},
+            {"properties": {"env": {"const": "patches"}, "env_param": {"type": "integer", "minimum": 1}}}
+          ]
+        },
+        {
+          "oneOf": [
+            {"properties": {"backend": {"const": "cpu"}, "device": {"const": "cpu"}}},
+            {"properties": {"backend": {"const": "cuda"}, "device": {"const": "cuda"}}},
+            {"properties": {"backend": {"const": "metal"}, "device": {"const": "mps"}}}
+          ]
+        }
+      ]
+    },
+    "evaluation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["prompt", "bin_width"],
+      "properties": {
+        "prompt": {"type": "string", "pattern": "\\S"},
+        "bin_width": {"type": "number", "exclusiveMinimum": 0}
+      }
+    },
+    "output": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["root"],
+      "properties": {
+        "root": {"$ref": "#/$defs/relative_path"}
+      }
+    }
+  },
+  "$defs": {
+    "relative_path": {
+      "type": "string",
+      "description": "A forward-slash relative path with no empty, dot, or parent components.",
+      "pattern": "^(?!/)(?!.*(?:^|/)\\.{1,2}(?:/|$))(?!.*[:\\\\\\u0000-\\u001f])[^/]+(?:/[^/]+)*$"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "checkpoint": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880/data/raw/runs/coral_dev_20261001_174547/checkpoint_0001000/substrate.pt",
+  "grid_shape": [
+    100,
+    100
+  ],
+  "alive_cells": 1927,
+  "occupied_genome_ids": 71,
+  "genome_shannon_bits": 5.735160218300853,
+  "energy_binned_entropy_bits": 2.7636674667850962,
+  "infrastructure_binned_entropy_bits": 1.8909831577412344,
+  "bin_width": 1.0,
+  "resource_scope": "all grid cells",
+  "genome_scope": "living cells only",
+  "method": "Shannon entropy in bits; fixed-width resource bins"
+}

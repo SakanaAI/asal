@@ -1,0 +1,11 @@
+condition,metric,n_runs,mean,sample_sd
+flat,alive_cells,5,1899.6,260.28119409592387
+patches,alive_cells,5,1940.4,46.155173057849105
+flat,occupied_genome_ids,5,66.6,4.979959839195494
+patches,occupied_genome_ids,5,66.8,3.271085446759225
+flat,genome_shannon_bits,5,5.850395915532353,0.08534790506712851
+patches,genome_shannon_bits,5,5.835595465296724,0.07651032134562526
+flat,energy_binned_entropy_bits,5,0.09335917772317223,0.1326732401847802
+patches,energy_binned_entropy_bits,5,3.0001694170370232,0.22217556113211476
+flat,infrastructure_binned_entropy_bits,5,1.1972584773106494,0.29571781866910407
+patches,infrastructure_binned_entropy_bits,5,1.919708589841856,1.9269800140664537

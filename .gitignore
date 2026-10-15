@@ -171,3 +171,5 @@ cython_debug/
 .pypirc
 
 data/
+*.egg-info/
+imgui.ini

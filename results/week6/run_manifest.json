@@ -1,0 +1,232 @@
+[
+  {
+    "run_id": "coral_dev_20261001_174414",
+    "condition": "flat",
+    "seed": 42,
+    "shape": [
+      100,
+      100
+    ],
+    "log_rows": 101,
+    "final_logged_step": 1000,
+    "checkpoint_labels": [
+      0,
+      250,
+      500,
+      750,
+      1000
+    ],
+    "source_commit_from_metadata": "unknown",
+    "log_file": "results/week6/logs/flat_seed42.csv",
+    "config_file": "results/week6/configs/flat_seed42.json",
+    "final_total_energy": 621.8903,
+    "final_logged_genome_registry_count": 70
+  },
+  {
+    "run_id": "coral_dev_20261001_174547",
+    "condition": "patches",
+    "seed": 42,
+    "shape": [
+      100,
+      100
+    ],
+    "log_rows": 101,
+    "final_logged_step": 1000,
+    "checkpoint_labels": [
+      0,
+      250,
+      500,
+      750,
+      1000
+    ],
+    "source_commit_from_metadata": "unknown",
+    "log_file": "results/week6/logs/patches_seed42.csv",
+    "config_file": "results/week6/configs/patches_seed42.json",
+    "final_total_energy": 25625.4688,
+    "final_logged_genome_registry_count": 71
+  },
+  {
+    "run_id": "coral_dev_20261001_174438",
+    "condition": "flat",
+    "seed": 43,
+    "shape": [
+      100,
+      100
+    ],
+    "log_rows": 101,
+    "final_logged_step": 1000,
+    "checkpoint_labels": [
+      0,
+      250,
+      500,
+      750,
+      1000
+    ],
+    "source_commit_from_metadata": "unknown",
+    "log_file": "results/week6/logs/flat_seed43.csv",
+    "config_file": "results/week6/configs/flat_seed43.json",
+    "final_total_energy": 2429.2429,
+    "final_logged_genome_registry_count": 60
+  },
+  {
+    "run_id": "coral_dev_20261001_174601",
+    "condition": "patches",
+    "seed": 43,
+    "shape": [
+      100,
+      100
+    ],
+    "log_rows": 101,
+    "final_logged_step": 1000,
+    "checkpoint_labels": [
+      0,
+      250,
+      500,
+      750,
+      1000
+    ],
+    "source_commit_from_metadata": "unknown",
+    "log_file": "results/week6/logs/patches_seed43.csv",
+    "config_file": "results/week6/configs/patches_seed43.json",
+    "final_total_energy": 115001.7812,
+    "final_logged_genome_registry_count": 64
+  },
+  {
+    "run_id": "coral_dev_20261001_174457",
+    "condition": "flat",
+    "seed": 44,
+    "shape": [
+      100,
+      100
+    ],
+    "log_rows": 101,
+    "final_logged_step": 1000,
+    "checkpoint_labels": [
+      0,
+      250,
+      500,
+      750,
+      1000
+    ],
+    "source_commit_from_metadata": "unknown",
+    "log_file": "results/week6/logs/flat_seed44.csv",
+    "config_file": "results/week6/configs/flat_seed44.json",
+    "final_total_energy": 605.7864,
+    "final_logged_genome_registry_count": 63
+  },
+  {
+    "run_id": "coral_dev_20261001_174623",
+    "condition": "patches",
+    "seed": 44,
+    "shape": [
+      100,
+      100
+    ],
+    "log_rows": 101,
+    "final_logged_step": 1000,
+    "checkpoint_labels": [
+      0,
+      250,
+      500,
+      750,
+      1000
+    ],
+    "source_commit_from_metadata": "unknown",
+    "log_file": "results/week6/logs/patches_seed44.csv",
+    "config_file": "results/week6/configs/patches_seed44.json",
+    "final_total_energy": 107163.5703,
+    "final_logged_genome_registry_count": 63
+  },
+  {
+    "run_id": "coral_dev_20261001_174510",
+    "condition": "flat",
+    "seed": 45,
+    "shape": [
+      100,
+      100
+    ],
+    "log_rows": 101,
+    "final_logged_step": 1000,
+    "checkpoint_labels": [
+      0,
+      250,
+      500,
+      750,
+      1000
+    ],
+    "source_commit_from_metadata": "unknown",
+    "log_file": "results/week6/logs/flat_seed45.csv",
+    "config_file": "results/week6/configs/flat_seed45.json",
+    "final_total_energy": 3119.5386,
+    "final_logged_genome_registry_count": 68
+  },
+  {
+    "run_id": "coral_dev_20261001_174639",
+    "condition": "patches",
+    "seed": 45,
+    "shape": [
+      100,
+      100
+    ],
+    "log_rows": 101,
+    "final_logged_step": 1000,
+    "checkpoint_labels": [
+      0,
+      250,
+      500,
+      750,
+      1000
+    ],
+    "source_commit_from_metadata": "unknown",
+    "log_file": "results/week6/logs/patches_seed45.csv",
+    "config_file": "results/week6/configs/patches_seed45.json",
+    "final_total_energy": 49398.582,
+    "final_logged_genome_registry_count": 68
+  },
+  {
+    "run_id": "coral_dev_20261001_174523",
+    "condition": "flat",
+    "seed": 46,
+    "shape": [
+      100,
+      100
+    ],
+    "log_rows": 101,
+    "final_logged_step": 1000,
+    "checkpoint_labels": [
+      0,
+      250,
+      500,
+      750,
+      1000
+    ],
+    "source_commit_from_metadata": "unknown",
+    "log_file": "results/week6/logs/flat_seed46.csv",
+    "config_file": "results/week6/configs/flat_seed46.json",
+    "final_total_energy": 323.7267,
+    "final_logged_genome_registry_count": 72
+  },
+  {
+    "run_id": "coral_dev_20261001_174653",
+    "condition": "patches",
+    "seed": 46,
+    "shape": [
+      100,
+      100
+    ],
+    "log_rows": 101,
+    "final_logged_step": 1000,
+    "checkpoint_labels": [
+      0,
+      250,
+      500,
+      750,
+      1000
+    ],
+    "source_commit_from_metadata": "unknown",
+    "log_file": "results/week6/logs/patches_seed46.csv",
+    "config_file": "results/week6/configs/patches_seed46.json",
+    "final_total_energy": 52897.9062,
+    "final_logged_genome_registry_count": 68
+  }
+]

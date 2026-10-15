@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "simulation": {
+    "seed": 42,
+    "shape": 100,
+    "steps": 1000,
+    "env": "patches",
+    "env_param": 8,
+    "backend": "cpu",
+    "device": "cpu",
+    "infra_decay": 0.0,
+    "defense_coeff": 0.0,
+    "radiate_interval": 50,
+    "cleanup_interval": 100,
+    "emergency_pop_cap": 1000,
+    "checkpoint_interval": 100,
+    "log_interval": 10
+  },
+  "evaluation": {
+    "prompt": "branching colonies",
+    "bin_width": 1.0
+  },
+  "output": {
+    "root": "data/raw/pilot"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "quantity": "total_energy at logged step 1000",
+  "units": "simulation energy units",
+  "replicates": "five seeds per condition, 42-46",
+  "spread": "sample standard deviation (ddof=1)",
+  "conditions": {
+    "flat": {
+      "n": 5,
+      "mean": 1420.03698,
+      "sample_sd": 1265.7745361244936,
+      "per_seed_42_to_46": [
+        621.8903,
+        2429.2429,
+        605.7864,
+        3119.5386,
+        323.7267
+      ]
+    },
+    "patches": {
+      "n": 5,
+      "mean": 70017.4617,
+      "sample_sd": 39026.55762181497,
+      "per_seed_42_to_46": [
+        25625.4688,
+        115001.7812,
+        107163.5703,
+        49398.582,
+        52897.9062
+      ]
+    }
+  }
+}

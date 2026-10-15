@@ -1,0 +1,22 @@
+# Core dependencies for Coralai
+torch
+taichi>=1.6.0
+neat-python==0.92
+numpy
+scipy
+click
+dask
+noise
+
+# Headless REPL dependencies
+imageio
+imageio-ffmpeg
+matplotlib
+Pillow
+
+# Development
+pytest
+flake8
+
+# Local dependency (vendored)
+-e coralai/dependencies/PyTorch-NEAT

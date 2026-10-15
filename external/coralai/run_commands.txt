@@ -1,0 +1,20 @@
+# Flat baseline
+python experiments/coral_dev/run.py --no-gui --steps 1001 --shape 100 --seed 42 --env flat --radiate-interval 50 --checkpoint-interval 250 --log-interval 10
+python experiments/coral_dev/run.py --no-gui --steps 1001 --shape 100 --seed 43 --env flat --radiate-interval 50 --checkpoint-interval 250 --log-interval 10
+python experiments/coral_dev/run.py --no-gui --steps 1001 --shape 100 --seed 44 --env flat --radiate-interval 50 --checkpoint-interval 250 --log-interval 10
+python experiments/coral_dev/run.py --no-gui --steps 1001 --shape 100 --seed 45 --env flat --radiate-interval 50 --checkpoint-interval 250 --log-interval 10
+python experiments/coral_dev/run.py --no-gui --steps 1001 --shape 100 --seed 46 --env flat --radiate-interval 50 --checkpoint-interval 250 --log-interval 10
+
+# Patch energy
+python experiments/coral_dev/run.py --no-gui --steps 1001 --shape 100 --seed 42 --env patches --env-param 8 --radiate-interval 50 --checkpoint-interval 250 --log-interval 10
+python experiments/coral_dev/run.py --no-gui --steps 1001 --shape 100 --seed 43 --env patches --env-param 8 --radiate-interval 50 --checkpoint-interval 250 --log-interval 10
+python experiments/coral_dev/run.py --no-gui --steps 1001 --shape 100 --seed 44 --env patches --env-param 8 --radiate-interval 50 --checkpoint-interval 250 --log-interval 10
+python experiments/coral_dev/run.py --no-gui --steps 1001 --shape 100 --seed 45 --env patches --env-param 8 --radiate-interval 50 --checkpoint-interval 250 --log-interval 10
+python experiments/coral_dev/run.py --no-gui --steps 1001 --shape 100 --seed 46 --env patches --env-param 8 --radiate-interval 50 --checkpoint-interval 250 --log-interval 10
+
+#Demo
+Baseline 42 seed
+python -m coralai.replay --run-dir runs/coral_dev_20261001_174414
+Patch 42 seed
+python -m coralai.replay --run-dir runs/coral_dev_20261001_174547
+

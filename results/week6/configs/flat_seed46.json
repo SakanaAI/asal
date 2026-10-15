@@ -1,0 +1,20 @@
+{
+  "experiment": "coral_dev",
+  "shape": [
+    100,
+    100
+  ],
+  "seed": 46,
+  "env": {
+    "name": "flat"
+  },
+  "env_persist": false,
+  "start_step": 0,
+  "resumed_from": null,
+  "start_time": "2026-10-01T17:45:23.577317",
+  "git_hash": "unknown",
+  "infra_decay": 0.0,
+  "defense_coeff": 0.0,
+  "cleanup_interval": 100,
+  "emergency_pop_cap": 1000
+}

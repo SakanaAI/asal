@@ -1,0 +1,15 @@
+name: coralai
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  - python>=3.10,<3.13
+  - pip
+  - numpy
+  - scipy
+  - matplotlib
+  - pillow
+  - pip:
+    - -e coralai/dependencies/PyTorch-NEAT
+    - -e ".[dev]"

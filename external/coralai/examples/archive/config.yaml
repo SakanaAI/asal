@@ -1,0 +1,108 @@
+Simulation:
+  world_shape: [20, 20]
+
+torch:
+  device: 'cpu'
+  float_dtype: 'float32'
+
+VERBOSE: True
+
+dimensions: 2
+
+# Must begin with origin, be symmetric, and represent the roll shifts along channel axes.
+kernel: [
+  [0, 0],     # ORIGIN
+  [-1, 0],    # UP
+  [0, 1],     # RIGHT
+  [1, 0],     # DOWN
+  [0, -1]     # LEFT
+]
+
+num_communication_channels: 5
+num_resource_types: 3
+
+weather:
+  channels:
+    - "regeneration_rate"
+    - "dispersal_rate"
+    - "mine_efficiency"
+    - "flow_efficiency"
+    - "growth_efficiency"
+
+live:
+  num_signals: 10
+  chanels:
+    - "capital"
+    - "mine_muscle_radius"
+    - "flow_muscle_radii"   # len(kernel) channels
+    - "signals"             # num_signals channels
+
+physiological:
+  channels:
+    - "flow_residuals"      # len(kernel) channels
+    - "muscle_radii_deltas" # len(kernel) + 1 (for mine muscle) channels
+    - "flow_activation"
+    - "mine_activation"
+  
+  kernel_perceptive_channels: # Can see a kernel of these channels around it
+    - "capital"
+    - "scent"
+    - "flow_residuals"
+    - "signal"
+  
+  self_perceived_channels:
+    - "muscle_radii"    # len(kernel) + 1 (for mine muscle) channels
+
+environment:
+  channels: 
+    - "port"
+    - "open_cell"
+    - "scent"
+  resource_generation:
+    distribution: "levy_dust"
+    pad: [0, 5] # these are ranges, low high
+    alpha: [0.1, 2]
+    beta: [-1, 1] 
+    num_source: [50, 500]
+
+  sink_generation:
+    distribution: "levy_dust"
+    pad: [0, 5]
+    alpha: [0.1, 2]
+    beta: [-1, 1]
+    num_sink: [20, 200]
+
+  obstacle_generation:
+    method: "simplex_noise"
+    empty_threshold: [0.05, 0.1]
+    full_threshold: [0.8, 0.9]
+    frequency: [4.0, 30.0]
+    octaves: [3, 10]
+    persistence: [0.2, 1.0]
+    lacunarity: [1.5, 4.0]
+
+  scent_generation:
+    distribution: "gaussian_blur"
+    iterations: 300
+    dropoff: 1
+
+visualize:
+  colormaps:
+    source_sink: "PiYG"
+    obstacle: "binary"
+  chemo_alpha: 2
+  
+lifecycle:
+  spore_params:
+    initial_strength: 1.0
+    initial_singal: "random"
+  inoculation:
+    num_spores: 3
+    where_to_place: "on_food"
+    selection_procedure: "random"
+  stoppage:
+    condition: "iterations"
+    stoppage_range: [500, 1500] 
+    stoppage_final: 0 # placeholder randomly updated
+
+

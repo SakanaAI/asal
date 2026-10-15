@@ -1,0 +1,148 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:coralai:pilot:result:1",
+  "title": "Coralai pilot result v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "run_id", "status", "effective_config", "completed_steps",
+    "artifacts", "provenance", "evaluation", "error"
+  ],
+  "properties": {
+    "schema_version": {"type": "integer", "const": 1},
+    "run_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*(?![\\s\\S])"},
+    "status": {"enum": ["success", "failed"]},
+    "effective_config": {"$ref": "urn:coralai:pilot:config:1"},
+    "completed_steps": {"type": "integer", "minimum": 0},
+    "artifacts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["checkpoints", "final_checkpoint", "final_image", "log", "metadata"],
+      "properties": {
+        "checkpoints": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["completed_steps", "directory"],
+            "properties": {
+              "completed_steps": {"type": "integer", "minimum": 0},
+              "directory": {"type": "string", "pattern": "^checkpoint_[0-9]{7,}(?![\\s\\S])"}
+            }
+          }
+        },
+        "final_checkpoint": {
+          "type": ["string", "null"], "pattern": "^checkpoint_[0-9]{7,}(?![\\s\\S])"
+        },
+        "final_image": {"$ref": "#/$defs/nullable_path"},
+        "log": {"$ref": "#/$defs/nullable_path"},
+        "metadata": {"$ref": "#/$defs/nullable_path"}
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["git_commit", "git_dirty", "backend", "device", "versions"],
+      "properties": {
+        "git_commit": {"type": ["string", "null"], "pattern": "^[0-9a-f]{40}(?![\\s\\S])"},
+        "git_dirty": {"type": ["boolean", "null"]},
+        "backend": {"enum": ["cpu", "cuda", "metal"]},
+        "device": {"enum": ["cpu", "cuda", "mps"]},
+        "versions": {
+          "type": "object",
+          "additionalProperties": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "evaluation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["clip", "entropy"],
+      "properties": {
+        "clip": {
+          "anyOf": [
+            {"type": "null"},
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["model", "asal_target_loss", "alignment"],
+              "properties": {
+                "model": {"const": "ASAL CLIP"},
+                "asal_target_loss": {"type": "number"},
+                "alignment": {"type": "number"}
+              }
+            }
+          ]
+        },
+        "entropy": {
+          "anyOf": [
+            {"type": "null"},
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "alive_cells", "occupied_genome_ids", "genome_shannon_bits",
+                "energy_binned_entropy_bits", "infrastructure_binned_entropy_bits", "bin_width"
+              ],
+              "properties": {
+                "alive_cells": {"type": "integer", "minimum": 0},
+                "occupied_genome_ids": {"type": "integer", "minimum": 0},
+                "genome_shannon_bits": {"type": "number", "minimum": 0},
+                "energy_binned_entropy_bits": {"type": "number", "minimum": 0},
+                "infrastructure_binned_entropy_bits": {"type": "number", "minimum": 0},
+                "bin_width": {"type": "number", "exclusiveMinimum": 0}
+              }
+            }
+          ]
+        }
+      }
+    },
+    "error": {
+      "anyOf": [
+        {"type": "null"},
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["code", "message"],
+          "properties": {
+            "code": {"type": "string", "pattern": "^[a-z][a-z0-9_]*(?![\\s\\S])"},
+            "message": {"type": "string", "pattern": "\\S"}
+          }
+        }
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"status": {"const": "success"}}},
+      "then": {
+        "properties": {
+          "error": {"type": "null"},
+          "artifacts": {
+            "properties": {
+              "checkpoints": {"minItems": 1},
+              "final_checkpoint": {"type": "string"},
+              "final_image": {"type": "string"},
+              "log": {"type": "string"},
+              "metadata": {"type": "string"}
+            }
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "error": {"type": "object"},
+          "evaluation": {"properties": {"clip": {"type": "null"}, "entropy": {"type": "null"}}}
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "nullable_path": {
+      "anyOf": [
+        {"type": "null"},
+        {"$ref": "urn:coralai:pilot:config:1#/$defs/relative_path"}
+      ]
+    }
+  }
+}

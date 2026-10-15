@@ -1,0 +1,136 @@
+{
+  "checked_on": "2026-10-14",
+  "issue": 5,
+  "status": "partial",
+  "source_commit": "de385e63caa89b3984bef99ece5ed9e4f2520323",
+  "branch": "issue-5-validate-pilot",
+  "uncommitted_validation_changes_tested": true,
+  "environment": {
+    "python": "3.13.15",
+    "platform": "Linux",
+    "packages": {
+      "torch": "2.8.0+cpu",
+      "numpy": "2.2.1",
+      "pillow": "11.0.0",
+      "jsonschema": "4.23.0",
+      "jax": "0.4.38",
+      "jaxlib": "0.4.38",
+      "flax": "0.10.2",
+      "transformers": "4.47.1",
+      "einops": "0.8.0",
+      "huggingface-hub": "0.27.0"
+    },
+    "clip_device": "cpu",
+    "clip_model": "openai/clip-vit-base-patch32",
+    "clip_model_revision": "3d74acf9a28c67741b2f4f2ea7635f0aaf6f0268"
+  },
+  "checks": [
+    {
+      "name": "focused_tests",
+      "command": "python -m unittest discover -s tests -p 'test_coralai*.py' -v",
+      "status": "passed",
+      "test_count": 24
+    },
+    {
+      "name": "default_config_format",
+      "command": "python scripts/validate_coralai_contract.py config configs/coralai_pilot.default.json",
+      "status": "passed"
+    },
+    {
+      "name": "example_result_format_only",
+      "command": "python scripts/validate_coralai_contract.py result examples/coralai_pilot_result.json",
+      "status": "passed"
+    },
+    {
+      "name": "saved_checkpoint_render",
+      "command": "python substrates/coralai.py data/raw/runs/coral_dev_20261001_174547/checkpoint_0001000/substrate.pt --output data/raw/validation/week8/coralai_frame.png",
+      "status": "passed",
+      "checkpoint": "data/raw/runs/coral_dev_20261001_174547/checkpoint_0001000/substrate.pt",
+      "checkpoint_sha256": "6d46c776314cc5ee968fd286f24cc9359537a2a253baa49ea892b7fa41e13e99",
+      "checkpoint_label": 1000,
+      "completed_steps_verified": false,
+      "image_shape": [
+        224,
+        224,
+        3
+      ],
+      "pixel_match": true,
+      "reference_png_sha256": "8d31e4860aa1bb35f3de45ab80e832104af5f0c426441eef47651f25bfeb1a81",
+      "reproduced_png_sha256": "99c749338732d4f7197109a619fb0a7e51e23a8fe973defa9579547684e2bbfa"
+    },
+    {
+      "name": "saved_checkpoint_entropy",
+      "command": "python scripts/score_entropy.py data/raw/runs/coral_dev_20261001_174547/checkpoint_0001000/substrate.pt --output data/raw/validation/week8/coralai_entropy.json",
+      "status": "passed",
+      "relative_tolerance": 1e-12,
+      "absolute_tolerance": 1e-12,
+      "metrics": {
+        "alive_cells": 1927,
+        "occupied_genome_ids": 71,
+        "genome_shannon_bits": 5.735160218300853,
+        "energy_binned_entropy_bits": 2.7636674667850962,
+        "infrastructure_binned_entropy_bits": 1.8909831577412344,
+        "bin_width": 1.0
+      },
+      "scope": {
+        "genomes": "living cells only",
+        "resources": "all grid cells"
+      }
+    },
+    {
+      "name": "ten_saved_run_entropy_comparison",
+      "command": "python scripts/compare_entropy.py --output data/raw/validation/week8/entropy",
+      "status": "passed",
+      "relative_tolerance": 1e-12,
+      "absolute_tolerance": 1e-12,
+      "files": [
+        {
+          "file": "entropy_by_run.csv",
+          "rows": 10,
+          "matches": true,
+          "differences": []
+        },
+        {
+          "file": "entropy_summary.csv",
+          "rows": 10,
+          "matches": true,
+          "differences": []
+        }
+      ]
+    },
+    {
+      "name": "cpu_clip_reproduction",
+      "command": "python scripts/score_coralai.py --image data/raw/validation/week8/coralai_frame.png --prompt \"branching colonies\" --output data/raw/validation/week8/coralai_clip_score.json",
+      "status": "passed",
+      "reference_loss": -0.246830552816391,
+      "reproduced_loss": -0.246830552816391,
+      "loss_difference": 0.0,
+      "alignment": 0.246830552816391,
+      "relative_tolerance": 1e-06,
+      "absolute_tolerance": 1e-06
+    }
+  ],
+  "pending": [
+    {
+      "check": "fresh_config_run_and_setting_propagation",
+      "dependency_issue": 3,
+      "reason": "No config-driven runner implementation or real pilot result.json is available."
+    },
+    {
+      "check": "repeat_fresh_simulation_and_checkpoint_resume",
+      "dependency_issue": 3,
+      "reason": "Saved artifact recomputation does not establish simulation or resume reproducibility."
+    },
+    {
+      "check": "matched_default_vs_best_candidate",
+      "dependency_issue": 4,
+      "reason": "No supervised-search implementation or completed candidate is available."
+    }
+  ],
+  "limitations": [
+    "Original saved run source commit is unknown.",
+    "Legacy checkpoint filenames may differ from the completed update count.",
+    "Artifact-validator tests use synthetic tensors, not actual pilot simulations.",
+    "GPU scoring was not implemented or tested."
+  ]
+}

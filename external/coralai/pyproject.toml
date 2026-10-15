@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "coralai"
+version = "0.0.1"
+description = "Emergent Ecosystems of Evolved Neural Cellular Automata"
+authors = [{ name = "Aidan Arnaud Barbieux", email = "aidanbx@gmail.com" }]
+requires-python = ">=3.10,<3.13"
+keywords = [
+    "pytorch", "evolutionary-algorithms", "taichi",
+    "emergent-behavior", "artificial-life", "neural-cellular-automata",
+]
+dependencies = [
+    "torch",
+    "taichi>=1.6.0",
+    "neat-python==0.92",
+    "numpy",
+    "scipy",
+    "click",
+    "noise",
+    "imageio",
+    "imageio-ffmpeg",
+    "matplotlib",
+    "Pillow",
+    "networkx",   # analysis/population_analysis.py
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "flake8"]
+
+[project.urls]
+Homepage = "https://github.com/aidanbx/coralai"
+
+[tool.setuptools.packages.find]
+# Include coralai package and experiments (so 'from experiments.coral.physics' works
+# when the package is installed, not just when running from the repo root)
+where = ["."]
+include = ["coralai*", "experiments*", "analysis*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests", "coralai/tests"]
