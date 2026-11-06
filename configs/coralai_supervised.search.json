@@ -1,6 +1,6 @@
 {
   "prompt": "branching colonies",
-  "selection_seed": 42,
+  "search_seeds": [42, 7, 13],
   "comparison_seeds": [101, 202, 303],
   "model": "openai/clip-vit-base-patch32",
   "revision": "3d74acf9a28c67741b2f4f2ea7635f0aaf6f0268",

@@ -2,6 +2,10 @@
 
 Search is dispatched by main_opt.py; comparison is a separate CLI below.
 Torch/Taichi rollouts run serially in child processes, outside JAX jit/vmap.
+Each candidate is scored on every seed in settings["search_seeds"] and selected
+on the mean loss across them (issue #26), instead of a single seed, so the
+search can't pick a config that only looks good on one lucky seed. The three
+comparison_seeds stay held out from the search entirely, for compare() below.
 """
 
 import argparse
@@ -71,6 +75,36 @@ def paired_summary(rows):
     return result
 
 
+def average_across_seeds(scores):
+    """Summarize one config's per-seed evaluate() scores as a mean +/- spread.
+
+    Selecting on this mean (instead of a single seed's score) is the fix for
+    issue #26: a config that only looks good on one lucky seed will show up
+    here with a high alignment_std relative to its peers.
+    """
+    if len(scores) < 2:
+        raise ValueError("Expected at least two seeds to average across")
+    losses = np.array([score["mean_loss"] for score in scores])
+    alignments = np.array([score["mean_alignment"] for score in scores])
+    best_samples = np.array([score["best_sample_alignment"] for score in scores])
+    finals = np.array([score["final_alignment"] for score in scores])
+    return {"seeds": [score["seed"] for score in scores], "n_seeds": len(scores),
+            "mean_loss": float(losses.mean()), "loss_std": float(losses.std(ddof=1)),
+            "mean_alignment": float(alignments.mean()), "alignment_std": float(alignments.std(ddof=1)),
+            "best_sample_alignment": float(best_samples.mean()), "final_alignment": float(finals.mean()),
+            "simulation_seconds": float(sum(score["simulation_seconds"] for score in scores)),
+            "scoring_seconds": float(sum(score["scoring_seconds"] for score in scores)),
+            "per_seed": scores}
+
+
+def evaluate_across_seeds(evaluator, config, seeds, directory):
+    """Run one config on every search seed and save/return the averaged summary."""
+    scores = [evaluator.evaluate(config, seed, directory / f"seed_{seed}") for seed in seeds]
+    summary = average_across_seeds(scores)
+    save_json(directory / "multi_seed_summary.json", summary)
+    return summary
+
+
 def validate_setup(config, settings):
     if config["backend"] != "cpu" or config["device"] != "cpu" or config.get("resume_from"):
         raise ValueError("This experiment requires fresh CPU simulations")
@@ -79,9 +113,11 @@ def validate_setup(config, settings):
         raise ValueError("Steps must be positive and divisible by screenshot_interval")
     if config["max_screenshots"] < steps // interval + 1:
         raise ValueError("max_screenshots must include step 0 and every evaluation frame")
-    seeds = settings["comparison_seeds"]
-    if len(seeds) != 3 or len(set(seeds + [settings["selection_seed"]])) != 4:
-        raise ValueError("Use three distinct comparison seeds separate from selection")
+    search_seeds, comparison_seeds = settings["search_seeds"], settings["comparison_seeds"]
+    if len(search_seeds) < 2 or len(set(search_seeds)) != len(search_seeds):
+        raise ValueError("Use at least two distinct search seeds so scores can be averaged")
+    if len(comparison_seeds) != 3 or len(set(comparison_seeds) | set(search_seeds)) != 3 + len(search_seeds):
+        raise ValueError("Use three distinct comparison seeds separate from the search seeds")
     if not settings["prompt"].strip() or ";" in settings["prompt"]:
         raise ValueError("This adapter supports one nonempty target prompt")
     for name, spec in settings["parameters"].items():
@@ -194,7 +230,7 @@ def run_search(args):
     if not args.coralai_config or not args.coralai_search_config or not args.save_dir:
         raise ValueError("Coralai requires --coralai_config, --coralai_search_config and --save_dir")
     if args.bs != 1 or args.coef_prompt != 1 or args.coef_softmax != 0 or args.coef_oe != 0:
-        raise ValueError("Coralai adapter supports one selection seed and the supervised target objective only")
+        raise ValueError("Coralai adapter supports a single rollout batch and the supervised target objective only")
     if args.pop_size < 4 or args.n_iters < 1 or args.sigma <= 0:
         raise ValueError("Use pop_size >= 4, n_iters >= 1 and sigma > 0")
     config, settings = read_json(args.coralai_config), read_json(args.coralai_search_config)
@@ -204,15 +240,15 @@ def run_search(args):
     started = time.perf_counter()
     save_json(output / "default_config.json", dict(config, output_dir=None, resume_from=None))
     save_json(output / "search_settings.json", settings)
+    seeds = settings["search_seeds"]
     save_json(output / "optimizer.json", {"driver": "main_opt.py", "algorithm": "evosax.Sep_CMA_ES",
               "optimizer_seed": args.seed, "population": args.pop_size, "generations": args.n_iters,
-              "sigma": args.sigma, "candidate_budget": args.pop_size * args.n_iters,
-              "default_evaluations": 1, "normalized_bounds": [0, 1],
-              "selection": "lowest temporal mean loss among default and candidates; default wins exact ties"})
+              "sigma": args.sigma, "search_seeds": seeds, "evaluations_per_candidate": len(seeds),
+              "candidate_budget": args.pop_size * args.n_iters * len(seeds), "normalized_bounds": [0, 1],
+              "selection": "lowest mean loss averaged across search_seeds among default and candidates; default wins exact ties"})
     provenance(output)
     evaluator = Evaluator(settings, output)
-    seed = settings["selection_seed"]
-    baseline = evaluator.evaluate(config, seed, output / "default")
+    baseline = evaluate_across_seeds(evaluator, config, seeds, output / "default")
     best, best_config, best_id = baseline, config, "default"
     strategy = evosax.Sep_CMA_ES(popsize=args.pop_size, num_dims=len(settings["parameters"]), sigma_init=args.sigma)
     params = strategy.default_params.replace(clip_min=0., clip_max=1.)
@@ -229,14 +265,14 @@ def run_search(args):
         for index, vector in enumerate(np.asarray(vectors)):
             name = f"g{generation:02d}_c{index:02d}"
             candidate_config = dict(config, **decode(vector, settings["parameters"]))
-            score = evaluator.evaluate(candidate_config, seed, output / "candidates" / name)
+            score = evaluate_across_seeds(evaluator, candidate_config, seeds, output / "candidates" / name)
             losses.append(score["mean_loss"])
             candidates.append({"id": name, "generation": generation, "vector": vector.tolist(),
                                "parameters": decode(vector, settings["parameters"]), "scores": score})
             if score["mean_loss"] < best["mean_loss"]:
                 best, best_config, best_id = score, candidate_config, name
             save_json(output / "candidates.json", candidates)
-            save_json(output / "selected_config.json", dict(best_config, seed=seed, output_dir=None, resume_from=None))
+            save_json(output / "selected_config.json", dict(best_config, output_dir=None, resume_from=None))
             save_json(output / "selection.json", {"selected_id": best_id, "selected_scores": best,
                        "default_scores": baseline, "alignment_difference": best["mean_alignment"] - baseline["mean_alignment"]})
         state = strategy.tell(vectors, jnp.asarray(losses), asked_state, params)
@@ -247,12 +283,14 @@ def run_search(args):
         save_json(output / "generations.json", generations)
     with (output / "candidates.csv").open("w", newline="") as stream:
         writer = csv.writer(stream)
-        writer.writerow(["id", *settings["parameters"], "mean_alignment", "best_sample_alignment", "final_alignment", "simulation_seconds", "scoring_seconds"])
+        writer.writerow(["id", *settings["parameters"], "mean_alignment", "alignment_std", "best_sample_alignment",
+                         "final_alignment", "simulation_seconds", "scoring_seconds"])
         for candidate in [{"id": "default", "parameters": {k: config[k] for k in settings["parameters"]}, "scores": baseline}, *candidates]:
             score = candidate["scores"]
             writer.writerow([candidate["id"], *candidate["parameters"].values(), *[score[k] for k in
-                            ("mean_alignment", "best_sample_alignment", "final_alignment", "simulation_seconds", "scoring_seconds")]])
-    save_json(output / "completed.json", {"evaluations": len(candidates) + 1,
+                            ("mean_alignment", "alignment_std", "best_sample_alignment", "final_alignment",
+                             "simulation_seconds", "scoring_seconds")]])
+    save_json(output / "completed.json", {"evaluations": (len(candidates) + 1) * len(seeds),
               "selected_id": best_id, "total_seconds": time.perf_counter() - started})
     print(f"Selected {best_id}; config: {output / 'selected_config.json'}", flush=True)
 
