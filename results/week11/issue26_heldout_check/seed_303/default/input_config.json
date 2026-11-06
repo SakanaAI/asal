@@ -1,0 +1,20 @@
+{
+  "steps": 1000,
+  "shape": 100,
+  "backend": "cpu",
+  "device": "cpu",
+  "seed": 303,
+  "env": "patches",
+  "env_param": 8,
+  "infra_decay": 0.0,
+  "defense_coeff": 0.0,
+  "radiate_interval": 50,
+  "cleanup_interval": 100,
+  "emergency_pop_cap": 1000,
+  "checkpoint_interval": 1000,
+  "log_interval": 10,
+  "screenshot_interval": 50,
+  "max_screenshots": 21,
+  "resume_from": null,
+  "output_dir": null
+}

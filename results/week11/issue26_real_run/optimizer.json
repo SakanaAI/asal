@@ -1,0 +1,20 @@
+{
+  "driver": "main_opt.py",
+  "algorithm": "evosax.Sep_CMA_ES",
+  "optimizer_seed": 0,
+  "population": 6,
+  "generations": 5,
+  "sigma": 0.1,
+  "search_seeds": [
+    42,
+    7,
+    13
+  ],
+  "evaluations_per_candidate": 3,
+  "candidate_budget": 90,
+  "normalized_bounds": [
+    0,
+    1
+  ],
+  "selection": "lowest mean loss averaged across search_seeds among default and candidates; default wins exact ties"
+}

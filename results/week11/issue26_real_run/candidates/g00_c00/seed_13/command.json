@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "C:\\dev\\coralai-asal-4880\\.venv\\Scripts\\python.exe",
+    "C:\\dev\\coralai-asal-4880\\external\\coralai\\experiments\\coral_dev\\headless_coral.py",
+    "--config",
+    "C:\\dev\\coralai-asal-4880\\results\\week11\\issue26_real_run\\candidates\\g00_c00\\seed_13\\input_config.json",
+    "--seed",
+    "13",
+    "--output-dir",
+    "C:\\dev\\coralai-asal-4880\\results\\week11\\issue26_real_run\\candidates\\g00_c00\\seed_13\\run"
+  ],
+  "cwd": "C:\\dev\\coralai-asal-4880",
+  "PYTHONPATH": "C:\\dev\\coralai-asal-4880\\external\\coralai;C:\\dev\\coralai-asal-4880\\external\\coralai\\coralai\\dependencies\\PyTorch-NEAT;"
+}

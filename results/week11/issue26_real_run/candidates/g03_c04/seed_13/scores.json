@@ -1,0 +1,155 @@
+{
+  "mean_loss": -0.24759724736213684,
+  "mean_alignment": 0.24759724736213684,
+  "best_sample_loss": -0.25253012776374817,
+  "best_sample_alignment": 0.25253012776374817,
+  "best_sample_step": 800,
+  "final_loss": -0.24464325606822968,
+  "final_alignment": 0.24464325606822968,
+  "seed": 13,
+  "simulation_seconds": 21.751575300004333,
+  "scoring_seconds": 6.497069800272584,
+  "final_checkpoint": "C:\\dev\\coralai-asal-4880\\results\\week11\\issue26_real_run\\candidates\\g03_c04\\seed_13\\run\\checkpoint_0001000",
+  "frame_scores": [
+    {
+      "step": 50,
+      "image": "C:\\dev\\coralai-asal-4880\\results\\week11\\issue26_real_run\\candidates\\g03_c04\\seed_13\\run\\screenshots\\step_0000050.png",
+      "sha256": "219efda6f8a521a261426359f720920a6785fb7586f4d9f1ac2c4fc6820cee2a",
+      "loss": -0.24902120232582092,
+      "alignment": 0.24902120232582092
+    },
+    {
+      "step": 100,
+      "image": "C:\\dev\\coralai-asal-4880\\results\\week11\\issue26_real_run\\candidates\\g03_c04\\seed_13\\run\\screenshots\\step_0000100.png",
+      "sha256": "602bf077a36351b648d3998a0be71338e4668920ca0c63f53de550225482073d",
+      "loss": -0.2491307407617569,
+      "alignment": 0.2491307407617569
+    },
+    {
+      "step": 150,
+      "image": "C:\\dev\\coralai-asal-4880\\results\\week11\\issue26_real_run\\candidates\\g03_c04\\seed_13\\run\\screenshots\\step_0000150.png",
+      "sha256": "95d58f713d2f82ac7a16a80b6f7f4ffef4e599607a568e03d4def01c9b779cc7",
+      "loss": -0.24366049468517303,
+      "alignment": 0.24366049468517303
+    },
+    {
+      "step": 200,
+      "image": "C:\\dev\\coralai-asal-4880\\results\\week11\\issue26_real_run\\candidates\\g03_c04\\seed_13\\run\\screenshots\\step_0000200.png",
+      "sha256": "6341c028412b9eaed4dd5ad6e37c034c0d1af3cd2a819998a5b3804d29ff82c3",
+      "loss": -0.23659604787826538,
+      "alignment": 0.23659604787826538
+    },
+    {
+      "step": 250,
+      "image": "C:\\dev\\coralai-asal-4880\\results\\week11\\issue26_real_run\\candidates\\g03_c04\\seed_13\\run\\screenshots\\step_0000250.png",
+      "sha256": "0ecd4176c99bca2f90400c340f0afdf4097108f6128f859e680d8f1913f83a05",
+      "loss": -0.24189196527004242,
+      "alignment": 0.24189196527004242
+    },
+    {
+      "step": 300,
+      "image": "C:\\dev\\coralai-asal-4880\\results\\week11\\issue26_real_run\\candidates\\g03_c04\\seed_13\\run\\screenshots\\step_0000300.png",
+      "sha256": "b656db360f5c4f49a6828c467751c1c67309ac3721f15e31781b9af92660421c",
+      "loss": -0.24480703473091125,
+      "alignment": 0.24480703473091125
+    },
+    {
+      "step": 350,
+      "image": "C:\\dev\\coralai-asal-4880\\results\\week11\\issue26_real_run\\candidates\\g03_c04\\seed_13\\run\\screenshots\\step_0000350.png",
+      "sha256": "422ba2ef07f00a8f780d794157246c583709831c3608273a35e4192ddb426717",
+      "loss": -0.24622328579425812,
+      "alignment": 0.24622328579425812
+    },
+    {
+      "step": 400,
+      "image": "C:\\dev\\coralai-asal-4880\\results\\week11\\issue26_real_run\\candidates\\g03_c04\\seed_13\\run\\screenshots\\step_0000400.png",
+      "sha256": "0976fc69257f53d919a2e0f3a181635e8789b09409b931e58a4fdbbe15664f3d",
+      "loss": -0.24626199901103973,
+      "alignment": 0.24626199901103973
+    },
+    {
+      "step": 450,
+      "image": "C:\\dev\\coralai-asal-4880\\results\\week11\\issue26_real_run\\candidates\\g03_c04\\seed_13\\run\\screenshots\\step_0000450.png",
+      "sha256": "31dff6bdf37863d2939e56023b6b2c6a9265773f6fde7ed0c9ad43a02612f631",
+      "loss": -0.24693918228149414,
+      "alignment": 0.24693918228149414
+    },
+    {
+      "step": 500,
+      "image": "C:\\dev\\coralai-asal-4880\\results\\week11\\issue26_real_run\\candidates\\g03_c04\\seed_13\\run\\screenshots\\step_0000500.png",
+      "sha256": "cd86bf46d6a6fb12422f7f64e23ce9b0e6475ab4dbda7bd879ec7bfaba162378",
+      "loss": -0.24812622368335724,
+      "alignment": 0.24812622368335724
+    },
+    {
+      "step": 550,
+      "image": "C:\\dev\\coralai-asal-4880\\results\\week11\\issue26_real_run\\candidates\\g03_c04\\seed_13\\run\\screenshots\\step_0000550.png",
+      "sha256": "9b3703d70459bd51a1925dd3481ff6df8319c43f796b81fa7be5200dee57cf67",
+      "loss": -0.24799548089504242,
+      "alignment": 0.24799548089504242
+    },
+    {
+      "step": 600,
+      "image": "C:\\dev\\coralai-asal-4880\\results\\week11\\issue26_real_run\\candidates\\g03_c04\\seed_13\\run\\screenshots\\step_0000600.png",
+      "sha256": "954edfffde5764fe43937a0ca6e42282f5ad78f355dbe8c2387ae73ba774842c",
+      "loss": -0.24929262697696686,
+      "alignment": 0.24929262697696686
+    },
+    {
+      "step": 650,
+      "image": "C:\\dev\\coralai-asal-4880\\results\\week11\\issue26_real_run\\candidates\\g03_c04\\seed_13\\run\\screenshots\\step_0000650.png",
+      "sha256": "6821277e360132c8e6f7b7ccf77648eeff489e4dd9682c9487a2cb42c85d331d",
+      "loss": -0.2494964748620987,
+      "alignment": 0.2494964748620987
+    },
+    {
+      "step": 700,
+      "image": "C:\\dev\\coralai-asal-4880\\results\\week11\\issue26_real_run\\candidates\\g03_c04\\seed_13\\run\\screenshots\\step_0000700.png",
+      "sha256": "5ae28792fb0c949915902dbc4a8015ad8f001f37ae37d18b37aa5840188a1c63",
+      "loss": -0.2511736750602722,
+      "alignment": 0.2511736750602722
+    },
+    {
+      "step": 750,
+      "image": "C:\\dev\\coralai-asal-4880\\results\\week11\\issue26_real_run\\candidates\\g03_c04\\seed_13\\run\\screenshots\\step_0000750.png",
+      "sha256": "04023c5b275538e5f5599852f60c03fa73ecd1ad63819762d9a595da4c16d327",
+      "loss": -0.2503741681575775,
+      "alignment": 0.2503741681575775
+    },
+    {
+      "step": 800,
+      "image": "C:\\dev\\coralai-asal-4880\\results\\week11\\issue26_real_run\\candidates\\g03_c04\\seed_13\\run\\screenshots\\step_0000800.png",
+      "sha256": "7968d2528df1a591d39de59e5f5d59820786ac98356d457a8b93de830ab75f4c",
+      "loss": -0.25253012776374817,
+      "alignment": 0.25253012776374817
+    },
+    {
+      "step": 850,
+      "image": "C:\\dev\\coralai-asal-4880\\results\\week11\\issue26_real_run\\candidates\\g03_c04\\seed_13\\run\\screenshots\\step_0000850.png",
+      "sha256": "4d39a4a3b1dd6fd0f8504b1be6ae99675eb62bb5c88848be62d29343b6a11e28",
+      "loss": -0.25119978189468384,
+      "alignment": 0.25119978189468384
+    },
+    {
+      "step": 900,
+      "image": "C:\\dev\\coralai-asal-4880\\results\\week11\\issue26_real_run\\candidates\\g03_c04\\seed_13\\run\\screenshots\\step_0000900.png",
+      "sha256": "eedf11c556f54c8021b70ff62ad0be6924116ce29b1553264024475b8117c31f",
+      "loss": -0.2514844834804535,
+      "alignment": 0.2514844834804535
+    },
+    {
+      "step": 950,
+      "image": "C:\\dev\\coralai-asal-4880\\results\\week11\\issue26_real_run\\candidates\\g03_c04\\seed_13\\run\\screenshots\\step_0000950.png",
+      "sha256": "a80fd484a595bb481a678f5067f0e49896003a03eb5ad1ae9e398e16359e1269",
+      "loss": -0.25109657645225525,
+      "alignment": 0.25109657645225525
+    },
+    {
+      "step": 1000,
+      "image": "C:\\dev\\coralai-asal-4880\\results\\week11\\issue26_real_run\\candidates\\g03_c04\\seed_13\\run\\screenshots\\step_0001000.png",
+      "sha256": "2940d23793ed9fce2eb1d191f901ec81b8adfdc0ff619c00e346c2b3a37b4380",
+      "loss": -0.24464325606822968,
+      "alignment": 0.24464325606822968
+    }
+  ]
+}

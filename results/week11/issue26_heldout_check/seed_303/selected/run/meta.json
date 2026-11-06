@@ -1,0 +1,45 @@
+{
+  "experiment": "coral_dev",
+  "config_file": "C:\\dev\\coralai-asal-4880\\results\\week11\\issue26_heldout_check\\seed_303\\selected\\input_config.json",
+  "effective_config": {
+    "steps": 1000,
+    "shape": 100,
+    "backend": "cpu",
+    "device": "cpu",
+    "seed": 303,
+    "env": "patches",
+    "env_param": 8,
+    "infra_decay": 0.00015688609331846238,
+    "defense_coeff": 0.0,
+    "radiate_interval": 57,
+    "cleanup_interval": 100,
+    "emergency_pop_cap": 1000,
+    "checkpoint_interval": 1000,
+    "log_interval": 10,
+    "screenshot_interval": 50,
+    "max_screenshots": 21,
+    "resume_from": null,
+    "output_dir": "C:\\dev\\coralai-asal-4880\\results\\week11\\issue26_heldout_check\\seed_303\\selected\\run"
+  },
+  "shape": [
+    100,
+    100
+  ],
+  "seed": 303,
+  "env": {
+    "name": "patches",
+    "n_patches": 8,
+    "patch_radius_frac": 0.07,
+    "max_capacity": 30.0,
+    "inject_rate": 0.06,
+    "spawn_interval": 250,
+    "n_spawn": 8
+  },
+  "env_persist": true,
+  "start_step": 0,
+  "resumed_from": null,
+  "infra_decay": 0.00015688609331846238,
+  "defense_coeff": 0.0,
+  "completed_steps": 1000,
+  "final_checkpoint": "checkpoint_0001000"
+}

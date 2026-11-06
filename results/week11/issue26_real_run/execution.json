@@ -1,0 +1,29 @@
+{
+  "command": "'C:\\dev\\coralai-asal-4880\\.venv\\Scripts\\python.exe' main_opt.py --substrate coralai --coralai_config configs/coralai_supervised.default.json --coralai_search_config configs/coralai_supervised.search.json --save_dir results/week11/issue26_real_run --pop_size 6 --n_iters 5",
+  "cwd": "C:\\dev\\coralai-asal-4880",
+  "python": "C:\\dev\\coralai-asal-4880\\.venv\\Scripts\\python.exe",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "git_head": "664114f71e48542319321013a97c8f8832b7e219",
+  "versions": {
+    "jax": "0.10.2",
+    "jaxlib": "0.10.2",
+    "evosax": "0.1.6",
+    "flax": "0.10.2",
+    "transformers": "4.47.1",
+    "numpy": "2.4.6",
+    "pillow": "12.3.0",
+    "torch": "2.8.0+cpu",
+    "taichi": "1.7.4"
+  },
+  "source_sha256": {
+    "main_opt.py": "f8bd66cfe718c0eb73d31ee8a2ba514287f7430259f07465528d47bb84c4f828",
+    "scripts\\coralai_search.py": "3eed70cb1c25442b9aa12b75c02d8f011f507ea6929635047dbfe3750a0b9297",
+    "scripts\\clip_scoring.py": "ede775adbdf494ae5af52ef4f4105d1a916f52f5f64a2b75a2ef61d20eb0114e",
+    "foundation_models\\clip.py": "50fdd9067ef4059f164524981a3f21a7224737b8e40974c2b9fa842fff898b1c",
+    "asal_metrics.py": "75b7eaa9a751acf7e88c5902621937401ec28ab84199edf11fdb4db0514f5aa4",
+    "external\\coralai\\experiments\\coral_dev\\headless_coral.py": "92bb59a99bfa7ad6b02a0431ef4520cda79e1cd01350867884cbb08ba1a977be",
+    "external\\coralai\\experiments\\coral_dev\\experiment.py": "758b20067d1b12e3d9edd5a251cf51f02895e258303cb3e05b13796f89c5bf66",
+    "external\\coralai\\experiments\\coral_dev\\evolution.py": "33b283ce6fb8b2b244a0c5fa360a9aeacb9f6032772e430c2860f46418022faf",
+    "external\\coralai\\coralai\\evolver.py": "e6aed97ae91f31e41b03e429e8c0181eedcef4542abc695bc380663933cf473c"
+  }
+}

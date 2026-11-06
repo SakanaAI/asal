@@ -1,0 +1,14 @@
+{
+  "model": "openai/clip-vit-base-patch32",
+  "revision": "3d74acf9a28c67741b2f4f2ea7635f0aaf6f0268",
+  "weights_sha256": "2a2994d89bebd77abba5a554789dd9152a7e25467b79d88f6bd237d2dec5051c",
+  "model_load_seconds": 11.771004999987781,
+  "load_and_prompt_seconds": 16.293330799788237,
+  "device": "cpu:0",
+  "preprocessing": "RGB, 224x224 LANCZOS, float32 /255; existing CLIP normalization",
+  "objective": "mean ASAL negative cosine over steps interval..steps; step 0 excluded",
+  "timing": "simulation includes child startup and disk; scoring includes image loading and synchronization; first evaluation includes JIT warm-up",
+  "jax_devices": [
+    "cpu:0"
+  ]
+}
