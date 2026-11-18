@@ -26,7 +26,7 @@ group.add_argument("--substrate", type=str, default='boids', help="name of the s
 group.add_argument("--rollout_steps", type=int, default=None, help="number of rollout timesteps, leave None for the default of the substrate")
 group.add_argument("--coralai_config", type=str, help="saved headless Coralai simulation config")
 group.add_argument("--coralai_search_config", type=str, help="Coralai prompt, seeds, and parameter bounds")
-group.add_argument("--coralai_objective", choices=["supervised", "temporal_novelty"], default="supervised")
+group.add_argument("--coralai_objective", choices=["supervised", "temporal_novelty", "temporal_novelty_multiseed"], default="supervised")
 group.add_argument("--coralai_fresh_references", action="store_true", help="Evaluate fresh temporal references instead of reusing cached runs")
 group.add_argument("--coralai_timing_check", action="store_true", help="Time one temporal rollout and scoring pass only")
 
@@ -53,6 +53,9 @@ def parse_args(*args, **kwargs):
 
 def main(args):
     if args.substrate == "coralai":
+        if args.coralai_objective == "temporal_novelty_multiseed":
+            from scripts.coralai_temporal_multiseed import run_search
+            return run_search(args)
         if args.coralai_objective == "temporal_novelty":
             from scripts.coralai_temporal import run_search
             return run_search(args)
