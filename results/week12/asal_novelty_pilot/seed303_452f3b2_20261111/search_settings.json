@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "model": "openai/clip-vit-base-patch32",
+  "revision": "3d74acf9a28c67741b2f4f2ea7635f0aaf6f0268",
+  "scoring_view": "occupancy",
+  "simulation_seed": 303,
+  "sampled_updates": [
+    20,
+    40,
+    60,
+    80,
+    100,
+    120,
+    140,
+    160,
+    180,
+    200
+  ],
+  "reference_demo": "results/week12/dynamic_energy_demo/seed303_452f3b2_20261111",
+  "parameters": {
+    "shift_interval": {
+      "min": 10,
+      "max": 60,
+      "integer": true
+    },
+    "shift_cells": {
+      "min": 1,
+      "max": 8,
+      "integer": true
+    }
+  }
+}

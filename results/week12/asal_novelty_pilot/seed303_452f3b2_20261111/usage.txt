@@ -1,0 +1,18 @@
+PRE-FIX temporal-novelty pilot: historical evidence, not corrected-controller results.
+
+Seed 303, 48x48, 200 updates; eight proposals, seven effective configurations.
+No proposal improved on the hand setting. candidates.json and each candidate's
+effective_config.json, measurements.csv, scores.json, and embeddings.npy retain
+parameter rounding, occupancy trajectories, and original ASAL objective evidence.
+The binary scoring view uses genome >= 0; reserve motion alone is excluded.
+
+From the repository root, check the saved tables/embeddings without a new search:
+  .venv-novelty/bin/python -B scripts/verify_trail_results.py
+execution.json, requirements-used.txt, scorer.json, optimizer.json and
+search_settings.json retain original provenance/settings. Raw states, frames,
+source snapshots and old reproduction script remain local. The compact evidence
+cannot repeat raw-state checks or exactly recreate the pre-fix run on new code.
+
+Current temporal evaluations reject these unverifiable pre-fix reference caches.
+A future corrected pilot must explicitly request --coralai_fresh_references;
+that is new work and has not been run here.

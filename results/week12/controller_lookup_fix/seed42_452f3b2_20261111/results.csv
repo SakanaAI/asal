@@ -1,0 +1,3 @@
+configuration,initial_occupied,final_occupied,final_occupied_inside_source,final_occupied_outside_source,actual_energy_delivered,requested_energy,clipped_energy,remaining_reserve,simulation_capture_seconds,colonization_gains,colonization_replacements,resource_death_losses,chunk_death_losses,radiation_gains,radiation_losses,net_gains,net_losses
+fixed,32186,23787,3957,19830,147479.9925735727,147479.994833529,0.0,147472.89807332307,128.25392623900007,674008,307266,682130,476,1187,988,675163,683562
+dynamic,32186,24382,4000,20382,147479.99254241717,147479.994833529,0.0,147472.89807332307,129.10444995600028,673181,310834,680706,510,1208,977,674367,682171

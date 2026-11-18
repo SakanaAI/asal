@@ -1,0 +1,64 @@
+{
+  "basis": "Executable defaults from 85e5fc6, NOT verified settings of the teammate's exact screenshot/run.",
+  "original_commit": "85e5fc64cecd745b89b8fc2cd8721c77e541d7ae",
+  "original_source_sha256": {
+    "environments.py": "54454d787f8045af515168b9b6cadae4f2a362143b8aa8b4bc3e186737108d52",
+    "run.py": "b31ac66a8bd5d50cb5b18e511f892d95609446a7b3debcca64951d021dd726a3",
+    "experiment.py": "758b20067d1b12e3d9edd5a251cf51f02895e258303cb3e05b13796f89c5bf66"
+  },
+  "evidence_gap": "No saved original trail launch/config/initial state was found. Tracked older headless metadata and config_test.json are patches; the orphan snapshot has no run configuration.",
+  "grid": [
+    400,
+    400
+  ],
+  "seed": 42,
+  "initialization": "spread: original random roughly 20% occupancy, 50 NEAT genomes; no corner-founder substitution",
+  "trail_defaults": {
+    "name": "trail",
+    "n_lanes": 4,
+    "trail_width": 4.0,
+    "wiggle_frac": 0.03,
+    "margin_frac": 0.08,
+    "max_capacity": 20.0,
+    "goal_boost": 2.0,
+    "inject_rate": 0.02,
+    "init_energy": 0.4,
+    "seed_infra": 0.4,
+    "n_founders": 1,
+    "founder_radius": 3.0,
+    "spawn_frac": 0.01,
+    "spawn": "spread"
+  },
+  "physics": {
+    "infra_decay": 0,
+    "defense_coeff": 0,
+    "radiation_interval": 50,
+    "radiation_spots": 5,
+    "live_radius_cells": 2,
+    "dead_radius_cells": 4,
+    "kill_radius_cells": 5,
+    "kill_interval": 50,
+    "cleanup_interval": 100,
+    "emergency_pop_cap": 1000
+  },
+  "boundary": "Simulator neighbor/chunk operations are periodic. Trail drawing is clipped to the grid. Existing translation is torch.roll, but this treatment's support never crosses the edge.",
+  "movement": {
+    "shift_cells": 2,
+    "shift_interval": 125,
+    "units": "integer y cells, applied before release at completed updates divisible by interval",
+    "reason": "Half the four-cell trail width per movement; eight movements, sixteen cells total, rather than copying small-grid motion.",
+    "initial_y_bounds": [
+      18,
+      382
+    ],
+    "maximum_y_bounds": [
+      34,
+      398
+    ],
+    "resource_wraps": 0
+  },
+  "source_region_definition": "remaining capacity > 0 after this completed update's translation and release; stored energy and occupancy do not define the source region",
+  "rendering": "GUI-compatible default E/I/rotation with per-channel max+1e-8 normalization. Quantitative reserve always 0..60; occupancy is genome >= 0. No UI/manual channel selections are inferred.",
+  "capture_phase": "After NN, physics, evolution/killing, resource shift/release, radiation and cleanup; completed_update=timestep. GUI run.py renders before radiation/cleanup and updates its counter later, so exact same-label GUI screenshot parity is not claimed.",
+  "duration": "Explicit bounded 1000 updates; original GUI default has no fixed stop. This target is requested, not inferred from a screenshot."
+}

@@ -1,0 +1,15 @@
+{
+  "frames": 41,
+  "width": 696,
+  "height": 1237,
+  "duration_seconds": 7.38,
+  "each_frame_ms": 180,
+  "ffmpeg_full_decode_exit_code": 0,
+  "all_82_decoded_occupancy_panels_match_states": true,
+  "visually_inspected_updates": [
+    50,
+    150,
+    500,
+    1000
+  ]
+}

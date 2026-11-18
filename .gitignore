@@ -178,5 +178,18 @@ imgui.ini
 results/week11/issue26_smoke_test/
 results/week11/issue26_real_run/**/run/
 
-# Raw per-run output (screenshots/checkpoints) for week 12 runs: keep summaries tracked, raw runs local
+# Isolated CPU runtime for the temporal-novelty pilot
+.runtime-novelty/
+.venv-novelty/
+
+# Raw week-12 simulation data and duplicate source/render captures stay local.
 results/week12/**/run/
+results/week12/**/frame_states/
+results/week12/**/screenshots/
+results/week12/**/checkpoint_*/
+results/week12/**/initial_state.pt
+results/week12/**/source/
+results/week12/**/before/
+results/week12/**/paired_frames/
+results/week12/**/gui_views/
+results/week12/**/small_pilot_gui_views/

@@ -1,0 +1,45 @@
+test_checkpoint_restore_new_and_legacy_registry_formats (test_controller_lookup.ControllerLookupTests.test_checkpoint_restore_new_and_legacy_registry_formats) ... ok
+test_cleanup_registration_and_caches_preserve_controller_identity (test_controller_lookup.ControllerLookupTests.test_cleanup_registration_and_caches_preserve_controller_identity) ... ok
+test_controlled_colonization_and_bid_accounting (test_controller_lookup.ControllerLookupTests.test_controlled_colonization_and_bid_accounting) ... ok
+test_event_observation_does_not_modify_state_or_rng (test_controller_lookup.ControllerLookupTests.test_event_observation_does_not_modify_state_or_rng) ... ok
+test_known_outputs_sparse_active_ids_zero_and_inactive_sentinels (test_controller_lookup.ControllerLookupTests.test_known_outputs_sparse_active_ids_zero_and_inactive_sentinels) ... ok
+test_missing_and_noninteger_active_ids_fail_clearly (test_controller_lookup.ControllerLookupTests.test_missing_and_noninteger_active_ids_fail_clearly) ... ok
+test_normal_initialization_and_radiation_registration (test_controller_lookup.ControllerLookupTests.test_normal_initialization_and_radiation_registration) ... /home/sparky/Documents/School/CSC 4880/coralai-asal-4880/.venv-novelty/lib/python3.11/site-packages/neat/config.py:56: DeprecationWarning: Using default 'default' for 'structural_mutation_surer'
+  warnings.warn("Using default {!r} for '{!s}'".format(self.default, self.name),
+/home/sparky/Documents/School/CSC 4880/coralai-asal-4880/.venv-novelty/lib/python3.11/site-packages/neat/config.py:56: DeprecationWarning: Using default 'gaussian' for 'bias_init_type'
+  warnings.warn("Using default {!r} for '{!s}'".format(self.default, self.name),
+/home/sparky/Documents/School/CSC 4880/coralai-asal-4880/.venv-novelty/lib/python3.11/site-packages/neat/config.py:56: DeprecationWarning: Using default 'gaussian' for 'response_init_type'
+  warnings.warn("Using default {!r} for '{!s}'".format(self.default, self.name),
+/home/sparky/Documents/School/CSC 4880/coralai-asal-4880/.venv-novelty/lib/python3.11/site-packages/neat/config.py:56: DeprecationWarning: Using default 'gaussian' for 'weight_init_type'
+  warnings.warn("Using default {!r} for '{!s}'".format(self.default, self.name),
+/home/sparky/Documents/School/CSC 4880/coralai-asal-4880/.venv-novelty/lib/python3.11/site-packages/neat/config.py:56: DeprecationWarning: Using default 0.0 for 'enabled_rate_to_true_add'
+  warnings.warn("Using default {!r} for '{!s}'".format(self.default, self.name),
+/home/sparky/Documents/School/CSC 4880/coralai-asal-4880/.venv-novelty/lib/python3.11/site-packages/neat/config.py:56: DeprecationWarning: Using default 0.0 for 'enabled_rate_to_false_add'
+  warnings.warn("Using default {!r} for '{!s}'".format(self.default, self.name),
+/home/sparky/Documents/School/CSC 4880/coralai-asal-4880/.venv-novelty/lib/python3.11/site-packages/neat/config.py:56: DeprecationWarning: Using default 2 for 'min_species_size'
+  warnings.warn("Using default {!r} for '{!s}'".format(self.default, self.name),
+ok
+test_pair_initial_state_comparison_uses_rng_values (test_controller_lookup.ControllerLookupTests.test_pair_initial_state_comparison_uses_rng_values) ... ok
+test_population_cull_remaps_cells_and_controller_rows_together (test_controller_lookup.ControllerLookupTests.test_population_cull_remaps_cells_and_controller_rows_together) ... ok
+test_weighted_neighborhood_matches_independent_reference_for_all_rotations (test_controller_lookup.ControllerLookupTests.test_weighted_neighborhood_matches_independent_reference_for_all_rotations) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 1.563s
+
+OK
+[Taichi] version 1.7.4, llvm 15.0.4, commit b4b956fd, linux, python 3.11.18
+[Taichi] Starting on arch=x64
+  [checkpoint] step 0 → /tmp/tmpap2mqjmr/checkpoint_0000000
+  [loaded] step 0 ← /tmp/tmpap2mqjmr/checkpoint_0000000
+  [loaded] step 0 ← /tmp/tmpap2mqjmr/checkpoint_0000000
+  [cleanup] 5 extinct genomes removed -> 3 remain
+  [checkpoint] step 0 → /tmp/tmp9k4t5a3h/fixed/run/checkpoint_0000000
+  [checkpoint] step 0 → /tmp/tmp9k4t5a3h/dynamic/run/checkpoint_0000000
+REDUCING pop to max of 2 from current size: 8
+KILLING genome 0 (1 cells)
+KILLING genome 1 (0 cells)
+KILLING genome 3 (0 cells)
+KILLING genome 4 (0 cells)
+KILLING genome 5 (0 cells)
+KILLING genome 6 (0 cells)
+	Pop size after reduction: 2

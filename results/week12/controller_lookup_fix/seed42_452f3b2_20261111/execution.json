@@ -1,0 +1,72 @@
+{
+  "source_commit": "452f3b2787fac047f113f8b4b5d84f3f0aa48ee8",
+  "branch": "feature/dynamic-energy-demo",
+  "command": "'/home/sparky/Documents/School/CSC 4880/coralai-asal-4880/.venv-novelty/bin/python' scripts/demo_controller_lookup_fix.py --output-dir results/week12/controller_lookup_fix/seed42_452f3b2_20261111 --stage analyze",
+  "source_sha256": {
+    "scripts/demo_controller_lookup_fix.py": "9dbfc65e60829ae7ea9e0b6c76c49cdee4ca1677b5be82b1e9c45d02f574ab42",
+    "scripts/verify_controller_lookup.py": "469c6f9985e36645d853bab0e4878762b3f1d5443fcf03f9a0988dcce058d94c",
+    "tests/test_controller_lookup.py": "20bcbc9cc58157c5648a8c7a2f457d4114bb7813698fbd5adeaf9e2030fec645",
+    "scripts/compare_trail_reference.py": "7818163b7c9aa979e867b9224d9f38f6dbaed8112614ebf8c82d6bd786c848f1",
+    "scripts/evaluate_survival.py": "99218f569e09b50d9b271964d43aecc0c6549c997b534927536a6b6aa658fb85",
+    "scripts/setup_novelty_env.sh": "ac802b1d4d17295b7296660dbf051dc5d440e8a37790a9bfd8b170bd1e3d77d3",
+    "configs/asal_novelty_pilot/requirements.lock.txt": "1dbf069e0a1a00026c45cc43dc7291d1606709b9bb1ce8390e7660a4b8f39994",
+    "configs/trail_reference_comparison/fixed.json": "65de0d4fcc77695ef23947ceb745ee16a87c6482e642498aaf443d9668b69495",
+    "configs/trail_reference_comparison/dynamic.json": "a9362cd33210d6eacb61741140bf3d0c346e78e2c9aacc60e67dae92d983220e",
+    "external/coralai/coralai/evolver.py": "d1a6fcb7fd42b778dd8a049ac6995dc93dee35ba37c69db177f28f90936b410d",
+    "external/coralai/coralai/experiment.py": "0291b3e5df9a5f570a33bbaabe95bf5348f26e4f042027b53fefa051b3f78c4a",
+    "external/coralai/coralai/substrate.py": "f019b64a54a8d55794ba354f2651d898df8c56aced501eeeb62d6da88f9c1a0d",
+    "external/coralai/coralai/substrate_index.py": "5f1cd6851942e7d0560d9c774efe92c135ef4fa6600e68e1d4bb734b2e5174e9",
+    "external/coralai/experiments/coral_dev/headless_coral.py": "77b8b8d9b4913d9296dd5ef279afc977e24e9a1edfd8a96c572381ead290163b",
+    "external/coralai/experiments/coral_dev/experiment.py": "86408eee6795fd3d112f27ee112d274fb03c503ead835e2d3344f55def8b96ff",
+    "external/coralai/experiments/coral_dev/cell_events.py": "653e28b37d45c05e7536a348df964c49ea2738e9694b08e9ecb250ea8c649f27",
+    "external/coralai/experiments/coral_dev/environments.py": "b68a22bb7bbaabbbe413d45432e8b4c93219f5ce3b7d7d370c3649aed4fee85f",
+    "external/coralai/experiments/coral_dev/physics.py": "811bd13c2c8b8ceeb35cda757f0da4fc2852c5550bd78c3bd9a254f768b5c966",
+    "external/coralai/experiments/coral_dev/evolution.py": "acffa23f748d172fbbb420081c03843d02bb7ab8816a380ed4118ea8388878cd",
+    "external/coralai/experiments/coral_dev/neat.config": "a1f39a6254e9f21ee802ce79f71158776e7837bb475e254c1d28d1080bb16a8d"
+  },
+  "required_environment": {
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "TI_CPU_MAX_NUM_THREADS": "1"
+  },
+  "child_commands": {
+    "timing": {
+      "argv": [
+        "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880/.venv-novelty/bin/python",
+        "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880/external/coralai/experiments/coral_dev/headless_coral.py",
+        "--config",
+        "results/week12/controller_lookup_fix/seed42_452f3b2_20261111/timing/input_config.json",
+        "--output-dir",
+        "results/week12/controller_lookup_fix/seed42_452f3b2_20261111/timing/run"
+      ],
+      "cwd": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880"
+    },
+    "fixed": {
+      "argv": [
+        "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880/.venv-novelty/bin/python",
+        "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880/external/coralai/experiments/coral_dev/headless_coral.py",
+        "--config",
+        "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880/results/week12/controller_lookup_fix/seed42_452f3b2_20261111/fixed/input_config.json",
+        "--output-dir",
+        "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880/results/week12/controller_lookup_fix/seed42_452f3b2_20261111/fixed/run"
+      ],
+      "cwd": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880"
+    },
+    "dynamic": {
+      "argv": [
+        "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880/.venv-novelty/bin/python",
+        "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880/external/coralai/experiments/coral_dev/headless_coral.py",
+        "--config",
+        "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880/results/week12/controller_lookup_fix/seed42_452f3b2_20261111/dynamic/input_config.json",
+        "--output-dir",
+        "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880/results/week12/controller_lookup_fix/seed42_452f3b2_20261111/dynamic/run"
+      ],
+      "cwd": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880"
+    }
+  },
+  "restore": "Checkout source_commit, apply working-tree.patch, overlay source/, set up .venv-novelty, run reproduce.sh into a fresh directory.",
+  "limits": "Original executable trail environment defaults, not verified teammate screenshot settings; headless post-operation capture phase; CPU numerical variation remains possible.",
+  "pair_command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 TI_CPU_MAX_NUM_THREADS=1 .venv-novelty/bin/python -B scripts/demo_controller_lookup_fix.py --output-dir results/week12/controller_lookup_fix/seed42_452f3b2_20261111 --stage pair",
+  "postprocessing_note": "After both simulations completed, corrected the initial RNG equality check to compare Torch tensor values rather than serialization bytes. Rebuilt derived outputs with --stage analyze. No simulation rerun or simulation-source change occurred.",
+  "brief_explanation": "external/coralai/logs/2026-11-11 Wed/2026-11-11 Wed 16.57 controller lookup fix.md"
+}

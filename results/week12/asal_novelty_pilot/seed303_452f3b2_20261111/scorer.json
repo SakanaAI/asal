@@ -1,0 +1,23 @@
+{
+  "model": "openai/clip-vit-base-patch32",
+  "revision": "3d74acf9a28c67741b2f4f2ea7635f0aaf6f0268",
+  "weights_sha256": "2a2994d89bebd77abba5a554789dd9152a7e25467b79d88f6bd237d2dec5051c",
+  "device": "TFRT_CPU_0",
+  "load_seconds": 5.064854748000016,
+  "scoring_view": "Adaptation: binary genome >= 0, white occupied/black empty, x/y transpose, nearest 224x224, float32 /255; existing CLIP normalization. No energy, infrastructure, reserve, genome identity, labels, or text prompt.",
+  "objective": "Unmodified asal_metrics.calc_open_endedness_score: mean row maximum of tril(z @ z.T, -1); minimize. First row is zero; masked zero entries floor negative similarities at zero.",
+  "novelty_display": "(T-1)/T - loss_oe; constant normalized sequence has novelty approximately zero. This is a display transform, not another objective.",
+  "sampled_updates": [
+    20,
+    40,
+    60,
+    80,
+    100,
+    120,
+    140,
+    160,
+    180,
+    200
+  ],
+  "step_zero_scored": false
+}

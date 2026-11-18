@@ -1,0 +1,60 @@
+{
+  "defective_evolver_sha256": "e6aed97ae91f31e41b03e429e8c0181eedcef4542abc695bc380663933cf473c",
+  "confirmed": [
+    {
+      "runs": "Week 9 supervised search and seed comparison; Week 10 aligned seed-303 comparison",
+      "evidence": [
+        "results/week9/supervised_coralai_20261022/search/execution.json",
+        "results/week9/supervised_coralai_20261022/seed_comparison/execution.json",
+        "results/week9/supervised_coralai_20261022/seed_comparison/seed_202/default/command.json",
+        "results/week10/issue20_seed_repeatability/seed_comparison_millz/execution.json",
+        "results/week10/issue20_seed_repeatability/seed_comparison_millz/seed_303/default/command.json"
+      ],
+      "basis": "Recorded evolver hash matches the reproduced defective source; saved runner commands explicitly select repository Coralai with PYTHONPATH. Historical headless forward passes use _get_key_to_local."
+    },
+    {
+      "runs": "Week 11 issue26_real_run simulation evaluations",
+      "evidence": [
+        "results/week11/issue26_real_run/execution.json",
+        "results/week11/issue26_real_run/default/seed_42/command.json"
+      ],
+      "basis": "Same defective evolver and runner hashes, explicit repository imports. This identifies a simulator problem; the multi-seed optimizer implementation was not changed."
+    },
+    {
+      "runs": "Week 12 dynamic_energy_demo, trail_reference_comparison and asal_novelty_pilot",
+      "evidence": [
+        "results/week12/dynamic_energy_demo/seed303_452f3b2_20261111/execution.json",
+        "results/week12/trail_reference_comparison/defaults_seed42_20261111/execution.json",
+        "results/week12/asal_novelty_pilot/seed303_452f3b2_20261111/execution.json",
+        "scripts/coralai_temporal.py"
+      ],
+      "basis": "Saved source/commit and command provenance select the same inherited evolver. Small demo and reference snapshots show uniform exploration and zero actions for IDs above zero."
+    }
+  ],
+  "uncertain": [
+    {
+      "runs": "Week 6-8 simulation outputs without resolved simulator source/import provenance",
+      "basis": "For example results/week6/run_manifest.json records source_commit_from_metadata=unknown. Do not infer affected status solely from a similar image or an entry-point name."
+    },
+    {
+      "runs": "Teammate original trail screenshot/demonstration",
+      "basis": "Exact launch configuration, initial state, core source version, and runtime imports remain unverified; the orphan experiment snapshot is insufficient."
+    },
+    {
+      "runs": "Other archived runners, historical replays, or externally installed package copies without per-run provenance",
+      "basis": "Current entry points coral/run.py, coral_dev/run.py, headless_coral.py and replay.py share the lookup API, but that alone does not identify the source each old execution imported."
+    }
+  ],
+  "still_describe_saved_artifacts": [
+    "genome>=0 occupied counts and occupied-location comparisons",
+    "Saved energy/infrastructure/reserve measurements and actual injection accounting",
+    "Image entropy and model scores computed from the saved images",
+    "Seed-alignment and evaluation/scoring pipeline checks for those stored executions"
+  ],
+  "qualify_or_rerun_before_reuse": [
+    "Adaptive or spontaneous colonization, controller diversity/assignment, and food-dependent survival claims",
+    "Optimization/novelty conclusions interpreted as behavior of fully functioning controllers",
+    "Generalisations from negative resource-following results or historical runtimes to the corrected simulator"
+  ],
+  "no_broad_rerun": "Only the requested corrected reference pair was repeated; no ASAL search or historical overwrite."
+}

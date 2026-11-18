@@ -1,0 +1,29 @@
+{
+  "runs": {
+    "fixed": {
+      "completed_update": 1000,
+      "initial_capacity": 294956.1356315613,
+      "remaining_capacity": 147472.89807332307,
+      "cumulative_requested": 147479.994833529,
+      "cumulative_delivered": 147479.9925735727,
+      "cumulative_clipped": 0.0,
+      "reserve_depletion_minus_requested": 3.24272470921278,
+      "requested_minus_delivered": 0.0022599562944378704
+    },
+    "dynamic": {
+      "completed_update": 1000,
+      "initial_capacity": 294956.1356315613,
+      "remaining_capacity": 147472.89807332307,
+      "cumulative_requested": 147479.994833529,
+      "cumulative_delivered": 147479.99254241717,
+      "cumulative_clipped": 0.0,
+      "reserve_depletion_minus_requested": 3.24272470921278,
+      "requested_minus_delivered": 0.002291111828526482
+    }
+  },
+  "initial_energy": 2949.600043952465,
+  "initial_infrastructure": 162949.59982419014,
+  "maximum_actual_delivery_difference": 3.177064354531467e-05,
+  "accounting": "Actual after-minus-before addition/clamp at every update; no rescaling. Request and remaining-reserve totals independently checked every update. Float32 residuals retained and reported.",
+  "source_region": "remaining capacity > 0 after this completed update's release; mask motion alone can change inside/outside counts"
+}

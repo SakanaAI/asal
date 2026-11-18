@@ -1,0 +1,50 @@
+{
+  "cell_genome_ids": [
+    0,
+    2,
+    7,
+    -1,
+    -2
+  ],
+  "registered_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "lookup": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "expected_outputs": [
+    10.0,
+    12.0,
+    17.0,
+    0.0,
+    0.0
+  ],
+  "actual_outputs": [
+    10.0,
+    12.0,
+    17.0,
+    0.0,
+    0.0
+  ],
+  "passed": true,
+  "fixture": "Real registration and forward kernel; bias-only controllers; one sensor/one neighbor to isolate lookup.",
+  "coral_layout": {
+    "stored_inputs_per_controller": 24,
+    "passed": true,
+    "actual_output": 10.0
+  }
+}

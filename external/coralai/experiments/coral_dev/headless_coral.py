@@ -28,6 +28,12 @@ DEFAULT_CONFIG = {
     "seed": 42,
     "env": "flat",
     "env_param": None,
+    "env_options": {},
+    "save_frame_states": False,
+    "frame_state_format": "pt",
+    "log_resource_metrics": False,
+    "log_cell_events": False,
+    "save_initial_checkpoint": False,
     "infra_decay": 0.0,
     "defense_coeff": 0.0,
     "radiate_interval": 50,
@@ -78,8 +84,24 @@ if args.backend not in {"cpu", "metal", "cuda", "vulkan"}:
     parser.error("config option 'backend' must be cpu, metal, cuda, or vulkan")
 if args.device not in {"cpu", "mps", "cuda"}:
     parser.error("config option 'device' must be cpu, mps, or cuda")
-if args.env not in {"flat", "hole", "ring", "stripes", "corners", "patches", "oases"}:
+if args.env not in {"flat", "hole", "ring", "stripes", "corners", "patches", "oases", "trail"}:
     parser.error("config option 'env' is not a supported environment")
+if not isinstance(args.save_frame_states, bool):
+    parser.error("save_frame_states must be a boolean")
+if args.frame_state_format not in {"pt", "npz"}:
+    parser.error("frame_state_format must be pt or npz")
+if not isinstance(args.log_resource_metrics, bool) or (args.log_resource_metrics and args.env != "trail"):
+    parser.error("log_resource_metrics must be boolean and requires trail")
+if not isinstance(args.log_cell_events, bool) or not isinstance(args.save_initial_checkpoint, bool):
+    parser.error("log_cell_events and save_initial_checkpoint must be boolean")
+if args.env == "trail" and args.resume_from:
+    parser.error("trail resume is unsupported: checkpoints do not restore the food reserve")
+
+from environments import make_env
+try:
+    configured_env = make_env(args.env, args.env_param, args.env_options)
+except (ValueError, TypeError) as error:
+    parser.error(str(error))
 
 random.seed(args.seed)
 np.random.seed(args.seed)
@@ -91,6 +113,7 @@ DEVICE = torch.device(args.device)
 
 # This file lives in experiments/coral_dev, so these are the same imports as run.py.
 from coralai.evolver import apply_weights_and_biases
+from coralai.provenance import simulator_fingerprint
 from experiment import EXPERIMENT as exp
 from evolution import apply_radiation_mutation
 
@@ -141,8 +164,12 @@ def main():
         json.dump(vars(args), file, indent=2)
     shape = (args.shape, args.shape)
     substrate = exp.make_substrate(shape, DEVICE)
-    env = exp.make_env(args.env, args.env_param)
-    env.seed(substrate)
+    env = configured_env
+    # Preserve historical initialization for every existing headless config.
+    # Trail is newly supported here and must seed AFTER evolver initialization,
+    # as in run.py; otherwise its initial energy/founders would be overwritten.
+    if args.env != "trail":
+        env.seed(substrate)
     # SpaceEvolver creates history/ relative to the working directory.
     previous_directory = Path.cwd()
     try:
@@ -150,6 +177,8 @@ def main():
         evolver = exp.make_evolver(substrate)
     finally:
         os.chdir(previous_directory)
+    if args.env == "trail":
+        env.seed(substrate)
 
     if args.resume_from:
         evolver.load_checkpoint(args.resume_from)
@@ -158,22 +187,50 @@ def main():
     start_step = evolver.timestep
     screenshots_dir = run_dir / "screenshots"
     screenshots_dir.mkdir(exist_ok=True)
+    if args.save_frame_states:
+        (run_dir / "frame_states").mkdir()
 
     metadata = {
             "experiment": exp.name, "config_file": str(cli_args.config),
+            "simulator_provenance": simulator_fingerprint(),
             "effective_config": vars(args),
             "shape": list(shape), "seed": args.seed,
             "env": env.to_dict(), "env_persist": env.persist,
             "start_step": start_step, "resumed_from": args.resume_from,
             "infra_decay": args.infra_decay, "defense_coeff": args.defense_coeff,
+            "frame_update_rule": "screenshots and frame states follow all operations at completed update; step_log step + 1",
         }
     with (run_dir / "meta.json").open("w") as file:
         json.dump(metadata, file, indent=2)
     torch.save(substrate.mem.cpu(), run_dir / "initial_state.pt")
+    if args.save_initial_checkpoint:
+        evolver.save_checkpoint(run_dir, start_step)
 
     log_file = (run_dir / "step_log.csv").open("w", newline="")
     log = csv.writer(log_file)
     log.writerow(["step", "total_energy", "total_infra", "energy_pct", "n_alive", "n_genomes"])
+    resource_file = None
+    if args.log_resource_metrics:
+        resource_file = (run_dir / "resource_metrics.csv").open("w", newline="")
+        resource_log = csv.writer(resource_file)
+        resource_log.writerow(["completed_update", "occupied_cells", "occupied_inside_source", "occupied_outside_source",
+            "source_cells", "cumulative_requested", "cumulative_delivered", "cumulative_clipped", "remaining_capacity",
+            "total_energy", "total_infra"])
+
+    def log_resources():
+        if resource_file is not None:
+            state = env.resource_state()
+            indices = substrate.ti_indices[None]
+            occupied = substrate.mem[0, indices.genome] >= 0
+            # Current source means remaining reserve > 0 AFTER this update's
+            # translation/release. It does not mean occupied or stored energy > 0.
+            source = env._capacity > 0
+            inside = int((occupied & source).sum())
+            count = int(occupied.sum())
+            resource_log.writerow([state["completed_update"], count, inside, count - inside, int(source.sum()),
+                state["cumulative_requested"], state["cumulative_delivered"], state["cumulative_clipped"], state["remaining_capacity"],
+                float(substrate.mem[0, indices.energy].double().sum()), float(substrate.mem[0, indices.infra].double().sum())])
+            resource_file.flush()
 
     screenshot_count = 0
     last_captured_step = None
@@ -184,16 +241,39 @@ def main():
         if screenshot_count < args.max_screenshots:
             path = screenshots_dir / f"step_{step:07d}.png"
             Image.fromarray(make_frame(substrate)).save(path)
+            if args.save_frame_states:
+                if args.frame_state_format == "npz":
+                    np.savez_compressed(run_dir / "frame_states" / f"update_{step:07d}.npz",
+                                        state=substrate.mem.detach().cpu().numpy(), completed_update=step)
+                    if args.env == "trail":
+                        state = {k: v.numpy() if torch.is_tensor(v) else v for k, v in env.resource_state().items()}
+                        np.savez_compressed(run_dir / "frame_states" / f"resource_{step:07d}.npz", **state)
+                else:
+                    torch.save(substrate.mem.cpu(), run_dir / "frame_states" / f"update_{step:07d}.pt")
+                    if args.env == "trail":
+                        torch.save(env.resource_state(), run_dir / "frame_states" / f"resource_{step:07d}.pt")
             screenshot_count += 1
             last_captured_step = step
 
     capture(start_step)
+    log_resources()
+    events_file = None
+    if args.log_cell_events:
+        from cell_events import CellEvents
+        events = CellEvents(substrate)
+        evolver.observe_cell_events = events.observe
+        events_file = (run_dir / "cell_events.csv").open("w", newline="")
+        events.begin(start_step)
+        events_log = csv.DictWriter(events_file, fieldnames=list(events.finish()))
+        events_log.writeheader()
     inds = substrate.ti_indices[None]
     end_step = start_step + args.steps
     started = time.perf_counter()
     try:
         for step in range(start_step, end_step):
             # Same step order as coral_dev/run.py.
+            if events_file is not None:
+                events.begin(step + 1)
             weights, biases = evolver.get_combined_weights()
             out_mem = evolver._get_scratch("out_mem", substrate.mem[0, evolver.act_chinds])
             apply_weights_and_biases(
@@ -204,17 +284,30 @@ def main():
             substrate.mem[0, evolver.act_chinds] = out_mem
             exp.run_physics(substrate, evolver)
             exp.run_evolution(substrate, evolver, step)
+            if events_file is not None:
+                events.observe("chunk_death")
             if env.persist:
                 env.step(substrate)
             if step > 0 and step % args.radiate_interval == 0:
-                apply_radiation_mutation(evolver, 5)
+                apply_radiation_mutation(evolver, 5,
+                    seed_empty=(getattr(env, "spawn", "spread") == "spread"))
+                if events_file is not None:
+                    events.observe("radiation")
             if step > 0 and step % args.cleanup_interval == 0:
                 evolver.remove_extinct_genomes()
+                if events_file is not None:
+                    events.observe("cleanup")
             if (args.emergency_pop_cap > 0
                     and len(evolver.genomes) > args.emergency_pop_cap
                     and step - evolver.time_last_cull > 50):
                 evolver.reduce_population_to_threshold(args.emergency_pop_cap)
+                if events_file is not None:
+                    events.observe("cull")
             evolver.timestep = step + 1
+            log_resources()
+            if events_file is not None:
+                events_log.writerow(events.finish())
+                events_file.flush()
 
             if evolver.timestep % args.screenshot_interval == 0:
                 capture(evolver.timestep)
@@ -238,12 +331,22 @@ def main():
             evolver.save_checkpoint(run_dir, evolver.timestep)
         metadata["completed_steps"] = evolver.timestep - start_step
         metadata["final_checkpoint"] = f"checkpoint_{evolver.timestep:07d}"
+        if args.env == "trail":
+            metadata["resource_budget"] = {k: v for k, v in env.resource_state().items()
+                                            if k not in {"capacity", "last_injection"}}
         with (run_dir / "meta.json").open("w") as file:
             json.dump(metadata, file, indent=2)
     finally:
         log_file.close()
+        if resource_file is not None:
+            resource_file.close()
+        if events_file is not None:
+            events_file.close()
 
     elapsed = time.perf_counter() - started
+    metadata["elapsed_seconds"] = elapsed
+    with (run_dir / "meta.json").open("w") as file:
+        json.dump(metadata, file, indent=2)
     print(f"{args.steps} steps in {elapsed:.2f}s ({args.steps / elapsed:.1f} FPS)")
     print(f"Screenshots: {screenshots_dir} ({screenshot_count} PNGs)")
     print(f"Run data: {run_dir}")

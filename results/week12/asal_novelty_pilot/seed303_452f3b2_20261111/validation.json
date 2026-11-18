@@ -1,0 +1,12 @@
+{
+  "initial_states_identical": true,
+  "nominal_budgets_identical_at_all_samples": true,
+  "maximum_actual_supply_difference": 0.0009800713714867015,
+  "absolute_supply_tolerance": 0.005,
+  "clipping": 0,
+  "scored_state_rgb_matches": 110,
+  "decoded_animation_occupancy_panels": 33,
+  "animation_frames": 11,
+  "frame_duration_ms": 400,
+  "protected_files_unchanged": true
+}

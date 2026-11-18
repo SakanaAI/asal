@@ -1,0 +1,29 @@
+{
+  "cell_genome_ids": [
+    0,
+    2,
+    7,
+    -1,
+    -2
+  ],
+  "registered_ids": [],
+  "lookup": [
+    0
+  ],
+  "expected_outputs": [
+    10.0,
+    12.0,
+    17.0,
+    0.0,
+    0.0
+  ],
+  "actual_outputs": [
+    10.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "passed": false,
+  "fixture": "Real registration and forward kernel; bias-only controllers; one sensor/one neighbor to isolate lookup."
+}

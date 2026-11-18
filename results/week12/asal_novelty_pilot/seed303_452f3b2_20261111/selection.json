@@ -1,0 +1,46 @@
+{
+  "selected_id": "hand",
+  "selected_artifacts": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880/results/week12/asal_novelty_pilot/seed303_452f3b2_20261111/hand",
+  "loss_improvement_vs_hand": 0.0,
+  "comparison": [
+    {
+      "configuration": "fixed",
+      "shift_interval": 0,
+      "shift_cells": 4,
+      "loss_oe_lower_is_better": 0.8984628915786743,
+      "temporal_novelty_display": 0.0015371084213257058,
+      "energy_delivered": 6767.9956468034225,
+      "initial_occupied": 460,
+      "final_occupied": 422,
+      "minimum_sampled_occupied": 404,
+      "mean_sampled_occupied_excluding_initial": 417.4,
+      "final_cells_changed_from_initial": 350
+    },
+    {
+      "configuration": "hand",
+      "shift_interval": 25,
+      "shift_cells": 4,
+      "loss_oe_lower_is_better": 0.8983650207519531,
+      "temporal_novelty_display": 0.0016349792480468972,
+      "energy_delivered": 6767.9966017812385,
+      "initial_occupied": 460,
+      "final_occupied": 423,
+      "minimum_sampled_occupied": 404,
+      "mean_sampled_occupied_excluding_initial": 417.7,
+      "final_cells_changed_from_initial": 351
+    },
+    {
+      "configuration": "selected",
+      "shift_interval": 25,
+      "shift_cells": 4,
+      "loss_oe_lower_is_better": 0.8983650207519531,
+      "temporal_novelty_display": 0.0016349792480468972,
+      "energy_delivered": 6767.9966017812385,
+      "initial_occupied": 460,
+      "final_occupied": 423,
+      "minimum_sampled_occupied": 404,
+      "mean_sampled_occupied_excluding_initial": 417.7,
+      "final_cells_changed_from_initial": 351
+    }
+  ]
+}

@@ -5,7 +5,7 @@ import torch
 from PIL import Image
 
 
-def render_checkpoint(checkpoint):
+def render_checkpoint(checkpoint, view="rgb"):
     state = torch.load(
         checkpoint, map_location="cpu", weights_only=True
     )
@@ -15,9 +15,24 @@ def render_checkpoint(checkpoint):
     if state.shape[0] != 1 or state.shape[1] != 14:
         raise ValueError("Expected the 14-channel coral_dev format.")
 
+    return render_state(state, view)
+
+
+def render_state(state, view="rgb"):
+    """Original fixed-scale RGB, or a resource-free binary occupancy adaptation."""
+    if not torch.is_tensor(state) or state.ndim != 4 or state.shape[:2] != (1, 14):
+        raise ValueError("Expected the 14-channel coral_dev format.")
     cells = state.detach().cpu().numpy()[0]
     if not np.isfinite(cells).all():
         raise ValueError("Checkpoint contains invalid cell values.")
+
+    if view == "occupancy":
+        occupied = (cells[13] >= 0).astype(np.uint8) * 255
+        image = Image.fromarray(occupied.T).convert("RGB")
+        image = image.resize((224, 224), Image.Resampling.NEAREST)
+        return np.asarray(image, dtype=np.float32) / 255.0
+    if view != "rgb":
+        raise ValueError(f"Unknown Coralai scoring view: {view}")
 
     # Fixed scales across runs: red=energy, green=infrastructure.
     red = np.clip(cells[0] / 10.0, 0, 1)

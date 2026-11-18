@@ -1,0 +1,13 @@
+# Share compact logs/configuration only; raw simulation data stays local.
+!/fixed/run/
+!/dynamic/run/
+/fixed/run/**
+/dynamic/run/**
+!/fixed/run/cell_events.csv
+!/fixed/run/resource_metrics.csv
+!/fixed/run/meta.json
+!/fixed/run/config.json
+!/dynamic/run/cell_events.csv
+!/dynamic/run/resource_metrics.csv
+!/dynamic/run/meta.json
+!/dynamic/run/config.json

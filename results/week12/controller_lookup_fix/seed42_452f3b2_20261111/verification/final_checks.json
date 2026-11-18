@@ -1,0 +1,24 @@
+{
+  "preexisting_file_hashes_preserved": 3642,
+  "intentional_preexisting_source_edits": [
+    "external/coralai/coralai/evolver.py",
+    "external/coralai/experiments/coral_dev/experiment.py",
+    "external/coralai/experiments/coral_dev/headless_coral.py",
+    "scripts/compare_trail_reference.py"
+  ],
+  "added_source_and_log_files": [
+    "external/coralai/experiments/coral_dev/cell_events.py",
+    "scripts/demo_controller_lookup_fix.py",
+    "scripts/verify_controller_lookup.py",
+    "tests/test_controller_lookup.py",
+    "external/coralai/logs/2026-11-11 Wed/2026-11-11 Wed 16.57 controller lookup fix.md"
+  ],
+  "task_patch_applies_to_saved_before_tree_and_reproduces_all_changed_files": true,
+  "existing_default_config_values_preserved": true,
+  "event_and_initial_checkpoint_options_default_off": true,
+  "source_snapshot_hashes_match": true,
+  "new_regression_tests": 10,
+  "relevant_existing_tests": 13,
+  "pip_check": "No broken requirements found",
+  "no_commit_or_push": true
+}

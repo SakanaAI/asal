@@ -1,0 +1,66 @@
+{
+  "description": "Synthetic control: freeze infrastructure, genome channel, and occupancy; translate only red energy pixels from the original headless RGB renderer. No simulator/ecosystem change. Binary scoring view stays identical.",
+  "sampled_updates": [
+    20,
+    40,
+    60,
+    80,
+    100,
+    120,
+    140,
+    160,
+    180,
+    200
+  ],
+  "scores": {
+    "static_rgb": {
+      "loss_oe": 0.9000002145767212,
+      "novelty": -2.145767211692018e-07,
+      "closest_prior_similarity": [
+        0.0,
+        1.000000238418579,
+        1.000000238418579,
+        1.000000238418579,
+        1.000000238418579,
+        1.000000238418579,
+        1.000000238418579,
+        1.000000238418579,
+        1.000000238418579,
+        1.000000238418579
+      ]
+    },
+    "moving_energy_rgb": {
+      "loss_oe": 0.8865742683410645,
+      "novelty": 0.013425731658935569,
+      "closest_prior_similarity": [
+        0.0,
+        0.9351885914802551,
+        0.9829642176628113,
+        0.9897171854972839,
+        0.9918475151062012,
+        0.9999995231628418,
+        0.9917646050453186,
+        0.9876766204833984,
+        0.991740345954895,
+        0.9948436617851257
+      ]
+    },
+    "frozen_occupancy": {
+      "loss_oe": 0.9000000357627869,
+      "novelty": -3.5762786843029915e-08,
+      "closest_prior_similarity": [
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  },
+  "rgb_resource_only_novelty_gain": 0.013425946235656738
+}

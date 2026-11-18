@@ -1,0 +1,170 @@
+[
+  {
+    "configuration": "fixed",
+    "completed_update": 25,
+    "occupied": 106431,
+    "exploration_direction_counts": [
+      22580,
+      24259,
+      40203,
+      19389
+    ],
+    "investing": 16882,
+    "liquidating": 83208,
+    "occupied_infra_below_survival_threshold": 1217
+  },
+  {
+    "configuration": "fixed",
+    "completed_update": 50,
+    "occupied": 116360,
+    "exploration_direction_counts": [
+      43410,
+      28038,
+      26556,
+      18356
+    ],
+    "investing": 26538,
+    "liquidating": 87643,
+    "occupied_infra_below_survival_threshold": 2522
+  },
+  {
+    "configuration": "fixed",
+    "completed_update": 125,
+    "occupied": 52064,
+    "exploration_direction_counts": [
+      29684,
+      17021,
+      1446,
+      3913
+    ],
+    "investing": 17657,
+    "liquidating": 33485,
+    "occupied_infra_below_survival_threshold": 1990
+  },
+  {
+    "configuration": "fixed",
+    "completed_update": 150,
+    "occupied": 43101,
+    "exploration_direction_counts": [
+      24196,
+      15056,
+      993,
+      2856
+    ],
+    "investing": 15845,
+    "liquidating": 26442,
+    "occupied_infra_below_survival_threshold": 1346
+  },
+  {
+    "configuration": "fixed",
+    "completed_update": 500,
+    "occupied": 23417,
+    "exploration_direction_counts": [
+      11997,
+      9316,
+      476,
+      1628
+    ],
+    "investing": 9903,
+    "liquidating": 13087,
+    "occupied_infra_below_survival_threshold": 551
+  },
+  {
+    "configuration": "fixed",
+    "completed_update": 1000,
+    "occupied": 23787,
+    "exploration_direction_counts": [
+      11628,
+      10151,
+      482,
+      1526
+    ],
+    "investing": 10426,
+    "liquidating": 12997,
+    "occupied_infra_below_survival_threshold": 346
+  },
+  {
+    "configuration": "dynamic",
+    "completed_update": 25,
+    "occupied": 106431,
+    "exploration_direction_counts": [
+      22580,
+      24259,
+      40203,
+      19389
+    ],
+    "investing": 16882,
+    "liquidating": 83208,
+    "occupied_infra_below_survival_threshold": 1217
+  },
+  {
+    "configuration": "dynamic",
+    "completed_update": 50,
+    "occupied": 116360,
+    "exploration_direction_counts": [
+      43410,
+      28038,
+      26556,
+      18356
+    ],
+    "investing": 26538,
+    "liquidating": 87643,
+    "occupied_infra_below_survival_threshold": 2522
+  },
+  {
+    "configuration": "dynamic",
+    "completed_update": 125,
+    "occupied": 52064,
+    "exploration_direction_counts": [
+      29684,
+      17021,
+      1446,
+      3913
+    ],
+    "investing": 17657,
+    "liquidating": 33485,
+    "occupied_infra_below_survival_threshold": 1990
+  },
+  {
+    "configuration": "dynamic",
+    "completed_update": 150,
+    "occupied": 43270,
+    "exploration_direction_counts": [
+      24230,
+      15146,
+      984,
+      2910
+    ],
+    "investing": 15886,
+    "liquidating": 26576,
+    "occupied_infra_below_survival_threshold": 1381
+  },
+  {
+    "configuration": "dynamic",
+    "completed_update": 500,
+    "occupied": 23983,
+    "exploration_direction_counts": [
+      12561,
+      9228,
+      504,
+      1690
+    ],
+    "investing": 10144,
+    "liquidating": 13381,
+    "occupied_infra_below_survival_threshold": 546
+  },
+  {
+    "configuration": "dynamic",
+    "completed_update": 1000,
+    "occupied": 24382,
+    "exploration_direction_counts": [
+      11663,
+      10391,
+      529,
+      1799
+    ],
+    "investing": 10673,
+    "liquidating": 13323,
+    "occupied_infra_below_survival_threshold": 334
+  }
+]

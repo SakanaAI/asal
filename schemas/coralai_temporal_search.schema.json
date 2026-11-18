@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Coralai finite temporal-novelty pilot",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "model", "revision", "scoring_view", "simulation_seed", "sampled_updates", "reference_demo", "parameters"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "model": {"const": "openai/clip-vit-base-patch32"},
+    "revision": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+    "scoring_view": {"const": "occupancy"},
+    "simulation_seed": {"type": "integer", "minimum": 0, "maximum": 4294967295},
+    "sampled_updates": {"type": "array", "minItems": 2, "uniqueItems": true, "items": {"type": "integer", "minimum": 1}},
+    "reference_demo": {"type": "string", "minLength": 1},
+    "parameters": {
+      "type": "object", "additionalProperties": false,
+      "minProperties": 1,
+      "properties": {
+        "shift_interval": {"$ref": "#/$defs/bounds"},
+        "shift_cells": {"$ref": "#/$defs/bounds"}
+      }
+    }
+  },
+  "$defs": {
+    "bounds": {
+      "type": "object", "additionalProperties": false,
+      "required": ["min", "max", "integer"],
+      "properties": {
+        "min": {"type": "integer", "minimum": 1},
+        "max": {"type": "integer", "minimum": 2},
+        "integer": {"const": true}
+      }
+    }
+  }
+}

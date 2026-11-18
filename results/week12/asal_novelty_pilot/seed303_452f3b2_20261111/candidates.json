@@ -1,0 +1,106 @@
+[
+  {
+    "id": "g00_c00",
+    "shift_interval": 36,
+    "shift_cells": 3,
+    "loss_oe": 0.8984628915786743,
+    "novelty": 0.0015371084213257058,
+    "vector": [
+      0.5286115407943726,
+      0.24182701110839844
+    ],
+    "simulation_seconds": 3.320072111999707,
+    "scoring_seconds": 0.4446658399997432
+  },
+  {
+    "id": "g00_c01",
+    "shift_interval": 30,
+    "shift_cells": 7,
+    "loss_oe": 0.8985069394111633,
+    "novelty": 0.0014930605888366921,
+    "vector": [
+      0.39061838388442993,
+      0.8018615245819092
+    ],
+    "simulation_seconds": 3.269706882000264,
+    "scoring_seconds": 0.44780067900001086
+  },
+  {
+    "id": "g00_c02",
+    "shift_interval": 33,
+    "shift_cells": 6,
+    "loss_oe": 0.8983650207519531,
+    "novelty": 0.0016349792480468972,
+    "vector": [
+      0.4536247253417969,
+      0.709801197052002
+    ],
+    "simulation_seconds": 3.269812914999875,
+    "scoring_seconds": 0.4507176429997344
+  },
+  {
+    "id": "g00_c03",
+    "shift_interval": 30,
+    "shift_cells": 5,
+    "loss_oe": 0.8983650207519531,
+    "novelty": 0.0016349792480468972,
+    "vector": [
+      0.40080106258392334,
+      0.5385032296180725
+    ],
+    "simulation_seconds": 3.2695735509996666,
+    "scoring_seconds": 0.47066447799988964
+  },
+  {
+    "id": "g01_c00",
+    "shift_interval": 19,
+    "shift_cells": 4,
+    "loss_oe": 0.8983650207519531,
+    "novelty": 0.0016349792480468972,
+    "vector": [
+      0.18289773166179657,
+      0.4653812646865845
+    ],
+    "simulation_seconds": 3.2697687039999437,
+    "scoring_seconds": 0.4460364110000228
+  },
+  {
+    "id": "g01_c01",
+    "shift_interval": 33,
+    "shift_cells": 6,
+    "loss_oe": 0.8983650207519531,
+    "novelty": 0.0016349792480468972,
+    "vector": [
+      0.4630127549171448,
+      0.7117148041725159
+    ],
+    "simulation_seconds": 3.2701412690003053,
+    "scoring_seconds": 0.4428431129999808
+  },
+  {
+    "id": "g01_c02",
+    "shift_interval": 32,
+    "shift_cells": 5,
+    "loss_oe": 0.8983650207519531,
+    "novelty": 0.0016349792480468972,
+    "vector": [
+      0.43839287757873535,
+      0.6306653618812561
+    ],
+    "simulation_seconds": 3.2197887409997747,
+    "scoring_seconds": 0.4399863489998097
+  },
+  {
+    "id": "g01_c03",
+    "shift_interval": 34,
+    "shift_cells": 4,
+    "loss_oe": 0.8983650207519531,
+    "novelty": 0.0016349792480468972,
+    "vector": [
+      0.4888027310371399,
+      0.36993664503097534
+    ],
+    "simulation_seconds": 3.2698680959997546,
+    "scoring_seconds": 0.43877501999986634
+  }
+]

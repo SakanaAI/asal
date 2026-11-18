@@ -1,0 +1,84 @@
+{
+  "no_simulation_or_search_rerun": true,
+  "focused_tests": {
+    "controller_lookup": 7,
+    "controller_integration": 3,
+    "dynamic_energy": 5,
+    "trail_reference": 5,
+    "headless_coral_runner": 3,
+    "coralai_temporal": 6,
+    "temporal_reference": 8,
+    "coralai_search": 5,
+    "clip_devices": 5
+  },
+  "unique_tests_passed": 47,
+  "execution_batches": [
+    "test_controller_lookup test_controller_integration test_dynamic_energy test_trail_reference test_headless_coral_runner (23 passed)",
+    "test_coralai_temporal test_temporal_reference test_headless_coral_runner (17 passed after reference-provenance change)",
+    "test_coralai_search test_clip_devices (10 passed)"
+  ],
+  "harness": {
+    "cell_genome_ids": [
+      0,
+      2,
+      7,
+      -1,
+      -2
+    ],
+    "registered_ids": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "lookup": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "expected_outputs": [
+      10.0,
+      12.0,
+      17.0,
+      0.0,
+      0.0
+    ],
+    "actual_outputs": [
+      10.0,
+      12.0,
+      17.0,
+      0.0,
+      0.0
+    ],
+    "passed": true,
+    "fixture": "Real registration and forward kernel; bias-only controllers; one sensor/one neighbor to isolate lookup.",
+    "coral_layout": {
+      "stored_inputs_per_controller": 24,
+      "passed": true,
+      "actual_output": 10.0
+    },
+    "source": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880/external/coralai/coralai/evolver.py",
+    "source_sha256": "d1a6fcb7fd42b778dd8a049ac6995dc93dee35ba37c69db177f28f90936b410d"
+  },
+  "raw_verification": {
+    "command": ".venv-novelty/bin/python -B scripts/verify_trail_results.py --raw",
+    "decoded_occupancy_panels_matching_raw_states": 82,
+    "result": "passed; read-only existing states, no simulation"
+  },
+  "ffmpeg_full_decode": {
+    "command": "ffmpeg -v error -i results/week12/controller_lookup_fix/seed42_452f3b2_20261111/comparison.gif -f null -",
+    "exit_code": 0
+  },
+  "visual_inspection": "Existing animation samples at updates 50, 150, 500 and full endpoint at 1000 inspected; paired occupancy and separate reserve views remain clear.",
+  "portable_reproduction": "Shell syntax passed; interpreter-probe invocation from /tmp confirmed repository root, source-first PYTHONPATH, serial thread settings, arguments. No simulation started.",
+  "scope": "Original validation.json/final_checks.json are historical run-time records. Current compact checks do not substitute for omitted raw states/controller checkpoints."
+}

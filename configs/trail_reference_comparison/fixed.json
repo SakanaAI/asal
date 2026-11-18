@@ -1,0 +1,29 @@
+{
+  "steps": 1000,
+  "shape": 400,
+  "backend": "cpu",
+  "device": "cpu",
+  "seed": 42,
+  "env": "trail",
+  "env_param": 4,
+  "env_options": {
+    "spawn": "spread",
+    "trail_width": 4.0,
+    "max_capacity": 20.0,
+    "inject_rate": 0.02,
+    "shift_interval": 0,
+    "shift_cells": 2
+  },
+  "infra_decay": 0.0,
+  "defense_coeff": 0.0,
+  "radiate_interval": 50,
+  "cleanup_interval": 100,
+  "emergency_pop_cap": 1000,
+  "checkpoint_interval": 1000,
+  "log_interval": 10,
+  "screenshot_interval": 25,
+  "max_screenshots": 41,
+  "save_frame_states": true,
+  "frame_state_format": "npz",
+  "log_resource_metrics": true
+}

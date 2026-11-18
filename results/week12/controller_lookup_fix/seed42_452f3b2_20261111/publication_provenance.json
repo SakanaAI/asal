@@ -1,0 +1,97 @@
+{
+  "scope": "Corrected 400x400 seed-42 1000-update pair; no new simulations/searches during publication.",
+  "source_base_commit": "452f3b2787fac047f113f8b4b5d84f3f0aa48ee8",
+  "shared_source_commit": "bd995c0dee0c36634c4382b3389c3d1a342128fd",
+  "controller_equivalent_to": "9777ef02baa679ab4450d90cc1462c57dde59e19",
+  "source": {
+    "scripts/demo_controller_lookup_fix.py": {
+      "run_sha256": "9dbfc65e60829ae7ea9e0b6c76c49cdee4ca1677b5be82b1e9c45d02f574ab42",
+      "shared_sha256": "bd9f949681d115d76c8394f2769ff0fd52394a8e751f613f3c2cbdebff350f8c",
+      "change": "Records the separated integration test in provenance; simulation and analysis behavior unchanged."
+    },
+    "scripts/verify_controller_lookup.py": {
+      "run_sha256": "469c6f9985e36645d853bab0e4878762b3f1d5443fcf03f9a0988dcce058d94c",
+      "shared_sha256": "fd521efd4837bb6c7fe04136bb4d09051597a2a62c28d9117087bb51a6897034",
+      "change": "Adds verified source path/content hash to reports; checks unchanged."
+    },
+    "tests/test_controller_lookup.py": {
+      "run_sha256": "20bcbc9cc58157c5648a8c7a2f457d4114bb7813698fbd5adeaf9e2030fec645",
+      "shared_sha256": "4a16cddd29ebf227a5d86895d4ec27cd5687962132c8636cc5642d1da8beca64",
+      "change": "Moves instrumentation/comparison tests into test_controller_integration.py; all coverage retained."
+    },
+    "scripts/compare_trail_reference.py": {
+      "run_sha256": "7818163b7c9aa979e867b9224d9f38f6dbaed8112614ebf8c82d6bd786c848f1",
+      "shared_sha256": "f6d48c5139563fe6b512f00ed0281df7c7a23dc9a4ed00eaa4f0d3ba3b721fa0",
+      "change": "Standalone fresh runs generate their own timing input; old rendering comparison is optional. Primary pair analysis unchanged."
+    },
+    "scripts/evaluate_survival.py": {
+      "run_sha256": "99218f569e09b50d9b271964d43aecc0c6549c997b534927536a6b6aa658fb85",
+      "shared_sha256": "99218f569e09b50d9b271964d43aecc0c6549c997b534927536a6b6aa658fb85"
+    },
+    "scripts/setup_novelty_env.sh": {
+      "run_sha256": "ac802b1d4d17295b7296660dbf051dc5d440e8a37790a9bfd8b170bd1e3d77d3",
+      "shared_sha256": "ac802b1d4d17295b7296660dbf051dc5d440e8a37790a9bfd8b170bd1e3d77d3"
+    },
+    "configs/asal_novelty_pilot/requirements.lock.txt": {
+      "run_sha256": "1dbf069e0a1a00026c45cc43dc7291d1606709b9bb1ce8390e7660a4b8f39994",
+      "shared_sha256": "1dbf069e0a1a00026c45cc43dc7291d1606709b9bb1ce8390e7660a4b8f39994"
+    },
+    "configs/trail_reference_comparison/fixed.json": {
+      "run_sha256": "65de0d4fcc77695ef23947ceb745ee16a87c6482e642498aaf443d9668b69495",
+      "shared_sha256": "65de0d4fcc77695ef23947ceb745ee16a87c6482e642498aaf443d9668b69495"
+    },
+    "configs/trail_reference_comparison/dynamic.json": {
+      "run_sha256": "a9362cd33210d6eacb61741140bf3d0c346e78e2c9aacc60e67dae92d983220e",
+      "shared_sha256": "a9362cd33210d6eacb61741140bf3d0c346e78e2c9aacc60e67dae92d983220e"
+    },
+    "external/coralai/coralai/evolver.py": {
+      "run_sha256": "d1a6fcb7fd42b778dd8a049ac6995dc93dee35ba37c69db177f28f90936b410d",
+      "shared_sha256": "d1a6fcb7fd42b778dd8a049ac6995dc93dee35ba37c69db177f28f90936b410d"
+    },
+    "external/coralai/coralai/experiment.py": {
+      "run_sha256": "0291b3e5df9a5f570a33bbaabe95bf5348f26e4f042027b53fefa051b3f78c4a",
+      "shared_sha256": "0291b3e5df9a5f570a33bbaabe95bf5348f26e4f042027b53fefa051b3f78c4a"
+    },
+    "external/coralai/coralai/substrate.py": {
+      "run_sha256": "f019b64a54a8d55794ba354f2651d898df8c56aced501eeeb62d6da88f9c1a0d",
+      "shared_sha256": "f019b64a54a8d55794ba354f2651d898df8c56aced501eeeb62d6da88f9c1a0d"
+    },
+    "external/coralai/coralai/substrate_index.py": {
+      "run_sha256": "5f1cd6851942e7d0560d9c774efe92c135ef4fa6600e68e1d4bb734b2e5174e9",
+      "shared_sha256": "5f1cd6851942e7d0560d9c774efe92c135ef4fa6600e68e1d4bb734b2e5174e9"
+    },
+    "external/coralai/experiments/coral_dev/headless_coral.py": {
+      "run_sha256": "77b8b8d9b4913d9296dd5ef279afc977e24e9a1edfd8a96c572381ead290163b",
+      "shared_sha256": "7c3ceefce22206f3781fd6a10662588067230a34734145649c00a875385f1bd6",
+      "change": "Adds simulator content provenance to metadata; no change to the update loop, initialization, or capture timing."
+    },
+    "external/coralai/experiments/coral_dev/experiment.py": {
+      "run_sha256": "86408eee6795fd3d112f27ee112d274fb03c503ead835e2d3344f55def8b96ff",
+      "shared_sha256": "86408eee6795fd3d112f27ee112d274fb03c503ead835e2d3344f55def8b96ff"
+    },
+    "external/coralai/experiments/coral_dev/cell_events.py": {
+      "run_sha256": "653e28b37d45c05e7536a348df964c49ea2738e9694b08e9ecb250ea8c649f27",
+      "shared_sha256": "653e28b37d45c05e7536a348df964c49ea2738e9694b08e9ecb250ea8c649f27"
+    },
+    "external/coralai/experiments/coral_dev/environments.py": {
+      "run_sha256": "b68a22bb7bbaabbbe413d45432e8b4c93219f5ce3b7d7d370c3649aed4fee85f",
+      "shared_sha256": "b68a22bb7bbaabbbe413d45432e8b4c93219f5ce3b7d7d370c3649aed4fee85f"
+    },
+    "external/coralai/experiments/coral_dev/physics.py": {
+      "run_sha256": "811bd13c2c8b8ceeb35cda757f0da4fc2852c5550bd78c3bd9a254f768b5c966",
+      "shared_sha256": "811bd13c2c8b8ceeb35cda757f0da4fc2852c5550bd78c3bd9a254f768b5c966"
+    },
+    "external/coralai/experiments/coral_dev/evolution.py": {
+      "run_sha256": "acffa23f748d172fbbb420081c03843d02bb7ab8816a380ed4118ea8388878cd",
+      "shared_sha256": "acffa23f748d172fbbb420081c03843d02bb7ab8816a380ed4118ea8388878cd"
+    },
+    "external/coralai/experiments/coral_dev/neat.config": {
+      "run_sha256": "a1f39a6254e9f21ee802ce79f71158776e7837bb475e254c1d28d1080bb16a8d",
+      "shared_sha256": "a1f39a6254e9f21ee802ce79f71158776e7837bb475e254c1d28d1080bb16a8d"
+    }
+  },
+  "reproduction": "Use the published feature branch and portable reproduce.sh into a fresh directory. All simulation/evolution/physics/environment source listed above matches the original run except metadata-only headless provenance. New post-run checks/source organization do not rewrite historical observations. Exact numerical identity is not promised.",
+  "archival_restore": "execution.json records the original uncommitted run. Its source/ and working-tree.patch restore recipe refers to local archival snapshots, intentionally omitted from Git. The shared commit replaces that recipe for new corrected runs.",
+  "compact_verification": "verify_trail_results.py checks saved per-update logs, summaries, capture labels, GIF playback and saved pilot objectives. Raw state/controller/RNG/reserve/image checks in original validation.json require local raw output or regeneration.",
+  "historical_pilot": "The saved 48x48 seed-303 novelty pilot used defective controllers and cannot be reused as a compatible corrected reference. It is retained only to explain earlier evaluated proposals and scores."
+}

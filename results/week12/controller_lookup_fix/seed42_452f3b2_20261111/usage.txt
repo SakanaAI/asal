@@ -1,0 +1,24 @@
+Corrected trail comparison: 400x400, seed 42, 1000 completed updates.
+
+Open comparison.gif; results.csv has outcomes, event_summary.json separates local
+colonization from radiation, and resource_budget.json records actual delivery.
+Local colonization and different occupied patterns were observed. Gains count
+transitions, including repeated occupation of a location. This one pair
+does not establish food tracking, locomotion, adaptation, or search improvement.
+
+From the repository root, using Python 3.11 with the saved dependencies:
+  export TRAIL_PYTHON=.venv-novelty/bin/python
+  sh results/week12/controller_lookup_fix/seed42_452f3b2_20261111/reproduce.sh results/week12/controller_lookup_fix/FRESH_NAME
+If needed, sh scripts/setup_novelty_env.sh creates that isolated Linux CPU runtime
+and downloads pinned packages/model; CLIP is unnecessary for this comparison.
+
+Check compact evidence without running simulations:
+  "$TRAIL_PYTHON" scripts/verify_trail_results.py
+Add --raw only with local raw states. validation.json records original raw-state,
+controller, and synchronization checks; those require omitted raw data or a new
+run to repeat. --stage analyze also requires raw checkpoints, frames, and timing.
+
+execution.json keeps the original commands/hashes. publication_provenance.json
+maps the original run to the shared source; historical_scope.json labels older
+pre-fix runs. Reproduction uses corrected published code, never cached pre-fix
+states. CPU scheduling can change exact numeric trajectories.

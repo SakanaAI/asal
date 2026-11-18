@@ -1,0 +1,4 @@
+configuration,shift_interval,shift_cells,loss_oe_lower_is_better,temporal_novelty_display,energy_delivered,initial_occupied,final_occupied,minimum_sampled_occupied,mean_sampled_occupied_excluding_initial,final_cells_changed_from_initial
+fixed,0,4,0.8984628915786743,0.0015371084213257058,6767.9956468034225,460,422,404,417.4,350
+hand,25,4,0.8983650207519531,0.0016349792480468972,6767.9966017812385,460,423,404,417.7,351
+selected,25,4,0.8983650207519531,0.0016349792480468972,6767.9966017812385,460,423,404,417.7,351

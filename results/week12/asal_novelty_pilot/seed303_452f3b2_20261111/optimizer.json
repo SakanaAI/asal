@@ -1,0 +1,11 @@
+{
+  "algorithm": "ASAL evosax.Sep_CMA_ES",
+  "population": 4,
+  "generations": 2,
+  "candidate_budget": 8,
+  "optimizer_seed": 17,
+  "sigma": 0.25,
+  "simulation_seed": 303,
+  "selection": "Lowest original ASAL loss among hand and proposals; improvements <=1e-7 treated as ties. Fixed control excluded from selection.",
+  "seed_scope": "One seed finite pilot; no multi-seed or held-out claim. #26 implementation unchanged."
+}

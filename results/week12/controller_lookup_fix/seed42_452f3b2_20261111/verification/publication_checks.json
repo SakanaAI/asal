@@ -1,0 +1,20 @@
+{
+  "corrected": {
+    "resource_rows_checked": 2002,
+    "event_updates_checked": 2000,
+    "matched_capture_rows": 82,
+    "maximum_actual_delivery_difference": 3.177064354531467e-05,
+    "animation_frames_decoded": 41,
+    "playback_seconds": 7.38,
+    "raw_occupancy_panels_rechecked": 0,
+    "raw_checks": "Original validation.json records state/resource/controller checks; compact files cannot repeat them without local raw data or a fresh run."
+  },
+  "historical_pilot": {
+    "scope": "PRE-FIX controller; no corrected novelty-search result",
+    "candidates": 8,
+    "unique_effective_proposal_configurations": 7,
+    "unique_sampled_occupancy_count_trajectories": 3,
+    "saved_embedding_sequences_checked": 10,
+    "selection": "hand; no improvement"
+  }
+}

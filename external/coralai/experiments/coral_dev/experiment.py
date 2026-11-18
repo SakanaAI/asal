@@ -142,9 +142,9 @@ class CoralDevExperiment(Experiment):
     infra_decay   = 0.0   # fraction of infra lost per step; 0 = disabled
     defense_coeff = 0.0   # infra-as-defense multiplier; 0 = disabled
 
-    def make_env(self, env_name: str = "flat", param=None):
+    def make_env(self, env_name: str = "flat", param=None, options=None):
         from environments import make_env
-        return make_env(env_name, param)
+        return make_env(env_name, param, options)
 
     def make_vis(self, substrate, evolver):
         return CoralVis(substrate, evolver, ["energy", "infra", "rot"])
@@ -157,11 +157,16 @@ class CoralDevExperiment(Experiment):
         invest_liquidate(substrate)
         explore_physics(substrate, evolver.kernel, evolver.dir_order,
                         defense_coeff=self.defense_coeff)
+        observe = getattr(evolver, "observe_cell_events", None)
+        if observe is not None:
+            observe("colonization")
         energy_physics(substrate, evolver.kernel, max_infra=10, max_energy=1.5)
 
         inds = substrate.ti_indices[None]
         alive = (substrate.mem[0, inds.infra] + substrate.mem[0, inds.energy]) > 0.05
         substrate.mem[0, inds.genome].masked_fill_(~alive, -1)
+        if observe is not None:
+            observe("resource_death")
 
     def run_evolution(self, substrate, evolver, step: int):
         """Age tracking, infra decay, and periodic chunk death.

@@ -1,0 +1,8 @@
+{
+  "candidate_rollouts": 8,
+  "reference_rollouts_reused": 2,
+  "scored_frames_per_rollout": 10,
+  "search_seconds": 30.04816427700007,
+  "total_seconds": 44.69681701299987,
+  "selected_id": "hand"
+}

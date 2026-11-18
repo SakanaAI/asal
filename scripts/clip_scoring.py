@@ -57,6 +57,18 @@ class ClipScorer:
         with jax.default_device(self.device), jax.default_matmul_precision("highest"):
             return jax.block_until_ready(self.model.embed_txt(prompts))
 
+    def image_embeddings(self, images):
+        """Normalized CLIP embeddings for ASAL temporal scoring; no text prompt."""
+        import jax
+        import jax.numpy as jnp
+
+        if not hasattr(self, "_embed_image"):
+            self._embed_image = jax.jit(self.model.embed_img)
+        with jax.default_device(self.device), jax.default_matmul_precision("highest"):
+            return jax.block_until_ready(jnp.stack([
+                self._embed_image(jax.device_put(image, self.device)) for image in images
+            ]))
+
     def losses(self, images, text_embeddings):
         """Return an asynchronous image × prompt loss matrix using ASAL's metric."""
         import jax

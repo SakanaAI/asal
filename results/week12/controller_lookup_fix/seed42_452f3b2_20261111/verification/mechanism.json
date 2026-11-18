@@ -1,0 +1,18 @@
+{
+  "label": "Controlled mechanism demonstration, not evolved/spontaneous behavior",
+  "radiation_or_reseeding_calls": 0,
+  "parent": [
+    3,
+    3
+  ],
+  "target": [
+    4,
+    3
+  ],
+  "parent_genome": 1,
+  "target_genome": 1,
+  "parent_energy_after_claim": 0.0,
+  "target_infrastructure_after_claim": 0.8999999761581421,
+  "energy_plus_infra_loss": 0.10000002384185791,
+  "local_colonization_gains": 1
+}

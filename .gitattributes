@@ -1,0 +1,3 @@
+# Preserve original CSV exports; recognize CRLF without suppressing other whitespace checks.
+results/week12/controller_lookup_fix/seed42_452f3b2_20261111/**/*.csv whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+results/week12/asal_novelty_pilot/seed303_452f3b2_20261111/**/*.csv whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

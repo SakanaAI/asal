@@ -1,0 +1,53 @@
+{
+  "starting_branch": "feature/dynamic-energy-demo",
+  "decision": "Continued the existing branch because the task depends on its uncommitted demo implementation. No stash, reset, clean, merge, commit or push.",
+  "demo_audit": "Existing finite trail, shift_interval/shift_cells, actual supply counters and synchronized capture worked. Saved 200-update seed-303 demo has matched nominal budgets and no visible occupancy tracking; old artifacts reused read-only.",
+  "searchable_parameters": [
+    "env_options.shift_interval (10..60 updates)",
+    "env_options.shift_cells (1..8 cells)"
+  ],
+  "fixed_parameters": "Seed 303, 48x48, 200 updates, 4 lanes, width 4, reserve 20 with goal_boost 2, injection 0.04, spawn spread, infra_decay 0.01, defense 0, radiation 50, cleanup 1000, population cap 1000.",
+  "existing_adapter": "scripts/coralai_search.py is supervised-only and belongs to #26. It and its config remain unchanged. New main_opt temporal dispatch reuses its bounded decode utility, the shared ClipScorer, evosax.Sep_CMA_ES and the existing ASAL metric.",
+  "renderers": "Headless original RGB uses per-frame min/max energy, infrastructure and raw genome IDs. substrates/coralai default RGB has fixed resource scales and occupancy blue. Both expose energy. New scoring view is explicitly an occupancy-only adaptation: white genome>=0, black empty; no resource or genome identity input.",
+  "temporal_objective": "Unchanged calc_open_endedness_score; each sampled embedding compared with every earlier one. Zero first row and zero floor from the implemented triangular mask retained. Scores are not adjacent-frame pixel differences.",
+  "schema": "Dedicated coralai_temporal_search schema validates the temporal adapter, nested shift-only mapping, model, seed and sampled updates. Legacy supervised pilot schema/defaults unchanged.",
+  "plan_executed": [
+    "Set up separate persistent pinned CPU runtime and test exact objective/input invariance.",
+    "Time 40 updates/two CLIP frames, then run 4 proposals x 2 generations on one seed.",
+    "Reuse fixed/hand references, run frozen-occupancy moving-energy control, check budgets/synchronization, save finite comparison."
+  ],
+  "budget": {
+    "proposals": 8,
+    "distinct_parameter_settings": 7,
+    "new_rollouts": 8,
+    "reused_reference_rollouts": 2,
+    "updates_per_rollout": 200,
+    "scored_updates": [
+      20,
+      40,
+      60,
+      80,
+      100,
+      120,
+      140,
+      160,
+      180,
+      200
+    ],
+    "optimizer_seed": 17,
+    "simulation_seed": 303,
+    "search_seconds": 30.04816427700007,
+    "total_seconds": 44.69681701299987
+  },
+  "control_resource_only_rgb_novelty_gain": 0.013425946235656738,
+  "selected_id": "hand",
+  "loss_improvement_over_hand": 0.0,
+  "interpretation": "No candidate beat the hand setting by more than 1e-7; baseline retained. Resources shift; occupied masks also change over time, but all changes occur in sampled windows containing scheduled killing/radiation (updates 1,51,101,151). Fixed vs hand differ by one occupied cell at the end. This does not demonstrate resource tracking, movement, reproductive viability or greater ecological complexity.",
+  "limitations": [
+    "Single seed and eight proposals (seven unique); no generalization or indefinitely open-ended claim.",
+    "Binary occupancy is an explicit scoring adaptation and discards organism identity/infra; a foundation-model score is not ecological validation.",
+    "Scheduled disturbances create most temporal occupancy novelty; search did not add improvement.",
+    "Fresh runs only: trail reserve is not restored by checkpoint resume. CPU arithmetic may vary slightly across runs."
+  ],
+  "execution_blocker": null
+}

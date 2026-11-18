@@ -517,6 +517,8 @@ class TrailEnvironment(StartEnvironment):
       n_founders     : int   — founder blobs at the start (3)
       founder_radius : float — founder blob radius in cells (3.0)
       spawn_frac     : float — side of the founder spawn box, fraction of min(W,H) (0.12)
+      shift_interval : int   — completed updates between reserve translations; 0 disables
+      shift_cells    : int   — cells to translate remaining reserve along y, with wrapping
     """
     name = "trail"
 
@@ -532,7 +534,18 @@ class TrailEnvironment(StartEnvironment):
                  seed_infra: float = 0.4,
                  n_founders: int = 1,
                  founder_radius: float = 3.0,
-                 spawn_frac: float = 0.01):
+                 spawn_frac: float = 0.01,
+                 shift_interval: int = 0,
+                 shift_cells: int = 1):
+        if spawn not in {"spread", "corner"}:
+            raise ValueError("trail spawn must be spread or corner")
+        for key, value in (("trail_width", trail_width), ("max_capacity", max_capacity),
+                           ("inject_rate", inject_rate)):
+            if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value) or value <= 0:
+                raise ValueError(f"trail {key} must be finite and positive")
+        for key, value in (("shift_interval", shift_interval), ("shift_cells", shift_cells)):
+            if isinstance(value, bool) or not isinstance(value, int) or value < 0:
+                raise ValueError(f"trail {key} must be a nonnegative integer")
         self.n_lanes        = max(1, int(n_lanes))
         self.spawn          = spawn
         self.trail_width    = float(trail_width)
@@ -546,6 +559,10 @@ class TrailEnvironment(StartEnvironment):
         self.n_founders     = max(1, int(n_founders))
         self.founder_radius = float(founder_radius)
         self.spawn_frac     = float(spawn_frac)
+        # Periodically translate only the remaining food reserve along y,
+        # wrapping at the boundary. Never move cells or replenish the reserve.
+        self.shift_interval = shift_interval
+        self.shift_cells = shift_cells
         self._capacity = None   # (w, h) energy reserve left on the trail
 
     # ------------------------------------------------------------------
@@ -614,6 +631,10 @@ class TrailEnvironment(StartEnvironment):
 
         trail, prog = self._build_trail(w, h, device)
         self._capacity = trail * self.max_capacity * (1.0 + self.goal_boost * prog)
+        self._step_count = 0
+        self._initial_capacity = float(self._capacity.double().sum())
+        self._requested = self._delivered = self._clipped = 0.0
+        self._last_injection = torch.zeros_like(self._capacity)
 
         if self.spawn == "corner":
             gmap = self._founder_map(w, h, device)
@@ -631,9 +652,30 @@ class TrailEnvironment(StartEnvironment):
 
     def step(self, substrate):
         inds = substrate.ti_indices[None]
+        self._step_count += 1
+        if self.shift_interval and self._step_count % self.shift_interval == 0:
+            self._capacity = torch.roll(self._capacity, self.shift_cells, dims=1)
         injection = self._capacity.clamp(max=self.inject_rate)
+        before = substrate.mem[0, inds.energy].double()
         substrate.mem[0, inds.energy].add_(injection).clamp_(0, 100)
+        self._requested += float(injection.double().sum())
+        self._delivered += float((substrate.mem[0, inds.energy].double() - before).sum())
+        self._clipped += float((before + injection.double() - 100).clamp(min=0).sum())
+        self._last_injection = injection
         self._capacity.sub_(injection).clamp_(min=0)
+
+    def resource_state(self):
+        """Food state and measured external supply after completed updates."""
+        return {
+            "completed_update": self._step_count,
+            "capacity": self._capacity.detach().cpu(),
+            "last_injection": self._last_injection.detach().cpu(),
+            "initial_capacity": self._initial_capacity,
+            "remaining_capacity": float(self._capacity.double().sum()),
+            "cumulative_requested": self._requested,
+            "cumulative_delivered": self._delivered,
+            "cumulative_clipped": self._clipped,
+        }
 
     @property
     def persist(self) -> bool:
@@ -642,12 +684,14 @@ class TrailEnvironment(StartEnvironment):
     def to_dict(self) -> dict:
         return {
             "name": self.name, "n_lanes": self.n_lanes,
+            "spawn": self.spawn,
             "trail_width": self.trail_width, "wiggle_frac": self.wiggle_frac,
             "margin_frac": self.margin_frac, "max_capacity": self.max_capacity,
             "goal_boost": self.goal_boost, "inject_rate": self.inject_rate,
             "init_energy": self.init_energy, "seed_infra": self.seed_infra,
             "n_founders": self.n_founders, "founder_radius": self.founder_radius,
             "spawn_frac": self.spawn_frac,
+            "shift_interval": self.shift_interval, "shift_cells": self.shift_cells,
         }
 
 # ---------------------------------------------------------------------------
@@ -666,10 +710,16 @@ ENVIRONMENTS = {
 }
 
 
-def make_env(env_name: str, param=None) -> StartEnvironment:
-    """Instantiate a StartEnvironment by name with an optional numeric param."""
+def make_env(env_name: str, param=None, options=None) -> StartEnvironment:
+    """Instantiate by name/numeric param; optional supported trail settings."""
     if env_name not in ENVIRONMENTS:
         raise ValueError(
             f"Unknown env {env_name!r}. Choose from: {list(ENVIRONMENTS)}")
     cls = ENVIRONMENTS[env_name]
-    return cls(param) if param is not None else cls()
+    options = {} if options is None else options
+    if not isinstance(options, dict):
+        raise ValueError("env_options must be a JSON object")
+    supported = {"spawn", "trail_width", "max_capacity", "inject_rate", "shift_interval", "shift_cells"}
+    if options and (env_name != "trail" or set(options) - supported):
+        raise ValueError("env_options supports only trail spawn, trail_width, max_capacity, inject_rate, shift_interval, shift_cells")
+    return cls(param, **options) if param is not None else cls(**options)

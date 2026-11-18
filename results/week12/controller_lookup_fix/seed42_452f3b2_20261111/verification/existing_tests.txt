@@ -1,0 +1,21 @@
+test_default_config_is_found_before_rejecting_an_invalid_seed (test_headless_coral_runner.HeadlessRunnerTests.test_default_config_is_found_before_rejecting_an_invalid_seed) ... ok
+test_disabled_periodic_checkpoints_still_save_final_state (test_headless_coral_runner.HeadlessRunnerTests.test_disabled_periodic_checkpoints_still_save_final_state) ... ok
+test_saved_config_seed_final_checkpoint_and_existing_output_protection (test_headless_coral_runner.HeadlessRunnerTests.test_saved_config_seed_final_checkpoint_and_existing_output_protection) ... ok
+test_headless_trail_initialization_and_frame_timing (test_dynamic_energy.DynamicEnergyTests.test_headless_trail_initialization_and_frame_timing) ... ok
+test_saturated_substrate_records_delivered_not_just_requested_energy (test_dynamic_energy.DynamicEnergyTests.test_saturated_substrate_records_delivered_not_just_requested_energy) ... ok
+test_saved_pair_differs_only_in_shift_interval_and_defaults_are_stationary (test_dynamic_energy.DynamicEnergyTests.test_saved_pair_differs_only_in_shift_interval_and_defaults_are_stationary) ... ok
+test_shift_occurs_before_injection_at_exact_completed_update (test_dynamic_energy.DynamicEnergyTests.test_shift_occurs_before_injection_at_exact_completed_update) ... ok
+test_translation_preserves_finite_budget_and_does_not_move_cells (test_dynamic_energy.DynamicEnergyTests.test_translation_preserves_finite_budget_and_does_not_move_cells) ... ok
+test_gui_and_headless_views_show_different_infrastructure_background (test_trail_reference.TrailReferenceTests.test_gui_and_headless_views_show_different_infrastructure_background) ... ok
+test_gui_export_matches_actual_gui_taichi_kernel_without_a_window (test_trail_reference.TrailReferenceTests.test_gui_export_matches_actual_gui_taichi_kernel_without_a_window) ... [W 11/11/26 16:48:10.391 18399] Environment variable TI_CPU_MAX_NUM_THREADS=1 overridden by ti.init argument "cpu_max_num_threads"
+ok
+test_lossless_npz_capture_matches_checkpoint_rgb_and_completed_update_log (test_trail_reference.TrailReferenceTests.test_lossless_npz_capture_matches_checkpoint_rgb_and_completed_update_log) ... ok
+test_original_default_pair_only_changes_motion_and_has_no_resource_wrap (test_trail_reference.TrailReferenceTests.test_original_default_pair_only_changes_motion_and_has_no_resource_wrap) ... ok
+test_resource_step_only_changes_energy_and_reserve (test_trail_reference.TrailReferenceTests.test_resource_step_only_changes_energy_and_reserve) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 12.520s
+
+OK
+[Taichi] version 1.7.4, llvm 15.0.4, commit b4b956fd, linux, python 3.11.18
+[Taichi] Starting on arch=x64

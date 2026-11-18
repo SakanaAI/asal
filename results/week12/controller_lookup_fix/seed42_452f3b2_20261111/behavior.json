@@ -1,0 +1,8 @@
+{
+  "first_count_difference_completed_update": 127,
+  "actual_energy_delivery_difference": 3.11555340886116e-05,
+  "actual_energy_delivery_relative_difference": 2.1125261498144692e-10,
+  "final_moving_mask_fixed_occupancy": 1768,
+  "final_dynamic_occupancy_in_current_source": 4000,
+  "interpretation": "Local colonization and spatial occupancy response are observed. One seed/pair does not establish robust source-following, organism locomotion, evolved adaptation, or novelty-search success."
+}

@@ -1,0 +1,28 @@
+{
+  "starting_states_bitwise_equal": true,
+  "starting_reserves_bitwise_equal": true,
+  "initial_state_sha256": {
+    "fixed": "5b700cd5722108a16da656126d2a3670a5b99fa75cbb390b396f95cb5138dd88",
+    "dynamic": "5b700cd5722108a16da656126d2a3670a5b99fa75cbb390b396f95cb5138dd88"
+  },
+  "per_update_budget_checks": 2002,
+  "reserve_location_checks": 82,
+  "state_rgb_source_measurement_matches": 82,
+  "decoded_gif_occupied_panel_matches": 82,
+  "final_checkpoint_matches": 2,
+  "animation_frames": 41,
+  "frame_duration_ms": 180,
+  "resource_wraps": 0,
+  "maximum_differing_occupied_locations": 33177,
+  "pre_first_movement": {
+    "maximum_abs_state_difference": 0.0,
+    "maximum_differing_occupied_locations": 0
+  },
+  "first_saved_update_with_different_occupancy": 150,
+  "initial_controller_parameters_equal": true,
+  "initial_genomes_equal": true,
+  "initial_registries_equal": true,
+  "initial_rng_states_equal": true,
+  "registered_controller_count": 50,
+  "event_update_checks": 2000
+}

@@ -1,0 +1,19 @@
+# Run from the repository root with a compatible Python 3.11 environment.
+export TRAIL_PYTHON=${TRAIL_PYTHON:-.venv-novelty/bin/python}
+export PYTHONPATH="$PWD/external/coralai:$PWD/external/coralai/coralai/dependencies/PyTorch-NEAT:$PWD/tests:$PWD"
+export OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 TI_CPU_MAX_NUM_THREADS=1 JAX_PLATFORMS=cpu
+
+"$TRAIL_PYTHON" -B scripts/verify_controller_lookup.py --output /tmp/trail-controller-after.json
+"$TRAIL_PYTHON" -B -m unittest test_controller_lookup test_controller_integration test_dynamic_energy test_trail_reference test_headless_coral_runner test_coralai_temporal test_temporal_reference -v
+"$TRAIL_PYTHON" -B scripts/verify_trail_results.py
+ffmpeg -v error -i results/week12/controller_lookup_fix/seed42_452f3b2_20261111/comparison.gif -f null -
+
+# Optional original broken-controller check; obtains the small source from Git.
+baseline_source=$(mktemp /tmp/trail-controller-before.XXXXXX.py)
+git show 452f3b2:external/coralai/coralai/evolver.py > "$baseline_source"
+"$TRAIL_PYTHON" -B scripts/verify_controller_lookup.py --source "$baseline_source" --expect-broken --output /tmp/trail-controller-before.json
+
+# Only with omitted local raw states/checkpoints/timing present:
+"$TRAIL_PYTHON" -B scripts/verify_trail_results.py --raw
+# Rebuild derived evidence only in a fresh regenerated run, to preserve this one:
+# "$TRAIL_PYTHON" -B scripts/demo_controller_lookup_fix.py --output-dir FRESH_RUN --stage analyze

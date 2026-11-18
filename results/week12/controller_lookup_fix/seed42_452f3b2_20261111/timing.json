@@ -1,0 +1,8 @@
+{
+  "updates": 50,
+  "shape": 400,
+  "simulation_capture_seconds": 12.855928621999738,
+  "wall_seconds": 15.638144737999937,
+  "estimated_1000_update_pair_seconds": 514.2371448799895,
+  "command_file": "timing/command.json"
+}
