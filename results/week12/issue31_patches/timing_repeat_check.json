@@ -1,0 +1,56 @@
+{
+  "comparison": "The five-seed timing run versus the same first proposal in the unchanged full run. Uses existing outputs only; no extra evaluations.",
+  "proposal": "g00_c00",
+  "rows": [
+    {
+      "seed": 42,
+      "effective_inputs_equal": true,
+      "initial_states_equal": true,
+      "final_states_equal": false,
+      "timing_mean_alignment": 0.2537161409854889,
+      "full_run_mean_alignment": 0.2567761242389679,
+      "difference": 0.003059983253479004
+    },
+    {
+      "seed": 7,
+      "effective_inputs_equal": true,
+      "initial_states_equal": true,
+      "final_states_equal": false,
+      "timing_mean_alignment": 0.24880187213420868,
+      "full_run_mean_alignment": 0.2509172558784485,
+      "difference": 0.002115383744239807
+    },
+    {
+      "seed": 13,
+      "effective_inputs_equal": true,
+      "initial_states_equal": true,
+      "final_states_equal": false,
+      "timing_mean_alignment": 0.2525877356529236,
+      "full_run_mean_alignment": 0.24988701939582825,
+      "difference": -0.002700716257095337
+    },
+    {
+      "seed": 21,
+      "effective_inputs_equal": true,
+      "initial_states_equal": true,
+      "final_states_equal": false,
+      "timing_mean_alignment": 0.24765947461128235,
+      "full_run_mean_alignment": 0.24521438777446747,
+      "difference": -0.0024450868368148804
+    },
+    {
+      "seed": 99,
+      "effective_inputs_equal": true,
+      "initial_states_equal": true,
+      "final_states_equal": false,
+      "timing_mean_alignment": 0.25195831060409546,
+      "full_run_mean_alignment": 0.24937167763710022,
+      "difference": -0.0025866329669952393
+    }
+  ],
+  "mean_difference": -0.0005114138126373291,
+  "mean_absolute_per_seed_difference": 0.0025815606117248536,
+  "all_initial_states_equal": true,
+  "all_final_states_equal": false,
+  "interpretation": "The CPU simulator is not bitwise reproducible for identical saved inputs and seeds. Existing repository instructions identify parallel Taichi atomic race conditions in exploration as a source; this comparison does not isolate every possible source. Small score differences should be interpreted in light of observed repeat variability."
+}

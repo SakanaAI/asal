@@ -1,0 +1,53 @@
+Run commands from the repository root on Linux CPU with Python 3.11 (run used 3.11.18).
+Activate a compatible environment. For a fresh checkout, one setup is:
+
+    python3.11 -m venv .venv
+    . .venv/bin/activate
+    python -m pip install -r results/week12/issue31_patches/requirements-reproduce.txt
+    python -m pip install --no-deps -e external/coralai -e external/coralai/coralai/dependencies/PyTorch-NEAT
+
+The install requirements preserve the recorded package pins and use the PyTorch CPU
+wheel index. The complete requirements-used.txt files preserve the original pip
+freeze, including historical local paths; do not use those freezes as installers.
+A clean environment install was not repeated during review.
+
+Cache the pinned Flax CLIP model once if it is not already available:
+
+python - <<'PY'
+import json
+from huggingface_hub import snapshot_download
+settings = json.load(open('configs/coralai_supervised.search.json'))
+snapshot_download(settings['model'], revision=settings['revision'],
+                  allow_patterns=['*.json', '*.txt', 'flax_model.msgpack'])
+PY
+
+Check setup without running a simulation:
+
+    sh results/week12/issue31_patches/reproduce.sh --check
+
+Repeat the full unchanged experiment into a NEW directory (about 39 minutes here):
+
+    sh results/week12/issue31_patches/reproduce.sh results/week12/issue31_patches_reproduction
+
+The script sets CPU/offline model access and prepends the current repository source.
+It checks source/config hashes, recorded package versions, and cached model weights.
+It uses the active python; ISSUE31_PYTHON can select another compatible interpreter.
+It never overwrites an output directory. Search restart/resume is not implemented.
+
+Verify the committed compact results without simulation or model loading:
+
+    python results/week12/issue31_patches/verify_results.py
+
+Add --raw only when the original untracked run/ directories and other raw evaluation
+files are present. validation.json records the completed original full validation;
+compact verification rechecks candidate selection, all per-frame/per-seed scores,
+held-out arithmetic and the six final PNGs, plus recorded source/model provenance.
+Historical absolute paths in records are archival; verification maps them to this
+checkout. command.txt and execution.json preserve the exact original command.
+The controller fix is already in this branch; controller.patch records its change
+from e610d89 and should not be applied again to this branch.
+
+Outcome: selected g03_c03 (radiation interval 47, infra decay 0.0007964746654033661).
+Held-out improvement: 1/3 seeds; mean selected-minus-default alignment -0.0025497525930404663.
+Identical timing/full-run inputs gave different final states; exact score/state
+repetition is not guaranteed. timing_repeat_check.json quantifies that variability.

@@ -1,0 +1,29 @@
+{
+  "command": "'/home/sparky/Documents/School/CSC 4880/coralai-asal-4880/.venv-novelty/bin/python' main_opt.py --substrate coralai --coralai_config configs/coralai_supervised.default.json --coralai_search_config configs/coralai_supervised.search.json --save_dir results/week12/issue31_patches --pop_size 6 --n_iters 5",
+  "cwd": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix",
+  "python": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880/.venv-novelty/bin/python",
+  "platform": "Linux-7.2.13-200.fc44.x86_64-x86_64-with-glibc2.42",
+  "git_head": "e610d890ef96d5a72f83ab2c84a3ca8f6112b7b4",
+  "versions": {
+    "jax": "0.4.38",
+    "jaxlib": "0.4.38",
+    "evosax": "0.1.6",
+    "flax": "0.10.2",
+    "transformers": "4.47.1",
+    "numpy": "2.2.1",
+    "pillow": "11.0.0",
+    "torch": "2.7.1+cpu",
+    "taichi": "1.7.4"
+  },
+  "source_sha256": {
+    "main_opt.py": "f8bd66cfe718c0eb73d31ee8a2ba514287f7430259f07465528d47bb84c4f828",
+    "scripts/coralai_search.py": "b7e6e738ebd8854e9d7defd3f04fcc2a497412bf38c42101c611256463832d9f",
+    "scripts/clip_scoring.py": "ede775adbdf494ae5af52ef4f4105d1a916f52f5f64a2b75a2ef61d20eb0114e",
+    "foundation_models/clip.py": "50fdd9067ef4059f164524981a3f21a7224737b8e40974c2b9fa842fff898b1c",
+    "asal_metrics.py": "75b7eaa9a751acf7e88c5902621937401ec28ab84199edf11fdb4db0514f5aa4",
+    "external/coralai/experiments/coral_dev/headless_coral.py": "92bb59a99bfa7ad6b02a0431ef4520cda79e1cd01350867884cbb08ba1a977be",
+    "external/coralai/experiments/coral_dev/experiment.py": "758b20067d1b12e3d9edd5a251cf51f02895e258303cb3e05b13796f89c5bf66",
+    "external/coralai/experiments/coral_dev/evolution.py": "acffa23f748d172fbbb420081c03843d02bb7ab8816a380ed4118ea8388878cd",
+    "external/coralai/coralai/evolver.py": "d1a6fcb7fd42b778dd8a049ac6995dc93dee35ba37c69db177f28f90936b410d"
+  }
+}

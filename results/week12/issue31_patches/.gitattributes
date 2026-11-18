@@ -1,0 +1,5 @@
+# Preserve csv.writer CRLF records while checking actual trailing spaces.
+candidates.csv whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+heldout_check/comparison.csv whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Unified-diff context prefixes intentionally contain trailing spaces.
+controller.patch -whitespace

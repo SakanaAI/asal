@@ -1,0 +1,36 @@
+{
+  "cell_genome_ids": [
+    0,
+    2,
+    7,
+    -1,
+    -2
+  ],
+  "registered_ids": [],
+  "lookup": [
+    0
+  ],
+  "expected_outputs": [
+    10.0,
+    12.0,
+    17.0,
+    0.0,
+    0.0
+  ],
+  "actual_outputs": [
+    10.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "passed": false,
+  "fixture": "Real registration and forward kernel; bias-only controllers; one sensor/one neighbor to isolate lookup.",
+  "coral_layout": {
+    "stored_inputs_per_controller": 24,
+    "passed": false,
+    "error": "RuntimeError: [str.cpp:format_error_message@54] Data type identifier %\n is not supported"
+  },
+  "source": "/tmp/issue31-controller-before-ceVKCE.py",
+  "source_sha256": "e6aed97ae91f31e41b03e429e8c0181eedcef4542abc695bc380663933cf473c"
+}

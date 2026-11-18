@@ -1,0 +1,12 @@
+test_average_across_seeds_rewards_high_mean_and_flags_high_spread (test_coralai_search.CoralaiSearchTests.test_average_across_seeds_rewards_high_mean_and_flags_high_spread) ... ok
+test_comparison_sign_and_sample_variation (test_coralai_search.CoralaiSearchTests.test_comparison_sign_and_sample_variation) ... ok
+test_decoded_candidates_are_bounded_and_integer_intervals (test_coralai_search.CoralaiSearchTests.test_decoded_candidates_are_bounded_and_integer_intervals) ... ok
+test_holdout_seeds_and_full_sampling_are_required (test_coralai_search.CoralaiSearchTests.test_holdout_seeds_and_full_sampling_are_required) ... ok
+test_negative_spread_penalty_is_rejected (test_coralai_search.CoralaiSearchTests.test_negative_spread_penalty_is_rejected) ... ok
+test_objective_uses_all_frames_and_keeps_best_and_final_distinct (test_coralai_search.CoralaiSearchTests.test_objective_uses_all_frames_and_keeps_best_and_final_distinct) ... ok
+test_spread_penalty_prefers_steady_candidates_over_erratic_ones (test_coralai_search.CoralaiSearchTests.test_spread_penalty_prefers_steady_candidates_over_erratic_ones) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.001s
+
+OK

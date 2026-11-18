@@ -50,6 +50,28 @@ class CoralaiSearchTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             validate_setup(config, settings)
 
+    def test_spread_penalty_prefers_steady_candidates_over_erratic_ones(self):
+        def scores(losses):
+            return [{"seed": seed, "mean_loss": loss, "mean_alignment": -loss, "best_sample_alignment": -loss,
+                     "final_alignment": -loss, "simulation_seconds": 1.0, "scoring_seconds": 0.5}
+                    for seed, loss in enumerate(losses)]
+        erratic, steady = [-0.9, -0.1, -0.5], [-0.45, -0.44, -0.46]
+        # Plain mean: the erratic candidate (mean -0.50) beats the steady one (mean -0.45).
+        self.assertLess(average_across_seeds(scores(erratic))["selection_loss"],
+                        average_across_seeds(scores(steady))["selection_loss"])
+        # With the spread counted against it (std 0.4 vs 0.01), the steady one wins.
+        penalized_erratic = average_across_seeds(scores(erratic), spread_penalty=1.0)
+        penalized_steady = average_across_seeds(scores(steady), spread_penalty=1.0)
+        self.assertAlmostEqual(penalized_erratic["selection_loss"], -0.1)
+        self.assertLess(penalized_steady["selection_loss"], penalized_erratic["selection_loss"])
+
+    def test_negative_spread_penalty_is_rejected(self):
+        config = json.loads((ROOT / "configs/coralai_supervised.default.json").read_text())
+        settings = json.loads((ROOT / "configs/coralai_supervised.search.json").read_text())
+        settings["spread_penalty"] = -1
+        with self.assertRaises(ValueError):
+            validate_setup(config, settings)
+
     def test_average_across_seeds_rewards_high_mean_and_flags_high_spread(self):
         consistent = [{"seed": seed, "mean_loss": -0.5, "mean_alignment": 0.5,
                         "best_sample_alignment": 0.6, "final_alignment": 0.5,

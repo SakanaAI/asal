@@ -1,0 +1,797 @@
+{
+  "seeds": [
+    42,
+    7,
+    13,
+    21,
+    99
+  ],
+  "n_seeds": 5,
+  "mean_loss": -0.25176831185817716,
+  "loss_std": 0.003348541310810388,
+  "spread_penalty": 1.0,
+  "selection_loss": -0.24841977054736677,
+  "mean_alignment": 0.25176831185817716,
+  "alignment_std": 0.003348541310810388,
+  "best_sample_alignment": 0.26050819754600524,
+  "final_alignment": 0.2527359277009964,
+  "simulation_seconds": 51.32120289199884,
+  "scoring_seconds": 21.431188682996435,
+  "per_seed": [
+    {
+      "mean_loss": -0.2547253370285034,
+      "mean_alignment": 0.2547253370285034,
+      "best_sample_loss": -0.26449885964393616,
+      "best_sample_alignment": 0.26449885964393616,
+      "best_sample_step": 950,
+      "final_loss": -0.261357843875885,
+      "final_alignment": 0.261357843875885,
+      "seed": 42,
+      "simulation_seconds": 9.644332882999151,
+      "scoring_seconds": 5.259248680999008,
+      "final_checkpoint": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_42/run/checkpoint_0001000",
+      "frame_scores": [
+        {
+          "step": 50,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_42/run/screenshots/step_0000050.png",
+          "sha256": "411fd41f3f17e69aed46ae88da3f2a59cc2674550ba3a388f9eab8afde7429c0",
+          "loss": -0.24102374911308289,
+          "alignment": 0.24102374911308289
+        },
+        {
+          "step": 100,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_42/run/screenshots/step_0000100.png",
+          "sha256": "376292bd80dda4a23b17cb4857b4e0101d492e079c1df78b96d0937ae7377bc8",
+          "loss": -0.2482043355703354,
+          "alignment": 0.2482043355703354
+        },
+        {
+          "step": 150,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_42/run/screenshots/step_0000150.png",
+          "sha256": "6b4ee945f47ae8e811054ceea2aa5347813b8cbf32b943ec103c06670f1c71ed",
+          "loss": -0.2427057921886444,
+          "alignment": 0.2427057921886444
+        },
+        {
+          "step": 200,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_42/run/screenshots/step_0000200.png",
+          "sha256": "40847e35ad78006439f3b123dd59dc614478334e7e8d7f76cc768b5a1aa4d26e",
+          "loss": -0.25332313776016235,
+          "alignment": 0.25332313776016235
+        },
+        {
+          "step": 250,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_42/run/screenshots/step_0000250.png",
+          "sha256": "5bf80c2c5bd0e8ac8f6b2cf46e5c1f6e6a12ec4ddf91de1cc12805dab08c1e50",
+          "loss": -0.26101166009902954,
+          "alignment": 0.26101166009902954
+        },
+        {
+          "step": 300,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_42/run/screenshots/step_0000300.png",
+          "sha256": "c81bf5c467dff3526d3ab228e5ebc134c66e755b0fa0ae9712f0d7db2f698ced",
+          "loss": -0.25643226504325867,
+          "alignment": 0.25643226504325867
+        },
+        {
+          "step": 350,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_42/run/screenshots/step_0000350.png",
+          "sha256": "ee5247b1b652618bdcc384a57e90cb86e4521f72806620f6ab48353e55db9d04",
+          "loss": -0.2602421045303345,
+          "alignment": 0.2602421045303345
+        },
+        {
+          "step": 400,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_42/run/screenshots/step_0000400.png",
+          "sha256": "b720fd45cdf4b6cdb09835f6e8ac97b4ff9b6d628f7d940ebf356c65997aa402",
+          "loss": -0.2623300552368164,
+          "alignment": 0.2623300552368164
+        },
+        {
+          "step": 450,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_42/run/screenshots/step_0000450.png",
+          "sha256": "f0c790b29952ca69e7e71a8cbba4e64eea113196891051cc4680b528f8cb4d85",
+          "loss": -0.25155097246170044,
+          "alignment": 0.25155097246170044
+        },
+        {
+          "step": 500,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_42/run/screenshots/step_0000500.png",
+          "sha256": "2cd457ca6cc44ad6a4ab7379caa01c9104c23051945baf78fafb8256f495c44b",
+          "loss": -0.2514125406742096,
+          "alignment": 0.2514125406742096
+        },
+        {
+          "step": 550,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_42/run/screenshots/step_0000550.png",
+          "sha256": "43e452a48cb8f347488fd90f116efd63077feaaa3efa06dd579cf43be98b0fef",
+          "loss": -0.25042518973350525,
+          "alignment": 0.25042518973350525
+        },
+        {
+          "step": 600,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_42/run/screenshots/step_0000600.png",
+          "sha256": "0fc47a9133abc067553152f3204a95523721148b64bd8f77b78b8d64fa4c29a9",
+          "loss": -0.2563452124595642,
+          "alignment": 0.2563452124595642
+        },
+        {
+          "step": 650,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_42/run/screenshots/step_0000650.png",
+          "sha256": "f3f9089fb05b7303ef9016f9739e066677b484512cd9af589a847b3fb47d12f7",
+          "loss": -0.2439250499010086,
+          "alignment": 0.2439250499010086
+        },
+        {
+          "step": 700,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_42/run/screenshots/step_0000700.png",
+          "sha256": "52167ea17f93e1cb5cbdc7a8239f3c4717a4ae31318718857459bab1f79df764",
+          "loss": -0.25406429171562195,
+          "alignment": 0.25406429171562195
+        },
+        {
+          "step": 750,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_42/run/screenshots/step_0000750.png",
+          "sha256": "05bf759ffc8b6b44f280ff4c48c3ecb3643f1832f603f6777a8cdab526aeb789",
+          "loss": -0.25505581498146057,
+          "alignment": 0.25505581498146057
+        },
+        {
+          "step": 800,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_42/run/screenshots/step_0000800.png",
+          "sha256": "b5c55d2484da61b776c884f0906fc7e39c58f28361f7219d83eebf159d2ff4ee",
+          "loss": -0.25695058703422546,
+          "alignment": 0.25695058703422546
+        },
+        {
+          "step": 850,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_42/run/screenshots/step_0000850.png",
+          "sha256": "9bb23d54f234c2eb7eca83b7865f86a2abe63ac509800500a1e0257bee1a4fa6",
+          "loss": -0.26231712102890015,
+          "alignment": 0.26231712102890015
+        },
+        {
+          "step": 900,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_42/run/screenshots/step_0000900.png",
+          "sha256": "857733d1f4e5a0ac8cc4b5c7fe0554ade6d141ea4e4ca5b3c827713feed25a68",
+          "loss": -0.26133009791374207,
+          "alignment": 0.26133009791374207
+        },
+        {
+          "step": 950,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_42/run/screenshots/step_0000950.png",
+          "sha256": "d388e0be9ef2521b2802591d525ce55a94355f23cc4376c07bf25de5f9744d4b",
+          "loss": -0.26449885964393616,
+          "alignment": 0.26449885964393616
+        },
+        {
+          "step": 1000,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_42/run/screenshots/step_0001000.png",
+          "sha256": "606284483afc2d59a235e4ea9f904b1f92f5b6f86869ae00dd700d754013be7d",
+          "loss": -0.261357843875885,
+          "alignment": 0.261357843875885
+        }
+      ]
+    },
+    {
+      "mean_loss": -0.24960827827453613,
+      "mean_alignment": 0.24960827827453613,
+      "best_sample_loss": -0.25827059149742126,
+      "best_sample_alignment": 0.25827059149742126,
+      "best_sample_step": 150,
+      "final_loss": -0.24805061519145966,
+      "final_alignment": 0.24805061519145966,
+      "seed": 7,
+      "simulation_seconds": 11.165571874000307,
+      "scoring_seconds": 4.044195562000823,
+      "final_checkpoint": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_7/run/checkpoint_0001000",
+      "frame_scores": [
+        {
+          "step": 50,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_7/run/screenshots/step_0000050.png",
+          "sha256": "6fc9a61d9d999984f630f3731b4f3fe9fdd3cd3a5e6b28084f137ecb0541a79c",
+          "loss": -0.2515139579772949,
+          "alignment": 0.2515139579772949
+        },
+        {
+          "step": 100,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_7/run/screenshots/step_0000100.png",
+          "sha256": "b1247c2c8ade0e58ce9e505cc4ba3dd1a97debdcf1d16d7735e00225ecebae35",
+          "loss": -0.2553747296333313,
+          "alignment": 0.2553747296333313
+        },
+        {
+          "step": 150,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_7/run/screenshots/step_0000150.png",
+          "sha256": "435bc452d024797459756a007ca12b5d94377e52947291fa5bcfc3c8e1c8dfcb",
+          "loss": -0.25827059149742126,
+          "alignment": 0.25827059149742126
+        },
+        {
+          "step": 200,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_7/run/screenshots/step_0000200.png",
+          "sha256": "c2563b3a21786c061c494bcc56ed6b4194ac91d4f47a3f790777f82c62fa26fd",
+          "loss": -0.25643685460090637,
+          "alignment": 0.25643685460090637
+        },
+        {
+          "step": 250,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_7/run/screenshots/step_0000250.png",
+          "sha256": "6793b229795efbc54188078c56a2ff7715c622325d3dfe46468e87413b3a724c",
+          "loss": -0.2547244429588318,
+          "alignment": 0.2547244429588318
+        },
+        {
+          "step": 300,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_7/run/screenshots/step_0000300.png",
+          "sha256": "04916e139bc589312eae07b236ece7d5afcc329a3cdedb20ea0a2a53a784bcff",
+          "loss": -0.24918773770332336,
+          "alignment": 0.24918773770332336
+        },
+        {
+          "step": 350,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_7/run/screenshots/step_0000350.png",
+          "sha256": "28c1fe030206af48983891db693faad3d8ce6a8719307cc54f8301508cacfe9d",
+          "loss": -0.2511242628097534,
+          "alignment": 0.2511242628097534
+        },
+        {
+          "step": 400,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_7/run/screenshots/step_0000400.png",
+          "sha256": "13c1dc53abd681daeeb37d54e47d56af8401c1a38dcdfb737098c980d1147fcb",
+          "loss": -0.24640285968780518,
+          "alignment": 0.24640285968780518
+        },
+        {
+          "step": 450,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_7/run/screenshots/step_0000450.png",
+          "sha256": "2e90b37094c6ff3a04e1aa6e8c83b5e334b179dbf50de21c1ece16f4e0cedcdd",
+          "loss": -0.23852401971817017,
+          "alignment": 0.23852401971817017
+        },
+        {
+          "step": 500,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_7/run/screenshots/step_0000500.png",
+          "sha256": "27c147281e30bd0d19ddf46a68f1d0463006e52e46b55d4faca8994a4ba9bf9d",
+          "loss": -0.24372050166130066,
+          "alignment": 0.24372050166130066
+        },
+        {
+          "step": 550,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_7/run/screenshots/step_0000550.png",
+          "sha256": "39aa238550a86febb07b490f27cb8aa9ea3a141171cc0ae802676e70b9a83d85",
+          "loss": -0.24688959121704102,
+          "alignment": 0.24688959121704102
+        },
+        {
+          "step": 600,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_7/run/screenshots/step_0000600.png",
+          "sha256": "ab31f66f0b60a41a425d2214377ab8ccebcab9e24a2f0101e758bf314d977a5f",
+          "loss": -0.24608337879180908,
+          "alignment": 0.24608337879180908
+        },
+        {
+          "step": 650,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_7/run/screenshots/step_0000650.png",
+          "sha256": "6af0c129420e096b563aa5e5f5d9befac9f814677e8d63aa3cd9628905b2daa4",
+          "loss": -0.24879847466945648,
+          "alignment": 0.24879847466945648
+        },
+        {
+          "step": 700,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_7/run/screenshots/step_0000700.png",
+          "sha256": "6faae3459ddc587fd7ff769526e1fb0a4bde36ac0adc301b7a6a98174f3eaf0c",
+          "loss": -0.25479504466056824,
+          "alignment": 0.25479504466056824
+        },
+        {
+          "step": 750,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_7/run/screenshots/step_0000750.png",
+          "sha256": "9193876128ada4ef0bd479555f6de3cc2d14cb30ceee48bc32c821921f3605f8",
+          "loss": -0.25091472268104553,
+          "alignment": 0.25091472268104553
+        },
+        {
+          "step": 800,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_7/run/screenshots/step_0000800.png",
+          "sha256": "dcb9ced8218c04276ab90ed0a2d80fb3d67758da914a0ce4817c76159dec6c2b",
+          "loss": -0.24815979599952698,
+          "alignment": 0.24815979599952698
+        },
+        {
+          "step": 850,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_7/run/screenshots/step_0000850.png",
+          "sha256": "0072a8f2e98da44f45f79bb61800a08cd5bc4fba622f110903abade241f1e874",
+          "loss": -0.24654266238212585,
+          "alignment": 0.24654266238212585
+        },
+        {
+          "step": 900,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_7/run/screenshots/step_0000900.png",
+          "sha256": "dbec901dab1df44c172e8a7d168ebd3e9a23ecdcbf291b4d1e7b6865b4805be8",
+          "loss": -0.2481936514377594,
+          "alignment": 0.2481936514377594
+        },
+        {
+          "step": 950,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_7/run/screenshots/step_0000950.png",
+          "sha256": "2609605406e982852588e01d686d8c727cbf44366ce5e08a09feee47095c348b",
+          "loss": -0.2484579086303711,
+          "alignment": 0.2484579086303711
+        },
+        {
+          "step": 1000,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_7/run/screenshots/step_0001000.png",
+          "sha256": "e490e24d4acb7ff143e010ba79e950c744623d4e762d2edd3b31488b46fb2754",
+          "loss": -0.24805061519145966,
+          "alignment": 0.24805061519145966
+        }
+      ]
+    },
+    {
+      "mean_loss": -0.2549019455909729,
+      "mean_alignment": 0.2549019455909729,
+      "best_sample_loss": -0.26481175422668457,
+      "best_sample_alignment": 0.26481175422668457,
+      "best_sample_step": 450,
+      "final_loss": -0.26075708866119385,
+      "final_alignment": 0.26075708866119385,
+      "seed": 13,
+      "simulation_seconds": 10.86851151600058,
+      "scoring_seconds": 4.064411173996632,
+      "final_checkpoint": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_13/run/checkpoint_0001000",
+      "frame_scores": [
+        {
+          "step": 50,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_13/run/screenshots/step_0000050.png",
+          "sha256": "4a82ad29e6dec494434aee4f0727f5b8a7a71249d1a8ee264f25565de67f0059",
+          "loss": -0.25318053364753723,
+          "alignment": 0.25318053364753723
+        },
+        {
+          "step": 100,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_13/run/screenshots/step_0000100.png",
+          "sha256": "ea905f9a224ddb97f89ff8e6a53d16d33eb13ddb95f4a9aa813b0e9850a47c23",
+          "loss": -0.24935273826122284,
+          "alignment": 0.24935273826122284
+        },
+        {
+          "step": 150,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_13/run/screenshots/step_0000150.png",
+          "sha256": "50fd8633d31b8fea1fdd9c0a06a73602c1b82e4e4e86b6dda8fc2cb4ad6ea6d6",
+          "loss": -0.24836479127407074,
+          "alignment": 0.24836479127407074
+        },
+        {
+          "step": 200,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_13/run/screenshots/step_0000200.png",
+          "sha256": "1854a0feac3f961cf5f31888a2bbf30aed4beb48e2fe699da98828444c3dca72",
+          "loss": -0.25342872738838196,
+          "alignment": 0.25342872738838196
+        },
+        {
+          "step": 250,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_13/run/screenshots/step_0000250.png",
+          "sha256": "d7b6a823e15212ad0cfdda412cf1b7af752567d3ad890bc1a5d379cac155d47d",
+          "loss": -0.247288778424263,
+          "alignment": 0.247288778424263
+        },
+        {
+          "step": 300,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_13/run/screenshots/step_0000300.png",
+          "sha256": "8ac723f36064417190dbfd7f7427672eec59f843218495c10333775995fc1348",
+          "loss": -0.26198315620422363,
+          "alignment": 0.26198315620422363
+        },
+        {
+          "step": 350,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_13/run/screenshots/step_0000350.png",
+          "sha256": "871a6267c7a217f22597ca0a6e7fa3469f30f070fe3884a0458634fbe8d20fd6",
+          "loss": -0.26172131299972534,
+          "alignment": 0.26172131299972534
+        },
+        {
+          "step": 400,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_13/run/screenshots/step_0000400.png",
+          "sha256": "4a9e5154297e2c84bdc8d571500fddc36e7476c342607f770cff7441cd300aed",
+          "loss": -0.25932934880256653,
+          "alignment": 0.25932934880256653
+        },
+        {
+          "step": 450,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_13/run/screenshots/step_0000450.png",
+          "sha256": "1af26e2e428b75346ab94ff8a9a5437f57542ba6c78f1725493fa31b72ef14b5",
+          "loss": -0.26481175422668457,
+          "alignment": 0.26481175422668457
+        },
+        {
+          "step": 500,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_13/run/screenshots/step_0000500.png",
+          "sha256": "a8f19284dd8b463010396c93d45a24f95570f6586369e6f7ccadc9a4239cc708",
+          "loss": -0.26085132360458374,
+          "alignment": 0.26085132360458374
+        },
+        {
+          "step": 550,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_13/run/screenshots/step_0000550.png",
+          "sha256": "957d0411082517caf3fda04d051b99e27c574bd147ade69d97ea30232305b1e4",
+          "loss": -0.25434041023254395,
+          "alignment": 0.25434041023254395
+        },
+        {
+          "step": 600,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_13/run/screenshots/step_0000600.png",
+          "sha256": "7e7ee385d5d97c74ecb6220568fe6b625714dead7575a8e4216c4fb75fea327a",
+          "loss": -0.24744652211666107,
+          "alignment": 0.24744652211666107
+        },
+        {
+          "step": 650,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_13/run/screenshots/step_0000650.png",
+          "sha256": "24b26e28f548af6c001211f02b30eebc3cfb0252dcb04e17aa3387857316628f",
+          "loss": -0.24882033467292786,
+          "alignment": 0.24882033467292786
+        },
+        {
+          "step": 700,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_13/run/screenshots/step_0000700.png",
+          "sha256": "28726e38d4dcc03a04a276594da40b22e18bc33c30b35fd4be98c3b19c1551f4",
+          "loss": -0.25216856598854065,
+          "alignment": 0.25216856598854065
+        },
+        {
+          "step": 750,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_13/run/screenshots/step_0000750.png",
+          "sha256": "ce9123043168c7d4011c81cf92c222dda6cecc177e2cf0fcc2caa49c5d4499dd",
+          "loss": -0.2546139061450958,
+          "alignment": 0.2546139061450958
+        },
+        {
+          "step": 800,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_13/run/screenshots/step_0000800.png",
+          "sha256": "4aac452669cdf83d25e5cab4ee901bdceeafee4b2b010ebfe44d2cfcdb872b14",
+          "loss": -0.2539527714252472,
+          "alignment": 0.2539527714252472
+        },
+        {
+          "step": 850,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_13/run/screenshots/step_0000850.png",
+          "sha256": "6f4cfc1173143625b05c4eed1e6e53d856a67b415aeed268cc5a33e3e5a797ef",
+          "loss": -0.25102731585502625,
+          "alignment": 0.25102731585502625
+        },
+        {
+          "step": 900,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_13/run/screenshots/step_0000900.png",
+          "sha256": "bdea4a559e13f198f8d3a13b8f7eb26d7904db9a465a6f4665e8d1be6f739b2d",
+          "loss": -0.2600194215774536,
+          "alignment": 0.2600194215774536
+        },
+        {
+          "step": 950,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_13/run/screenshots/step_0000950.png",
+          "sha256": "d502018df725e9e6da33e8b04ba8afb29b0c7845c69d3c23c575ed5402f94ddd",
+          "loss": -0.2545802891254425,
+          "alignment": 0.2545802891254425
+        },
+        {
+          "step": 1000,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_13/run/screenshots/step_0001000.png",
+          "sha256": "e538f3d7341b5295d65d4fa2b4479ab9227fa78fe378da8c0eba4be48cfd8248",
+          "loss": -0.26075708866119385,
+          "alignment": 0.26075708866119385
+        }
+      ]
+    },
+    {
+      "mean_loss": -0.24716703593730927,
+      "mean_alignment": 0.24716703593730927,
+      "best_sample_loss": -0.25474709272384644,
+      "best_sample_alignment": 0.25474709272384644,
+      "best_sample_step": 600,
+      "final_loss": -0.24895353615283966,
+      "final_alignment": 0.24895353615283966,
+      "seed": 21,
+      "simulation_seconds": 9.842546736999793,
+      "scoring_seconds": 4.035075546998996,
+      "final_checkpoint": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_21/run/checkpoint_0001000",
+      "frame_scores": [
+        {
+          "step": 50,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_21/run/screenshots/step_0000050.png",
+          "sha256": "956f7cd543287049469ab71a525ce0b7e2de47ee667f840a618560b4ceecf705",
+          "loss": -0.23677952587604523,
+          "alignment": 0.23677952587604523
+        },
+        {
+          "step": 100,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_21/run/screenshots/step_0000100.png",
+          "sha256": "977b34a522c08055949dea1ec6f781e19a5791fd668d76c785b1582de478eedb",
+          "loss": -0.2460813820362091,
+          "alignment": 0.2460813820362091
+        },
+        {
+          "step": 150,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_21/run/screenshots/step_0000150.png",
+          "sha256": "15905b0e26628cbe30ede4152dd9be11626bdcc480491b2b35e24ecab84329c4",
+          "loss": -0.2525056004524231,
+          "alignment": 0.2525056004524231
+        },
+        {
+          "step": 200,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_21/run/screenshots/step_0000200.png",
+          "sha256": "e6d1cf44c77aa2f0de8b1463727b67446b6339f19f1907c24bd205d89f2eb2e8",
+          "loss": -0.2506312131881714,
+          "alignment": 0.2506312131881714
+        },
+        {
+          "step": 250,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_21/run/screenshots/step_0000250.png",
+          "sha256": "ff1f7a4b3d0f390207473c8fbea265a27d720af78d755137e0449b3f05a1cdf4",
+          "loss": -0.2485581636428833,
+          "alignment": 0.2485581636428833
+        },
+        {
+          "step": 300,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_21/run/screenshots/step_0000300.png",
+          "sha256": "f64464e821a3b7176da1faa717e2ca34935c53d1ec4eeefccf290cd90b84f5d3",
+          "loss": -0.23848950862884521,
+          "alignment": 0.23848950862884521
+        },
+        {
+          "step": 350,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_21/run/screenshots/step_0000350.png",
+          "sha256": "609755933b3d8fc8073fa66fb94a794e3d11f14dca7bd9d8c83f346a779ce5eb",
+          "loss": -0.2400575429201126,
+          "alignment": 0.2400575429201126
+        },
+        {
+          "step": 400,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_21/run/screenshots/step_0000400.png",
+          "sha256": "3a001d1f4e0ee9a568ea6509fb3a40fd3ef6362788ca15b9513f08db637576af",
+          "loss": -0.2426338940858841,
+          "alignment": 0.2426338940858841
+        },
+        {
+          "step": 450,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_21/run/screenshots/step_0000450.png",
+          "sha256": "c3f6772ab878a810b039777a322c98911fca0cb0439479ccfd5bbd2e27eb45d1",
+          "loss": -0.24491699039936066,
+          "alignment": 0.24491699039936066
+        },
+        {
+          "step": 500,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_21/run/screenshots/step_0000500.png",
+          "sha256": "a43a44a22016ca770a63eee02e915739b0633ae8af7a5e86a00020dbfc85a231",
+          "loss": -0.25035014748573303,
+          "alignment": 0.25035014748573303
+        },
+        {
+          "step": 550,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_21/run/screenshots/step_0000550.png",
+          "sha256": "1ef93515d5eac69a228cbc9ce6b099758c294f13e2283f1788556f59fa8f10e9",
+          "loss": -0.24629858136177063,
+          "alignment": 0.24629858136177063
+        },
+        {
+          "step": 600,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_21/run/screenshots/step_0000600.png",
+          "sha256": "3b2ee077941544439ff3595c92d97c7c3d9bc46bd9d8f50c248ef261463f8537",
+          "loss": -0.25474709272384644,
+          "alignment": 0.25474709272384644
+        },
+        {
+          "step": 650,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_21/run/screenshots/step_0000650.png",
+          "sha256": "908f4978dec2ee6bb52a4d26ac9a98b9a6ba6f10c08192ac8d29d6157d4f3bb9",
+          "loss": -0.25257059931755066,
+          "alignment": 0.25257059931755066
+        },
+        {
+          "step": 700,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_21/run/screenshots/step_0000700.png",
+          "sha256": "4b4719bcda5fac85bc2f0fc9d0405bc4134d41d1d79dab9d78dac9ecd1a2779b",
+          "loss": -0.25345516204833984,
+          "alignment": 0.25345516204833984
+        },
+        {
+          "step": 750,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_21/run/screenshots/step_0000750.png",
+          "sha256": "65bdc8cf34dac53e65a0e879f07d7b2c7e918bb8e6993677300c3e2638759c51",
+          "loss": -0.2524365782737732,
+          "alignment": 0.2524365782737732
+        },
+        {
+          "step": 800,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_21/run/screenshots/step_0000800.png",
+          "sha256": "fa54caef7900d6858c553513cf2e6c11fb061e972ed904bc3489e2c623eb0570",
+          "loss": -0.2453828901052475,
+          "alignment": 0.2453828901052475
+        },
+        {
+          "step": 850,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_21/run/screenshots/step_0000850.png",
+          "sha256": "c46c7fb25f89121edf50a94b4ff7ec5957b8d8e82fa0e97d867f480e31affcdc",
+          "loss": -0.2463563233613968,
+          "alignment": 0.2463563233613968
+        },
+        {
+          "step": 900,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_21/run/screenshots/step_0000900.png",
+          "sha256": "ae6a0f3853a7da5f30525a867194f42732b78f70947bc7f2a5696e9172c8d63d",
+          "loss": -0.2461041510105133,
+          "alignment": 0.2461041510105133
+        },
+        {
+          "step": 950,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_21/run/screenshots/step_0000950.png",
+          "sha256": "8898be18d3ae25d64f3d9ddad9724b9f3d212c8534bcc4284a6ecd1ee5d8d860",
+          "loss": -0.2460319846868515,
+          "alignment": 0.2460319846868515
+        },
+        {
+          "step": 1000,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_21/run/screenshots/step_0001000.png",
+          "sha256": "79b62c11ce3ce1337be36abd07b726242d9668973972fa0132bf110c13abe572",
+          "loss": -0.24895353615283966,
+          "alignment": 0.24895353615283966
+        }
+      ]
+    },
+    {
+      "mean_loss": -0.2524389624595642,
+      "mean_alignment": 0.2524389624595642,
+      "best_sample_loss": -0.2602126896381378,
+      "best_sample_alignment": 0.2602126896381378,
+      "best_sample_step": 700,
+      "final_loss": -0.24456055462360382,
+      "final_alignment": 0.24456055462360382,
+      "seed": 99,
+      "simulation_seconds": 9.800239881999005,
+      "scoring_seconds": 4.028257719000976,
+      "final_checkpoint": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_99/run/checkpoint_0001000",
+      "frame_scores": [
+        {
+          "step": 50,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_99/run/screenshots/step_0000050.png",
+          "sha256": "86b74ccf43756d02bec9f77b4569d5580f0bc53cf8c64545f1d901296421ec11",
+          "loss": -0.24923297762870789,
+          "alignment": 0.24923297762870789
+        },
+        {
+          "step": 100,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_99/run/screenshots/step_0000100.png",
+          "sha256": "972b10025f0962271119315f601e142f494776c9d0d77a9fd297f08649265259",
+          "loss": -0.25329506397247314,
+          "alignment": 0.25329506397247314
+        },
+        {
+          "step": 150,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_99/run/screenshots/step_0000150.png",
+          "sha256": "43d0140ae0fc977b1b822aecb8031466cea1b476f46d8d672b441c8c7c924c47",
+          "loss": -0.24906817078590393,
+          "alignment": 0.24906817078590393
+        },
+        {
+          "step": 200,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_99/run/screenshots/step_0000200.png",
+          "sha256": "7bce787b7044c768a11d6f37ae318976963877cd201dea7c155b06c148dfa5ae",
+          "loss": -0.24948927760124207,
+          "alignment": 0.24948927760124207
+        },
+        {
+          "step": 250,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_99/run/screenshots/step_0000250.png",
+          "sha256": "d6025d3ba824a40c38678d0f150d9b70fb3fe4e96a61e01ddd81b8d1b22dd581",
+          "loss": -0.25469887256622314,
+          "alignment": 0.25469887256622314
+        },
+        {
+          "step": 300,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_99/run/screenshots/step_0000300.png",
+          "sha256": "b4359a68454f8a5423a48f734ec23c7e9bb431fd79f0d6805ca90a5e9937cd16",
+          "loss": -0.25539475679397583,
+          "alignment": 0.25539475679397583
+        },
+        {
+          "step": 350,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_99/run/screenshots/step_0000350.png",
+          "sha256": "d0d055063ffef50c1cd36c8aa18713c2cf99ebb9428b7389e937768878f3fad6",
+          "loss": -0.256967693567276,
+          "alignment": 0.256967693567276
+        },
+        {
+          "step": 400,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_99/run/screenshots/step_0000400.png",
+          "sha256": "f00b457f37386fced24db05d050d2c01875dd5b71cbde9ae84a13d21298c7abd",
+          "loss": -0.25566810369491577,
+          "alignment": 0.25566810369491577
+        },
+        {
+          "step": 450,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_99/run/screenshots/step_0000450.png",
+          "sha256": "bbb51ce4bf2f9bebeafe280996278a844277eb6af35a1a4b88c7ab1ba749b824",
+          "loss": -0.25241369009017944,
+          "alignment": 0.25241369009017944
+        },
+        {
+          "step": 500,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_99/run/screenshots/step_0000500.png",
+          "sha256": "3d3bc07d6bbabef39466089bcbded3cb19b391218f1af188facb58c59141a5c7",
+          "loss": -0.25652238726615906,
+          "alignment": 0.25652238726615906
+        },
+        {
+          "step": 550,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_99/run/screenshots/step_0000550.png",
+          "sha256": "75128999d078d16f961902ea5bd49a952fc34edf50cf48dcd90e86bf091f06a5",
+          "loss": -0.2506379187107086,
+          "alignment": 0.2506379187107086
+        },
+        {
+          "step": 600,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_99/run/screenshots/step_0000600.png",
+          "sha256": "e7038d83c1351556cd5dcae6a05b44012a1e2440883584fd503e85f1a6bed2c3",
+          "loss": -0.2548128366470337,
+          "alignment": 0.2548128366470337
+        },
+        {
+          "step": 650,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_99/run/screenshots/step_0000650.png",
+          "sha256": "a19b27afc1b3d5d91ed9e03c76f53992218da964acb0ff957e6dc9973d42e817",
+          "loss": -0.2568311095237732,
+          "alignment": 0.2568311095237732
+        },
+        {
+          "step": 700,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_99/run/screenshots/step_0000700.png",
+          "sha256": "9550a1e8b637d3f01c444cd4e9895032f09b2959935c78a2ad4da93954021a17",
+          "loss": -0.2602126896381378,
+          "alignment": 0.2602126896381378
+        },
+        {
+          "step": 750,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_99/run/screenshots/step_0000750.png",
+          "sha256": "5e34417fcd04fe142c3d00207669688db4a464395e57a4e7530e8c7f32170a15",
+          "loss": -0.25056612491607666,
+          "alignment": 0.25056612491607666
+        },
+        {
+          "step": 800,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_99/run/screenshots/step_0000800.png",
+          "sha256": "ebe87d1c31bd2470d4c2d1bbf27e45e66e8167cfef459d1614f9c42ec43728c4",
+          "loss": -0.24539533257484436,
+          "alignment": 0.24539533257484436
+        },
+        {
+          "step": 850,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_99/run/screenshots/step_0000850.png",
+          "sha256": "20c64d5e1dacd9b3c067d6f6e1c297bdc2f10b7ca1475be3c7d9a2b3336e5a08",
+          "loss": -0.256544291973114,
+          "alignment": 0.256544291973114
+        },
+        {
+          "step": 900,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_99/run/screenshots/step_0000900.png",
+          "sha256": "ca99ac2e4a079a06345d841c97480adf1ac148bdd0c2aa3b93b60566506efebf",
+          "loss": -0.2480606585741043,
+          "alignment": 0.2480606585741043
+        },
+        {
+          "step": 950,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_99/run/screenshots/step_0000950.png",
+          "sha256": "88b00147e0a42b26315ac3ce4605929573744709e8c41f4fd87eafbc01c60b99",
+          "loss": -0.24840697646141052,
+          "alignment": 0.24840697646141052
+        },
+        {
+          "step": 1000,
+          "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_99/run/screenshots/step_0001000.png",
+          "sha256": "48d08fa1497ff2fcb837b8e803cd7bdf5c4d5cf2e7a1b1457ccd36294bade861",
+          "loss": -0.24456055462360382,
+          "alignment": 0.24456055462360382
+        }
+      ]
+    }
+  ]
+}

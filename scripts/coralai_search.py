@@ -75,12 +75,15 @@ def paired_summary(rows):
     return result
 
 
-def average_across_seeds(scores):
+def average_across_seeds(scores, spread_penalty=0.0):
     """Summarize one config's per-seed evaluate() scores as a mean +/- spread.
 
-    Selecting on this mean (instead of a single seed's score) is the fix for
+    Selecting on the mean (instead of a single seed's score) is the fix for
     issue #26: a config that only looks good on one lucky seed will show up
-    here with a high alignment_std relative to its peers.
+    here with a high alignment_std relative to its peers. Issue #31 also lets
+    the spread count against a config: selection_loss = mean_loss +
+    spread_penalty * loss_std (lower is better), so a steady config can beat an
+    erratic one with a slightly better average. spread_penalty=0 is the plain mean.
     """
     if len(scores) < 2:
         raise ValueError("Expected at least two seeds to average across")
@@ -88,8 +91,11 @@ def average_across_seeds(scores):
     alignments = np.array([score["mean_alignment"] for score in scores])
     best_samples = np.array([score["best_sample_alignment"] for score in scores])
     finals = np.array([score["final_alignment"] for score in scores])
+    loss_std = float(losses.std(ddof=1))
     return {"seeds": [score["seed"] for score in scores], "n_seeds": len(scores),
-            "mean_loss": float(losses.mean()), "loss_std": float(losses.std(ddof=1)),
+            "mean_loss": float(losses.mean()), "loss_std": loss_std,
+            "spread_penalty": float(spread_penalty),
+            "selection_loss": float(losses.mean()) + float(spread_penalty) * loss_std,
             "mean_alignment": float(alignments.mean()), "alignment_std": float(alignments.std(ddof=1)),
             "best_sample_alignment": float(best_samples.mean()), "final_alignment": float(finals.mean()),
             "simulation_seconds": float(sum(score["simulation_seconds"] for score in scores)),
@@ -97,10 +103,10 @@ def average_across_seeds(scores):
             "per_seed": scores}
 
 
-def evaluate_across_seeds(evaluator, config, seeds, directory):
+def evaluate_across_seeds(evaluator, config, seeds, directory, spread_penalty=0.0):
     """Run one config on every search seed and save/return the averaged summary."""
     scores = [evaluator.evaluate(config, seed, directory / f"seed_{seed}") for seed in seeds]
-    summary = average_across_seeds(scores)
+    summary = average_across_seeds(scores, spread_penalty)
     save_json(directory / "multi_seed_summary.json", summary)
     return summary
 
@@ -118,6 +124,8 @@ def validate_setup(config, settings):
         raise ValueError("Use at least two distinct search seeds so scores can be averaged")
     if len(comparison_seeds) != 3 or len(set(comparison_seeds) | set(search_seeds)) != 3 + len(search_seeds):
         raise ValueError("Use three distinct comparison seeds separate from the search seeds")
+    if settings.get("spread_penalty", 0) < 0:
+        raise ValueError("spread_penalty must be >= 0")
     if not settings["prompt"].strip() or ";" in settings["prompt"]:
         raise ValueError("This adapter supports one nonempty target prompt")
     for name, spec in settings["parameters"].items():
@@ -241,14 +249,16 @@ def run_search(args):
     save_json(output / "default_config.json", dict(config, output_dir=None, resume_from=None))
     save_json(output / "search_settings.json", settings)
     seeds = settings["search_seeds"]
+    penalty = settings.get("spread_penalty", 0.0)
     save_json(output / "optimizer.json", {"driver": "main_opt.py", "algorithm": "evosax.Sep_CMA_ES",
               "optimizer_seed": args.seed, "population": args.pop_size, "generations": args.n_iters,
               "sigma": args.sigma, "search_seeds": seeds, "evaluations_per_candidate": len(seeds),
               "candidate_budget": args.pop_size * args.n_iters * len(seeds), "normalized_bounds": [0, 1],
-              "selection": "lowest mean loss averaged across search_seeds among default and candidates; default wins exact ties"})
+              "spread_penalty": penalty,
+              "selection": "lowest selection_loss (mean loss across search_seeds + spread_penalty * loss std) among default and candidates; default wins exact ties"})
     provenance(output)
     evaluator = Evaluator(settings, output)
-    baseline = evaluate_across_seeds(evaluator, config, seeds, output / "default")
+    baseline = evaluate_across_seeds(evaluator, config, seeds, output / "default", penalty)
     best, best_config, best_id = baseline, config, "default"
     strategy = evosax.Sep_CMA_ES(popsize=args.pop_size, num_dims=len(settings["parameters"]), sigma_init=args.sigma)
     params = strategy.default_params.replace(clip_min=0., clip_max=1.)
@@ -265,11 +275,11 @@ def run_search(args):
         for index, vector in enumerate(np.asarray(vectors)):
             name = f"g{generation:02d}_c{index:02d}"
             candidate_config = dict(config, **decode(vector, settings["parameters"]))
-            score = evaluate_across_seeds(evaluator, candidate_config, seeds, output / "candidates" / name)
-            losses.append(score["mean_loss"])
+            score = evaluate_across_seeds(evaluator, candidate_config, seeds, output / "candidates" / name, penalty)
+            losses.append(score["selection_loss"])
             candidates.append({"id": name, "generation": generation, "vector": vector.tolist(),
                                "parameters": decode(vector, settings["parameters"]), "scores": score})
-            if score["mean_loss"] < best["mean_loss"]:
+            if score["selection_loss"] < best["selection_loss"]:
                 best, best_config, best_id = score, candidate_config, name
             save_json(output / "candidates.json", candidates)
             save_json(output / "selected_config.json", dict(best_config, output_dir=None, resume_from=None))
@@ -283,16 +293,19 @@ def run_search(args):
         save_json(output / "generations.json", generations)
     with (output / "candidates.csv").open("w", newline="") as stream:
         writer = csv.writer(stream)
-        writer.writerow(["id", *settings["parameters"], "mean_alignment", "alignment_std", "best_sample_alignment",
-                         "final_alignment", "simulation_seconds", "scoring_seconds"])
+        writer.writerow(["id", *settings["parameters"], "mean_alignment", "alignment_std", "selection_loss",
+                         "best_sample_alignment", "final_alignment", "simulation_seconds", "scoring_seconds"])
         for candidate in [{"id": "default", "parameters": {k: config[k] for k in settings["parameters"]}, "scores": baseline}, *candidates]:
             score = candidate["scores"]
             writer.writerow([candidate["id"], *candidate["parameters"].values(), *[score[k] for k in
-                            ("mean_alignment", "alignment_std", "best_sample_alignment", "final_alignment",
-                             "simulation_seconds", "scoring_seconds")]])
+                            ("mean_alignment", "alignment_std", "selection_loss", "best_sample_alignment",
+                             "final_alignment", "simulation_seconds", "scoring_seconds")]])
     save_json(output / "completed.json", {"evaluations": (len(candidates) + 1) * len(seeds),
               "selected_id": best_id, "total_seconds": time.perf_counter() - started})
     print(f"Selected {best_id}; config: {output / 'selected_config.json'}", flush=True)
+    if settings.get("heldout_after_search", False):
+        print("Running held-out comparison on the comparison seeds...", flush=True)
+        compare(output, output / "heldout_check")
 
 
 def compare(experiment, output):

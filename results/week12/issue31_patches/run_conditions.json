@@ -1,0 +1,45 @@
+{
+  "argv": [
+    "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880/.venv-novelty/bin/python",
+    "-B",
+    "main_opt.py",
+    "--substrate",
+    "coralai",
+    "--coralai_config",
+    "configs/coralai_supervised.default.json",
+    "--coralai_search_config",
+    "configs/coralai_supervised.search.json",
+    "--save_dir",
+    "results/week12/issue31_patches",
+    "--pop_size",
+    "6",
+    "--n_iters",
+    "5"
+  ],
+  "cwd": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix",
+  "environment": {
+    "JAX_PLATFORMS": "cpu",
+    "HF_HUB_OFFLINE": "1",
+    "TRANSFORMERS_OFFLINE": "1",
+    "PYTHONUNBUFFERED": "1",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONPATH": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/external/coralai:/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/external/coralai/coralai/dependencies/PyTorch-NEAT:/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix"
+  },
+  "branch": "integration/issue31-controller-fix",
+  "base_commit": "e610d890ef96d5a72f83ab2c84a3ca8f6112b7b4",
+  "output": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches",
+  "timing_output": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches_timing_20261111T195720",
+  "expected_search_evaluations": 155,
+  "expected_heldout_evaluations": 6,
+  "expected_scored_frames_per_evaluation": 20,
+  "resume_support": "not used or claimed; driver requires a fresh output directory",
+  "started_utc": "2026-11-12T04:00:01.063763+00:00",
+  "validation_command": [
+    "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880/.venv-novelty/bin/python",
+    "-B",
+    "results/week12/issue31_patches/verify_results.py"
+  ],
+  "validation_status": "passed",
+  "timing_experiment_is_separate": true,
+  "no_search_restart_required": true
+}

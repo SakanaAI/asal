@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880/.venv-novelty/bin/python",
+    "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/external/coralai/experiments/coral_dev/headless_coral.py",
+    "--config",
+    "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/heldout_check/seed_303/default/input_config.json",
+    "--seed",
+    "303",
+    "--output-dir",
+    "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/heldout_check/seed_303/default/run"
+  ],
+  "cwd": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix",
+  "PYTHONPATH": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/external/coralai:/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/external/coralai/coralai/dependencies/PyTorch-NEAT:/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/external/coralai:/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/external/coralai/coralai/dependencies/PyTorch-NEAT:/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix"
+}

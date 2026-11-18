@@ -1,0 +1,8 @@
+test_default_config_is_found_before_rejecting_an_invalid_seed (test_headless_coral_runner.HeadlessRunnerTests.test_default_config_is_found_before_rejecting_an_invalid_seed) ... ok
+test_disabled_periodic_checkpoints_still_save_final_state (test_headless_coral_runner.HeadlessRunnerTests.test_disabled_periodic_checkpoints_still_save_final_state) ... ok
+test_saved_config_seed_final_checkpoint_and_existing_output_protection (test_headless_coral_runner.HeadlessRunnerTests.test_saved_config_seed_final_checkpoint_and_existing_output_protection) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 8.808s
+
+OK

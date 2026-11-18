@@ -1,0 +1,26 @@
+{
+  "path": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/external/coralai/coralai/evolver.py",
+  "sha256": "d1a6fcb7fd42b778dd8a049ac6995dc93dee35ba37c69db177f28f90936b410d",
+  "runner": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/external/coralai/experiments/coral_dev/headless_coral.py",
+  "stopped_before_substrate_creation": true,
+  "actual_evaluator_argv": [
+    "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880/.venv-novelty/bin/python",
+    "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/external/coralai/experiments/coral_dev/headless_coral.py",
+    "--config",
+    "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/controller_issue31_validation/20261111T194528/search-import-probe/input_config.json",
+    "--seed",
+    "42",
+    "--output-dir",
+    "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/controller_issue31_validation/20261111T194528/search-import-probe/run"
+  ],
+  "actual_evaluator_cwd": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix",
+  "actual_evaluator_pythonpath": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/external/coralai:/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/external/coralai/coralai/dependencies/PyTorch-NEAT:/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/external/coralai:/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/external/coralai/coralai/dependencies/PyTorch-NEAT:/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix",
+  "installed_without_pythonpath": {
+    "path": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880/.venv-novelty/lib/python3.11/site-packages/coralai/evolver.py",
+    "sha256": "e6aed97ae91f31e41b03e429e8c0181eedcef4542abc695bc380663933cf473c"
+  },
+  "installed_copy_is_stale": true,
+  "search_started": false,
+  "scoring_started": false,
+  "simulation_updates": 0
+}

@@ -1,0 +1,184 @@
+diff --git a/external/coralai/coralai/evolver.py b/external/coralai/coralai/evolver.py
+index 7022ae9..2e54481 100644
+--- a/external/coralai/coralai/evolver.py
++++ b/external/coralai/coralai/evolver.py
+@@ -20,14 +20,43 @@ from pytorch_neat.linear_net import LinearNet
+ from .nn_lib import ch_norm
+ 
+ 
+-@ti.kernel
+ def apply_weights_and_biases(mem: ti.types.ndarray(), out_mem: ti.types.ndarray(),
+                              sense_chinds: ti.types.ndarray(),
+                              combined_weights: ti.types.ndarray(), combined_biases: ti.types.ndarray(),
+                              dir_kernel: ti.types.ndarray(), dir_order: ti.types.ndarray(),
+                              ti_inds: ti.template(),
+                              key_to_local: ti.types.ndarray()):
+-    """Forward pass: each cell looks up its genome key → local weight row."""
++    """Validate cell IDs and controller layout before entering the kernel.
++
++    Cell genome IDs are local controller-list indices. Cleanup remaps both the
++    cells and those lists; negative cell values are inactive sentinels.
++    """
++    expected_inputs = sense_chinds.shape[0] * (dir_order.shape[0] + 1)
++    if combined_weights.shape != (combined_weights.shape[0], 1, out_mem.shape[0], expected_inputs):
++        raise ValueError(f"Controller weights have shape {tuple(combined_weights.shape)}; "
++                         f"expected (genomes, 1, {out_mem.shape[0]}, {expected_inputs})")
++    if combined_biases.shape != (combined_weights.shape[0], 1, out_mem.shape[0], 1):
++        raise ValueError("Controller biases do not match controller weights")
++    genome = mem[0, int(ti_inds[None].genome)]
++    active = genome >= 0
++    invalid = ~torch.isfinite(genome) | (active & ((genome != genome.floor()) | (genome >= key_to_local.shape[0])))
++    if invalid.any():
++        raise ValueError(f"Unregistered or invalid active genome IDs: {genome[invalid].unique()[:8].tolist()}")
++    active_ids = genome[active].long()
++    rows = key_to_local[active_ids]
++    invalid_rows = (rows < 0) | (rows >= combined_weights.shape[0])
++    if invalid_rows.any():
++        raise ValueError(f"Active genome IDs missing controller rows: {active_ids[invalid_rows].unique()[:8].tolist()}")
++    _apply_weights_and_biases(mem, out_mem, sense_chinds, combined_weights, combined_biases,
++                             dir_kernel, dir_order, ti_inds, key_to_local)
++
++
++@ti.kernel
++def _apply_weights_and_biases(mem: ti.types.ndarray(), out_mem: ti.types.ndarray(),
++                             sense_chinds: ti.types.ndarray(),
++                             combined_weights: ti.types.ndarray(), combined_biases: ti.types.ndarray(),
++                             dir_kernel: ti.types.ndarray(), dir_order: ti.types.ndarray(),
++                             ti_inds: ti.template(), key_to_local: ti.types.ndarray()):
+     inds = ti_inds[None]
+     for i, j in ti.ndrange(mem.shape[2], mem.shape[3]):
+         key = int(mem[0, inds.genome, i, j])
+@@ -45,14 +74,14 @@ def apply_weights_and_biases(mem: ti.types.ndarray(), out_mem: ti.types.ndarray(
+                 for act_k in range(out_mem.shape[0]):
+                     val = 0.0
+                     for sense_ch_n in ti.ndrange(sense_chinds.shape[0]):
+-                        start_weight_ind = sense_ch_n * (n_dirs + 1)
++                        start_weight_ind = sense_ch_n * (dir_order.shape[0] + 1)
+                         val += (mem[0, sense_chinds[sense_ch_n], i, j] *
+                                 combined_weights[local_idx, 0, act_k, start_weight_ind])
+-                        for offset_m in ti.ndrange(n_dirs):
++                        for offset_m in ti.ndrange(dir_order.shape[0]):
+                             ind = (rot + int(dir_order[offset_m]) + n_dirs) % n_dirs
+                             neigh_x = (i + dir_kernel[ind, 0]) % mem.shape[2]
+                             neigh_y = (j + dir_kernel[ind, 1]) % mem.shape[3]
+-                            weight_ind = start_weight_ind + offset_m
++                            weight_ind = start_weight_ind + 1 + offset_m
+                             val += (mem[0, sense_chinds[sense_ch_n], neigh_x, neigh_y] *
+                                     combined_weights[local_idx, 0, act_k, weight_ind])
+                     out_mem[act_k, i, j] = val + combined_biases[local_idx, 0, act_k, 0]
+@@ -90,8 +119,8 @@ class SpaceEvolver():
+         self.energy_offset = 0.0
+ 
+         self.genomes = []
+-        self.genome_keys = []          # stable integer key per genome (never remapped)
+-        self._next_key = 0             # monotonically increasing key counter
++        self.genome_keys = []          # current local IDs; cleanup remaps them
++        self._next_key = 0             # next controller-list index
+         self.ages = []
+         self.combined_weights = []
+         self.combined_biases = []
+@@ -115,6 +144,14 @@ class SpaceEvolver():
+ 
+     def _invalidate_weight_cache(self):
+         self._weights_dirty = True
++        self._key_map_dirty = True
++        self._key_to_local_cache = None
++
++    def _reindex_genome_registry(self):
++        """Lists and cell IDs have already been compacted in the same order."""
++        self.genome_keys = list(range(len(self.genomes)))
++        self._next_key = len(self.genomes)
++        self._invalidate_weight_cache()
+ 
+     def _get_scratch(self, key, like_tensor):
+         if key not in self._scratch or self._scratch[key].shape != like_tensor.shape:
+@@ -124,11 +161,13 @@ class SpaceEvolver():
+         return self._scratch[key]
+ 
+     def _get_key_to_local(self) -> torch.Tensor:
+-        """Return int32 tensor (max_key+1,): stable_key → local_idx. -1 = dead."""
++        """Return current cell-ID → controller-row map, rebuilt after changes."""
++        if self.genome_keys != list(range(len(self.genomes))):
++            raise ValueError("Genome registry does not match local controller indices")
+         if not self._key_map_dirty and self._key_to_local_cache is not None:
+             return self._key_to_local_cache
+         if not self.genome_keys:
+-            self._key_to_local_cache = torch.zeros(1, dtype=torch.int32,
++            self._key_to_local_cache = torch.full((1,), -1, dtype=torch.int32,
+                                                     device=self.torch_device)
+             self._key_map_dirty = False
+             return self._key_to_local_cache
+@@ -141,7 +180,7 @@ class SpaceEvolver():
+         return kt
+ 
+     def local_idx_for_key(self, key: int) -> int:
+-        """Return local index for a stable genome key, -1 if not present."""
++        """Return the current controller index, or -1 if not registered."""
+         for i, k in enumerate(self.genome_keys):
+             if k == key:
+                 return i
+@@ -284,7 +323,7 @@ class SpaceEvolver():
+         self.ages             = new_ages
+         self.combined_weights = new_cw
+         self.combined_biases  = new_cb
+-        self._invalidate_weight_cache()
++        self._reindex_genome_registry()
+         self.time_last_cull = self.timestep
+         print(f"  [cleanup] {n_extinct} extinct genomes removed -> {len(self.genomes)} remain")
+         return n_extinct
+@@ -333,7 +372,7 @@ class SpaceEvolver():
+         self.ages = new_ages
+         self.combined_weights = new_combined_weights
+         self.combined_biases = new_combined_biases
+-        self._invalidate_weight_cache()
++        self._reindex_genome_registry()
+         self.time_last_cull = self.timestep
+         print(f"\tPop size after reduction: {len(self.genomes)}")
+         if len(self.genomes) == 0:
+@@ -375,6 +414,8 @@ class SpaceEvolver():
+ 
+         pop_data = {
+             "genomes":        self.genomes,
++            "genome_keys":    self.genome_keys,
++            "genome_id_semantics": "local_index",
+             "ages":           self.ages,
+             "weights":        [w.cpu() for w in self.combined_weights],
+             "biases":         [b.cpu() for b in self.combined_biases],
+@@ -431,6 +472,11 @@ class SpaceEvolver():
+         self.energy_offset   = pop.get("energy_offset", 0.0)
+         self.time_last_cull  = pop.get("time_last_cull", 0)
+ 
++        # Historical checkpoints also store local indices, but no registry.
++        if pop.get("genome_keys", list(range(len(self.genomes)))) != list(range(len(self.genomes))):
++            raise ValueError("Checkpoint genome IDs do not match local controller indices")
++        self._reindex_genome_registry()
++
+         # Invalidate weight cache so next get_combined_weights() rebuilds it
+         self._weights_dirty = True
+         self._cached_cw = None
+@@ -527,13 +573,16 @@ class SpaceEvolver():
+ 
+ 
+     def add_organism_get_key(self, genome):
+-        self.genomes.append(genome)
+         net = self.create_torch_net(genome)
++        key = len(self.genomes)
++        self.genomes.append(genome)
+         self.combined_weights.append(net.weights)
+         self.combined_biases.append(net.biases)
+         self.ages.append(0)
++        self.genome_keys.append(key)
++        self._next_key = key + 1
+         self._invalidate_weight_cache()
+-        return len(self.combined_biases) - 1
++        return key
+     
+ 
+     def set_chunk(self, genome_key, x, y, radius):
+@@ -606,4 +655,4 @@ class SpaceEvolver():
+     #         print("Population extinct")
+     #         self.init_population()
+     #         self.init_substrate(self.genomes)
+-    #         self.timestep = 0
+\ No newline at end of file
++    #         self.timestep = 0

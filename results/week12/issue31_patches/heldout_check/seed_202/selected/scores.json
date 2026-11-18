@@ -1,0 +1,155 @@
+{
+  "mean_loss": -0.24971981346607208,
+  "mean_alignment": 0.24971981346607208,
+  "best_sample_loss": -0.2577928900718689,
+  "best_sample_alignment": 0.2577928900718689,
+  "best_sample_step": 300,
+  "final_loss": -0.24509111046791077,
+  "final_alignment": 0.24509111046791077,
+  "seed": 202,
+  "simulation_seconds": 9.969452270001057,
+  "scoring_seconds": 3.5875790559985035,
+  "final_checkpoint": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/heldout_check/seed_202/selected/run/checkpoint_0001000",
+  "frame_scores": [
+    {
+      "step": 50,
+      "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/heldout_check/seed_202/selected/run/screenshots/step_0000050.png",
+      "sha256": "9fe2f0be04c7955624c32a74f3b4652b7102f42b5ee0d6443d6e75a6dd6255c0",
+      "loss": -0.2463744431734085,
+      "alignment": 0.2463744431734085
+    },
+    {
+      "step": 100,
+      "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/heldout_check/seed_202/selected/run/screenshots/step_0000100.png",
+      "sha256": "fa2839987be72628ae5d8adf580cdfaa80955fd235e48306b561cdfd335e56a8",
+      "loss": -0.24549099802970886,
+      "alignment": 0.24549099802970886
+    },
+    {
+      "step": 150,
+      "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/heldout_check/seed_202/selected/run/screenshots/step_0000150.png",
+      "sha256": "03d1b9de592f1db0f230031355fd7b9fee87669218524910067b1f0725b64eaa",
+      "loss": -0.2523787319660187,
+      "alignment": 0.2523787319660187
+    },
+    {
+      "step": 200,
+      "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/heldout_check/seed_202/selected/run/screenshots/step_0000200.png",
+      "sha256": "8db100502e7df64a7fa4abfe1423c196157ceb4b1ae29d47c02cd4e06bf5fc1b",
+      "loss": -0.2506101727485657,
+      "alignment": 0.2506101727485657
+    },
+    {
+      "step": 250,
+      "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/heldout_check/seed_202/selected/run/screenshots/step_0000250.png",
+      "sha256": "beecfb96bd0136e458ffd75509d763a1c9235ea6d49e35c3be9bf9ec9f2023c8",
+      "loss": -0.2562788724899292,
+      "alignment": 0.2562788724899292
+    },
+    {
+      "step": 300,
+      "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/heldout_check/seed_202/selected/run/screenshots/step_0000300.png",
+      "sha256": "6149b1f602727ff4e03c01970f39f1d447bd71d53fea41d4a6e07349a70d12a2",
+      "loss": -0.2577928900718689,
+      "alignment": 0.2577928900718689
+    },
+    {
+      "step": 350,
+      "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/heldout_check/seed_202/selected/run/screenshots/step_0000350.png",
+      "sha256": "14e14c023517c3e6a239dff480989425eb7408b1437837f4925f638b3246d6d8",
+      "loss": -0.24826517701148987,
+      "alignment": 0.24826517701148987
+    },
+    {
+      "step": 400,
+      "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/heldout_check/seed_202/selected/run/screenshots/step_0000400.png",
+      "sha256": "09298cf525e4a2da888d18ca5b31b9db50de0c9b913152a8b7182cc6809a426d",
+      "loss": -0.2527450621128082,
+      "alignment": 0.2527450621128082
+    },
+    {
+      "step": 450,
+      "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/heldout_check/seed_202/selected/run/screenshots/step_0000450.png",
+      "sha256": "995fc705f534e03e4d4426b778d43016b114053da99d62bc639b0c7a453a6736",
+      "loss": -0.25102201104164124,
+      "alignment": 0.25102201104164124
+    },
+    {
+      "step": 500,
+      "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/heldout_check/seed_202/selected/run/screenshots/step_0000500.png",
+      "sha256": "27c6bc9e93d47b5676756a8e5f0d943590d954a3346e69cb1e6b6b7ba04abdd0",
+      "loss": -0.25295525789260864,
+      "alignment": 0.25295525789260864
+    },
+    {
+      "step": 550,
+      "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/heldout_check/seed_202/selected/run/screenshots/step_0000550.png",
+      "sha256": "bf4cad223e38f2f56961ea7c125be07c5e0c9678c17d1e1a449b378144c7187e",
+      "loss": -0.2517688572406769,
+      "alignment": 0.2517688572406769
+    },
+    {
+      "step": 600,
+      "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/heldout_check/seed_202/selected/run/screenshots/step_0000600.png",
+      "sha256": "ff0916ce83392f92482b6cba98d7351d4f46f6ec39247e57ac3d1c0893e2fc62",
+      "loss": -0.24572426080703735,
+      "alignment": 0.24572426080703735
+    },
+    {
+      "step": 650,
+      "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/heldout_check/seed_202/selected/run/screenshots/step_0000650.png",
+      "sha256": "1466ee9d2b7123804395a2e677e297d2eb32f8fada085b3fcb5d7178c97ccdcf",
+      "loss": -0.24330873787403107,
+      "alignment": 0.24330873787403107
+    },
+    {
+      "step": 700,
+      "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/heldout_check/seed_202/selected/run/screenshots/step_0000700.png",
+      "sha256": "949dc18fc974525da749693a31eff090f76c6ee55a7b3c04b5a955b2bede37ce",
+      "loss": -0.24670946598052979,
+      "alignment": 0.24670946598052979
+    },
+    {
+      "step": 750,
+      "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/heldout_check/seed_202/selected/run/screenshots/step_0000750.png",
+      "sha256": "e8503412a846ec3edb847ba4d63327b3c37f9684ab190833e68cdfd775c0304c",
+      "loss": -0.253031462430954,
+      "alignment": 0.253031462430954
+    },
+    {
+      "step": 800,
+      "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/heldout_check/seed_202/selected/run/screenshots/step_0000800.png",
+      "sha256": "d02ad54e45c33d5d488473802f6e676af64efccfeb240a8dae176afd9456bc15",
+      "loss": -0.24817849695682526,
+      "alignment": 0.24817849695682526
+    },
+    {
+      "step": 850,
+      "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/heldout_check/seed_202/selected/run/screenshots/step_0000850.png",
+      "sha256": "97a70ba77baa0c04ae0f4b1201b9c768ac32cfc69e3b83c91f493f8200ee8b7e",
+      "loss": -0.24961788952350616,
+      "alignment": 0.24961788952350616
+    },
+    {
+      "step": 900,
+      "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/heldout_check/seed_202/selected/run/screenshots/step_0000900.png",
+      "sha256": "9a6a27c16c83e62b5dcbedbdcf363a825fb2fb9e257fe51f85608ba54e658d39",
+      "loss": -0.24973708391189575,
+      "alignment": 0.24973708391189575
+    },
+    {
+      "step": 950,
+      "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/heldout_check/seed_202/selected/run/screenshots/step_0000950.png",
+      "sha256": "517993eec62379483a2ba5dda8e3d0a574b9fa73760f06b305404750d717703c",
+      "loss": -0.24731503427028656,
+      "alignment": 0.24731503427028656
+    },
+    {
+      "step": 1000,
+      "image": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/heldout_check/seed_202/selected/run/screenshots/step_0001000.png",
+      "sha256": "02e267df00dfd57370c7de068de1b04c3bb3b55cc50a86a5e5678354ca5238bb",
+      "loss": -0.24509111046791077,
+      "alignment": 0.24509111046791077
+    }
+  ]
+}

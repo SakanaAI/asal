@@ -1,0 +1,166 @@
+{
+  "snapshot_before_this_inventory_file": true,
+  "groups": {
+    "records_and_logs": {
+      "files": 709,
+      "bytes": 4785998,
+      "ignored_files": 161
+    },
+    "copied_best_and_final_images": {
+      "files": 322,
+      "bytes": 5443146,
+      "ignored_files": 0
+    },
+    "raw_simulation_runs": {
+      "files": 4508,
+      "bytes": 250879612,
+      "ignored_files": 4508
+    }
+  },
+  "total_files": 5539,
+  "total_bytes": 261108756,
+  "ignored_files": 4669,
+  "nonignored_bytes": 10058262,
+  "largest_files": [
+    {
+      "path": "candidates.json",
+      "bytes": 1434513
+    },
+    {
+      "path": "heldout_check/seed_303/selected/run/initial_state.pt",
+      "bytes": 561619
+    },
+    {
+      "path": "heldout_check/seed_303/default/run/initial_state.pt",
+      "bytes": 561619
+    },
+    {
+      "path": "heldout_check/seed_202/default/run/initial_state.pt",
+      "bytes": 561619
+    },
+    {
+      "path": "heldout_check/seed_202/selected/run/initial_state.pt",
+      "bytes": 561619
+    },
+    {
+      "path": "heldout_check/seed_101/selected/run/initial_state.pt",
+      "bytes": 561619
+    },
+    {
+      "path": "heldout_check/seed_101/default/run/initial_state.pt",
+      "bytes": 561619
+    },
+    {
+      "path": "candidates/g04_c05/seed_99/run/initial_state.pt",
+      "bytes": 561619
+    }
+  ],
+  "files_over_10_MiB": 0,
+  "raw_ignore_rule": ".gitignore:182:results/week12/**/run/\t/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue31-controller-fix/results/week12/issue31_patches/default/seed_42/run/meta.json",
+  "simulation_logs_checked": 161,
+  "simulation_logs_with_tracebacks": 0,
+  "warning_occurrence_by_log": {},
+  "essential_source_configs_and_reproduction_records_unignored": [
+    "external/coralai/coralai/evolver.py",
+    "tests/test_controller_lookup.py",
+    "scripts/verify_controller_lookup.py",
+    "results/week12/issue31_patches/controller.patch",
+    "results/week12/issue31_patches/default_config.json",
+    "results/week12/issue31_patches/selected_config.json",
+    "results/week12/issue31_patches/search_settings.json",
+    "results/week12/issue31_patches/verify_results.py",
+    "results/week12/issue31_patches/heldout_check/summary.json"
+  ],
+  "recommended_share": [
+    "controller fix, isolated regression tests, and independent harness",
+    "the compact_recommended_share list: top-level search/reproduction records, default five-seed summary, held-out root summaries/provenance/configs, and six held-out final PNGs with per-seed scores/commands/input configs"
+  ],
+  "keep_local": [
+    "all raw run/ directories including checkpoints, initial states, history, full screenshot sequences",
+    "installed runtimes/environments and model caches outside these results",
+    "timing raw runs and duplicate launcher command/patch/log copies",
+    "other candidate/default copied images and duplicate per-seed JSON records whose contents are embedded in candidates.json or aggregate summaries"
+  ],
+  "no_files_deleted_staged_or_curated": true,
+  "compact_recommended_share": {
+    "files": 64,
+    "bytes": 1886349,
+    "relative_paths": [
+      ".gitattributes",
+      "candidates.csv",
+      "candidates.json",
+      "command.txt",
+      "completed.json",
+      "controller.patch",
+      "default/multi_seed_summary.json",
+      "default_config.json",
+      "execution.json",
+      "execution.txt",
+      "generations.json",
+      "heldout_check/comparison.csv",
+      "heldout_check/default_config.json",
+      "heldout_check/execution.json",
+      "heldout_check/per_seed.json",
+      "heldout_check/requirements-used.txt",
+      "heldout_check/scorer.json",
+      "heldout_check/search_settings.json",
+      "heldout_check/seed_101/default/command.json",
+      "heldout_check/seed_101/default/final.png",
+      "heldout_check/seed_101/default/input_config.json",
+      "heldout_check/seed_101/default/scores.json",
+      "heldout_check/seed_101/selected/command.json",
+      "heldout_check/seed_101/selected/final.png",
+      "heldout_check/seed_101/selected/input_config.json",
+      "heldout_check/seed_101/selected/scores.json",
+      "heldout_check/seed_202/default/command.json",
+      "heldout_check/seed_202/default/final.png",
+      "heldout_check/seed_202/default/input_config.json",
+      "heldout_check/seed_202/default/scores.json",
+      "heldout_check/seed_202/selected/command.json",
+      "heldout_check/seed_202/selected/final.png",
+      "heldout_check/seed_202/selected/input_config.json",
+      "heldout_check/seed_202/selected/scores.json",
+      "heldout_check/seed_303/default/command.json",
+      "heldout_check/seed_303/default/final.png",
+      "heldout_check/seed_303/default/input_config.json",
+      "heldout_check/seed_303/default/scores.json",
+      "heldout_check/seed_303/selected/command.json",
+      "heldout_check/seed_303/selected/final.png",
+      "heldout_check/seed_303/selected/input_config.json",
+      "heldout_check/seed_303/selected/scores.json",
+      "heldout_check/selected_config.json",
+      "heldout_check/summary.json",
+      "optimizer.json",
+      "optimizer_state_00.npz",
+      "optimizer_state_01.npz",
+      "optimizer_state_02.npz",
+      "optimizer_state_03.npz",
+      "optimizer_state_04.npz",
+      "process_status.json",
+      "reproduce.sh",
+      "requirements-reproduce.txt",
+      "requirements-used.txt",
+      "run_conditions.json",
+      "scorer.json",
+      "search_settings.json",
+      "selected_config.json",
+      "selection.json",
+      "sharing_inventory.json",
+      "timing_repeat_check.json",
+      "usage.txt",
+      "validation.json",
+      "verify_results.py"
+    ],
+    "note": "Explicit compact sharing set, reviewed for the results commit. Adds portable setup/run commands and verification; original commands, package freezes and validation remain archival. Raw outputs and timing artifacts stay physically local."
+  },
+  "publication_review": {
+    "controller_commit": "9777ef02baa679ab4450d90cc1462c57dde59e19",
+    "remote_base_after_fetch": "e610d890ef96d5a72f83ab2c84a3ca8f6112b7b4",
+    "scientific_settings_unchanged": true,
+    "portable_setup": "usage.txt, requirements-reproduce.txt, reproduce.sh",
+    "historical_absolute_paths": "Preserved only as provenance; portable commands and compact verification use the current checkout.",
+    "original_raw_outputs_preserved": true,
+    "snapshot_fields_above_describe_prepublication_inventory": true,
+    "whitespace_handling": "Scoped .gitattributes preserves original CSV CRLF and required unified-diff context bytes; other whitespace checks remain enabled."
+  }
+}
