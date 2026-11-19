@@ -1,0 +1,17 @@
+test_plain_mean_when_penalty_is_zero (test_temporal_robustness.AggregateTests.test_plain_mean_when_penalty_is_zero) ... ok
+test_steady_world_beats_erratic_world_only_with_a_penalty (test_temporal_robustness.AggregateTests.test_steady_world_beats_erratic_world_only_with_a_penalty) ... ok
+test_uses_sample_std_and_rejects_bad_input (test_temporal_robustness.AggregateTests.test_uses_sample_std_and_rejects_bad_input) ... ok
+test_a_world_that_freezes_scores_low_late_change (test_temporal_robustness.ChangeTests.test_a_world_that_freezes_scores_low_late_change) ... ok
+test_changed_fraction (test_temporal_robustness.ChangeTests.test_changed_fraction) ... ok
+test_needs_enough_frames (test_temporal_robustness.ChangeTests.test_needs_enough_frames) ... ok
+test_positive_difference_means_selected_is_more_novel (test_temporal_robustness.HeldoutTests.test_positive_difference_means_selected_is_more_novel) ... ok
+test_rejects_mismatched_or_nonfinite_input (test_temporal_robustness.HeldoutTests.test_rejects_mismatched_or_nonfinite_input) ... ok
+test_tiny_gaps_count_as_ties_and_do_not_hold_up (test_temporal_robustness.HeldoutTests.test_tiny_gaps_count_as_ties_and_do_not_hold_up) ... ok
+test_winning_one_seed_by_a_lot_is_not_enough (test_temporal_robustness.HeldoutTests.test_winning_one_seed_by_a_lot_is_not_enough) ... ok
+test_accepts_a_sound_plan (test_temporal_robustness.SeedPlanTests.test_accepts_a_sound_plan) ... ok
+test_rejects_unsound_plans (test_temporal_robustness.SeedPlanTests.test_rejects_unsound_plans) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.002s
+
+OK

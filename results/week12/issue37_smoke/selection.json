@@ -1,0 +1,72 @@
+{
+  "selected_id": "g00_c03",
+  "selected_artifacts": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue37-novelty-multiseed/results/week12/issue37_smoke/candidates/g00_c03",
+  "search_seeds": [
+    303,
+    7,
+    13
+  ],
+  "spread_penalty": 1.0,
+  "hand": {
+    "mean_loss": 0.8900160193443298,
+    "loss_std": 0.005176414524666769,
+    "selection_loss": 0.8951924338689966,
+    "per_seed_loss": [
+      0.8842138648033142,
+      0.8916735053062439,
+      0.8941606879234314
+    ]
+  },
+  "selected": {
+    "mean_loss": 0.8902167081832886,
+    "loss_std": 0.003731816396233662,
+    "selection_loss": 0.8939485245795222,
+    "per_seed_loss": [
+      0.8859238624572754,
+      0.8920390009880066,
+      0.8926872611045837
+    ]
+  },
+  "selection_loss_improvement_vs_hand": 0.0012439092894743764,
+  "primary_seed_comparison": [
+    {
+      "configuration": "fixed",
+      "shift_interval": 0,
+      "shift_cells": 4,
+      "loss_oe_lower_is_better": 0.892403781414032,
+      "temporal_novelty_display": 0.00759621858596804,
+      "energy_delivered": 6767.999803304151,
+      "initial_occupied": 460,
+      "final_occupied": 1199,
+      "minimum_sampled_occupied": 460,
+      "mean_sampled_occupied_excluding_initial": 1062.9,
+      "final_cells_changed_from_initial": 1117
+    },
+    {
+      "configuration": "hand",
+      "shift_interval": 25,
+      "shift_cells": 4,
+      "loss_oe_lower_is_better": 0.8842138648033142,
+      "temporal_novelty_display": 0.015786135196685813,
+      "energy_delivered": 6767.999815148711,
+      "initial_occupied": 460,
+      "final_occupied": 1690,
+      "minimum_sampled_occupied": 460,
+      "mean_sampled_occupied_excluding_initial": 1326.1,
+      "final_cells_changed_from_initial": 1466
+    },
+    {
+      "configuration": "selected",
+      "shift_interval": 30,
+      "shift_cells": 5,
+      "loss_oe_lower_is_better": 0.8859238624572754,
+      "temporal_novelty_display": 0.014076137542724632,
+      "energy_delivered": 6767.999830109025,
+      "initial_occupied": 460,
+      "final_occupied": 1763,
+      "minimum_sampled_occupied": 460,
+      "mean_sampled_occupied_excluding_initial": 1348.8,
+      "final_cells_changed_from_initial": 1515
+    }
+  ]
+}

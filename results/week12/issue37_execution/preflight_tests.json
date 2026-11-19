@@ -1,0 +1,87 @@
+[
+  {
+    "pattern": "test_coralai_temporal_multiseed.py",
+    "argv": [
+      "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880/.venv-novelty/bin/python",
+      "-B",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-p",
+      "test_coralai_temporal_multiseed.py",
+      "-v"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 2.924160666996613
+  },
+  {
+    "pattern": "test_temporal_robustness.py",
+    "argv": [
+      "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880/.venv-novelty/bin/python",
+      "-B",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-p",
+      "test_temporal_robustness.py",
+      "-v"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 0.09781708699301817
+  },
+  {
+    "pattern": "test_temporal_reference.py",
+    "argv": [
+      "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880/.venv-novelty/bin/python",
+      "-B",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-p",
+      "test_temporal_reference.py",
+      "-v"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 2.4919513029890368
+  },
+  {
+    "pattern": "test_controller_lookup.py",
+    "argv": [
+      "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880/.venv-novelty/bin/python",
+      "-B",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-p",
+      "test_controller_lookup.py",
+      "-v"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 5.288319044993841
+  },
+  {
+    "pattern": "test_controller_integration.py",
+    "argv": [
+      "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880/.venv-novelty/bin/python",
+      "-B",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-p",
+      "test_controller_integration.py",
+      "-v"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 4.258213210006943
+  }
+]

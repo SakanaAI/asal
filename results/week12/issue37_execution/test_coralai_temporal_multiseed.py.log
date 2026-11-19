@@ -1,0 +1,11 @@
+test_first_seed_lives_in_the_world_folder_and_only_it_may_reuse_a_cached_run (test_coralai_temporal_multiseed.EvaluateWorldTests.test_first_seed_lives_in_the_world_folder_and_only_it_may_reuse_a_cached_run) ... ok
+test_selection_loss_charges_for_disagreement_between_seeds (test_coralai_temporal_multiseed.EvaluateWorldTests.test_selection_loss_charges_for_disagreement_between_seeds) ... ok
+test_extra_keys_are_split_off_and_the_rest_passes_the_pilot_validation (test_coralai_temporal_multiseed.MultiSeedSettingsTests.test_extra_keys_are_split_off_and_the_rest_passes_the_pilot_validation) ... ok
+test_overlapping_held_out_seeds_are_rejected (test_coralai_temporal_multiseed.MultiSeedSettingsTests.test_overlapping_held_out_seeds_are_rejected) ... ok
+test_pilot_settings_without_a_seed_plan_are_rejected (test_coralai_temporal_multiseed.MultiSeedSettingsTests.test_pilot_settings_without_a_seed_plan_are_rejected) ... ok
+test_with_seed_does_not_change_the_original (test_coralai_temporal_multiseed.MultiSeedSettingsTests.test_with_seed_does_not_change_the_original) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.032s
+
+OK

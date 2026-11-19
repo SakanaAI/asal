@@ -1,0 +1,23 @@
+fixed: loss=0.89240378, novelty=0.00759622; sim=5.93s score=5.29s
+hand: loss=0.88421386, novelty=0.01578614; sim=4.12s score=0.46s
+seed_7: loss=0.89167351, novelty=0.00832649; sim=3.67s score=0.46s
+seed_13: loss=0.89416069, novelty=0.00583931; sim=3.67s score=0.46s
+g00_c00: loss=0.88546151, novelty=0.01453849; sim=4.07s score=0.49s
+seed_7: loss=0.88958228, novelty=0.01041772; sim=5.04s score=0.90s
+seed_13: loss=0.89517975, novelty=0.00482025; sim=4.07s score=0.46s
+g00_c01: loss=0.89056933, novelty=0.00943067; sim=4.12s score=0.47s
+seed_7: loss=0.89110136, novelty=0.00889864; sim=3.67s score=0.46s
+seed_13: loss=0.89446890, novelty=0.00553110; sim=3.67s score=0.47s
+g00_c02: loss=0.88861132, novelty=0.01138868; sim=4.12s score=0.45s
+seed_7: loss=0.89101040, novelty=0.00898960; sim=4.13s score=0.62s
+seed_13: loss=0.89476883, novelty=0.00523117; sim=4.02s score=0.75s
+g00_c03: loss=0.88592386, novelty=0.01407614; sim=5.08s score=1.84s
+seed_7: loss=0.89203900, novelty=0.00796100; sim=5.69s score=2.10s
+seed_13: loss=0.89268726, novelty=0.00731274; sim=5.98s score=2.14s
+hand: loss=0.88819087, novelty=0.01180913; sim=6.04s score=2.09s
+selected: loss=0.88774586, novelty=0.01225414; sim=5.94s score=1.89s
+selected: loss=0.88677800, novelty=0.01322200; sim=6.30s score=1.67s
+hand: loss=0.89200574, novelty=0.00799426; sim=6.14s score=2.37s
+hand: loss=0.89234346, novelty=0.00765654; sim=6.29s score=2.08s
+selected: loss=0.89132899, novelty=0.00867101; sim=6.54s score=2.18s
+Selected g00_c03; held-out check: held up

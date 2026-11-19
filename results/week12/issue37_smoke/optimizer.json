@@ -1,0 +1,22 @@
+{
+  "algorithm": "ASAL evosax.Sep_CMA_ES",
+  "population": 4,
+  "generations": 1,
+  "candidate_budget": 4,
+  "rollouts_per_candidate": 3,
+  "optimizer_seed": 17,
+  "sigma": 0.25,
+  "search_seeds": [
+    303,
+    7,
+    13
+  ],
+  "spread_penalty": 1.0,
+  "comparison_seeds": [
+    101,
+    202,
+    404
+  ],
+  "selection": "Lowest selection_loss = mean ASAL loss over search seeds + spread_penalty * sample std, among hand and proposals; improvements <= 1e-7 are ties. Fixed control excluded. ASAL objective itself unchanged.",
+  "seed_scope": "Issue #37: multi-seed search plus held-out comparison on seeds never used in the search."
+}

@@ -1,0 +1,6 @@
+[Taichi] version 1.7.4, llvm 15.0.4, commit b4b956fd, linux, python 3.11.18
+[Taichi] Starting on arch=x64
+  [checkpoint] step 200 → /home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue37-novelty-multiseed/results/week12/issue37_novelty_multiseed/heldout/seed_101/hand/run/checkpoint_0000200
+200 steps in 1.39s (143.8 FPS)
+Screenshots: /home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue37-novelty-multiseed/results/week12/issue37_novelty_multiseed/heldout/seed_101/hand/run/screenshots (11 PNGs)
+Run data: /home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue37-novelty-multiseed/results/week12/issue37_novelty_multiseed/heldout/seed_101/hand/run

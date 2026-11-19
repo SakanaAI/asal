@@ -1,0 +1,27 @@
+{
+  "n_seeds": 3,
+  "positive_means": "selected world is more novel than the hand-made one",
+  "improved_seeds": 1,
+  "paired_differences": [
+    0.0010860562324523926,
+    -0.0009218454360961914,
+    -0.0009100437164306641
+  ],
+  "paired_difference_mean": -0.0002486109733581543,
+  "paired_difference_sample_std": 0.0011558707682290288,
+  "hand_mean_loss": 0.8908466895421346,
+  "selected_mean_loss": 0.8910953005154928,
+  "held_up": false,
+  "rule": "held_up = selected better on a majority of unseen seeds AND better on average",
+  "hand_changed_from_start_mean": 0.4798900462962963,
+  "hand_ongoing_change_mean": 0.152271412037037,
+  "hand_late_change_mean": 0.13538773148148148,
+  "selected_changed_from_start_mean": 0.4657118055555556,
+  "selected_ongoing_change_mean": 0.14333043981481483,
+  "selected_late_change_mean": 0.12097800925925926,
+  "seeds": [
+    101,
+    202,
+    404
+  ]
+}

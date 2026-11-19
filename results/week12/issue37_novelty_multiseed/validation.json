@@ -1,0 +1,9 @@
+{
+  "initial_states_identical": true,
+  "nominal_budgets_identical_at_all_samples": true,
+  "maximum_actual_supply_difference": 4.6165410822140984e-05,
+  "absolute_supply_tolerance": 0.005,
+  "clipping": 0,
+  "scope": "primary-seed runs only (every world shares seed 303)",
+  "protected_files_unchanged": true
+}

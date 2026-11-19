@@ -1,0 +1,238 @@
+{
+  "candidate_worlds_verified": 4,
+  "search_seed_rollouts_verified": 12,
+  "baseline_rollouts_verified": 4,
+  "heldout_rollouts_verified": 6,
+  "all_rollouts_verified": 22,
+  "selected_id": "g00_c03",
+  "selection_objective": "minimize mean loss + 1.0 * sample std across seeds 303,7,13",
+  "hand": {
+    "n_seeds": 3,
+    "mean_loss": 0.8900160193443298,
+    "loss_std": 0.005176414524666769,
+    "spread_penalty": 1.0,
+    "selection_loss": 0.8951924338689966,
+    "per_seed_loss": [
+      0.8842138648033142,
+      0.8916735053062439,
+      0.8941606879234314
+    ]
+  },
+  "selected": {
+    "n_seeds": 3,
+    "mean_loss": 0.8902167081832886,
+    "loss_std": 0.003731816396233662,
+    "spread_penalty": 1.0,
+    "selection_loss": 0.8939485245795222,
+    "per_seed_loss": [
+      0.8859238624572754,
+      0.8920390009880066,
+      0.8926872611045837
+    ]
+  },
+  "heldout": {
+    "n_seeds": 3,
+    "positive_means": "selected world is more novel than the hand-made one",
+    "improved_seeds": 3,
+    "paired_differences": [
+      0.0004450082778930664,
+      0.0052277445793151855,
+      0.0010144710540771484
+    ],
+    "paired_difference_mean": 0.0022290746370951333,
+    "paired_difference_sample_std": 0.0026124869435358578,
+    "hand_mean_loss": 0.8908466895421346,
+    "selected_mean_loss": 0.8886176149050394,
+    "held_up": true,
+    "rule": "held_up = selected better on a majority of unseen seeds AND better on average"
+  },
+  "unique_effective_candidate_configs": 4,
+  "duplicate_effective_configs": [],
+  "gif": {
+    "frames": 11,
+    "frame_duration_ms": 400,
+    "all_source_occupancy_panels_match": true
+  },
+  "model_weights_sha256": "2a2994d89bebd77abba5a554789dd9152a7e25467b79d88f6bd237d2dec5051c",
+  "single_corrected_simulator_fingerprint": true,
+  "all_saved_embeddings_rescore_within_tolerance": true,
+  "rollouts": [
+    {
+      "directory": "fixed",
+      "seed": 303,
+      "loss": 0.892403781414032,
+      "simulation_seconds": 5.925051416998031,
+      "scoring_seconds": 5.287146420989302,
+      "reused": false
+    },
+    {
+      "directory": "hand",
+      "seed": 303,
+      "loss": 0.8842138648033142,
+      "simulation_seconds": 4.121857786987675,
+      "scoring_seconds": 0.46228897299442906,
+      "reused": false
+    },
+    {
+      "directory": "hand/seed_7",
+      "seed": 7,
+      "loss": 0.8916735053062439,
+      "simulation_seconds": 3.6715479089907603,
+      "scoring_seconds": 0.4617590419948101,
+      "reused": false
+    },
+    {
+      "directory": "hand/seed_13",
+      "seed": 13,
+      "loss": 0.8941606879234314,
+      "simulation_seconds": 3.6700566799991066,
+      "scoring_seconds": 0.45953674901102204,
+      "reused": false
+    },
+    {
+      "directory": "candidates/g00_c00",
+      "seed": 303,
+      "loss": 0.8854615092277527,
+      "simulation_seconds": 4.07122383400565,
+      "scoring_seconds": 0.4901302590005798,
+      "reused": false
+    },
+    {
+      "directory": "candidates/g00_c00/seed_7",
+      "seed": 7,
+      "loss": 0.8895822763442993,
+      "simulation_seconds": 5.038769182006945,
+      "scoring_seconds": 0.9048355880076997,
+      "reused": false
+    },
+    {
+      "directory": "candidates/g00_c00/seed_13",
+      "seed": 13,
+      "loss": 0.8951797485351562,
+      "simulation_seconds": 4.073026758997003,
+      "scoring_seconds": 0.4637626920011826,
+      "reused": false
+    },
+    {
+      "directory": "candidates/g00_c01",
+      "seed": 303,
+      "loss": 0.8905693292617798,
+      "simulation_seconds": 4.12292797799455,
+      "scoring_seconds": 0.4703032300021732,
+      "reused": false
+    },
+    {
+      "directory": "candidates/g00_c01/seed_7",
+      "seed": 7,
+      "loss": 0.8911013603210449,
+      "simulation_seconds": 3.6713284949946683,
+      "scoring_seconds": 0.46222078199207317,
+      "reused": false
+    },
+    {
+      "directory": "candidates/g00_c01/seed_13",
+      "seed": 13,
+      "loss": 0.8944689035415649,
+      "simulation_seconds": 3.670266952991369,
+      "scoring_seconds": 0.47383273000014015,
+      "reused": false
+    },
+    {
+      "directory": "candidates/g00_c02",
+      "seed": 303,
+      "loss": 0.8886113166809082,
+      "simulation_seconds": 4.121226503993967,
+      "scoring_seconds": 0.4534154889988713,
+      "reused": false
+    },
+    {
+      "directory": "candidates/g00_c02/seed_7",
+      "seed": 7,
+      "loss": 0.8910104036331177,
+      "simulation_seconds": 4.132729420001851,
+      "scoring_seconds": 0.6190114249911858,
+      "reused": false
+    },
+    {
+      "directory": "candidates/g00_c02/seed_13",
+      "seed": 13,
+      "loss": 0.8947688341140747,
+      "simulation_seconds": 4.024213962999056,
+      "scoring_seconds": 0.7475359750096686,
+      "reused": false
+    },
+    {
+      "directory": "candidates/g00_c03",
+      "seed": 303,
+      "loss": 0.8859238624572754,
+      "simulation_seconds": 5.08076675600023,
+      "scoring_seconds": 1.8363467199960724,
+      "reused": false
+    },
+    {
+      "directory": "candidates/g00_c03/seed_7",
+      "seed": 7,
+      "loss": 0.8920390009880066,
+      "simulation_seconds": 5.690638191998005,
+      "scoring_seconds": 2.1042192619934212,
+      "reused": false
+    },
+    {
+      "directory": "candidates/g00_c03/seed_13",
+      "seed": 13,
+      "loss": 0.8926872611045837,
+      "simulation_seconds": 5.9764743560081115,
+      "scoring_seconds": 2.1407278580009006,
+      "reused": false
+    },
+    {
+      "directory": "heldout/seed_101/hand",
+      "seed": 101,
+      "loss": 0.8881908655166626,
+      "simulation_seconds": 6.041319337004097,
+      "scoring_seconds": 2.0921495849906933,
+      "reused": false
+    },
+    {
+      "directory": "heldout/seed_101/selected",
+      "seed": 101,
+      "loss": 0.8877458572387695,
+      "simulation_seconds": 5.93809376299032,
+      "scoring_seconds": 1.887885421005194,
+      "reused": false
+    },
+    {
+      "directory": "heldout/seed_202/hand",
+      "seed": 202,
+      "loss": 0.8920057415962219,
+      "simulation_seconds": 6.137509931999375,
+      "scoring_seconds": 2.3728171179973288,
+      "reused": false
+    },
+    {
+      "directory": "heldout/seed_202/selected",
+      "seed": 202,
+      "loss": 0.8867779970169067,
+      "simulation_seconds": 6.300217142998008,
+      "scoring_seconds": 1.6663398969976697,
+      "reused": false
+    },
+    {
+      "directory": "heldout/seed_404/hand",
+      "seed": 404,
+      "loss": 0.8923434615135193,
+      "simulation_seconds": 6.286123656012933,
+      "scoring_seconds": 2.082073848010623,
+      "reused": false
+    },
+    {
+      "directory": "heldout/seed_404/selected",
+      "seed": 404,
+      "loss": 0.8913289904594421,
+      "simulation_seconds": 6.536963942999137,
+      "scoring_seconds": 2.1773087150068022,
+      "reused": false
+    }
+  ],
+  "primary_and_heldout_comparison_csvs_match_saved_scores": true
+}

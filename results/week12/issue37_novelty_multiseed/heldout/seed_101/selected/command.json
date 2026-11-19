@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880/.venv-novelty/bin/python",
+    "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue37-novelty-multiseed/external/coralai/experiments/coral_dev/headless_coral.py",
+    "--config",
+    "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue37-novelty-multiseed/results/week12/issue37_novelty_multiseed/heldout/seed_101/selected/input_config.json",
+    "--output-dir",
+    "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue37-novelty-multiseed/results/week12/issue37_novelty_multiseed/heldout/seed_101/selected/run"
+  ],
+  "cwd": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue37-novelty-multiseed"
+}

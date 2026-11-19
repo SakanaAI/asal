@@ -1,0 +1,72 @@
+{
+  "selected_id": "g02_c02",
+  "selected_artifacts": "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue37-novelty-multiseed/results/week12/issue37_novelty_multiseed/candidates/g02_c02",
+  "search_seeds": [
+    303,
+    7,
+    13
+  ],
+  "spread_penalty": 1.0,
+  "hand": {
+    "mean_loss": 0.8900160193443298,
+    "loss_std": 0.005176414524666769,
+    "selection_loss": 0.8951924338689966,
+    "per_seed_loss": [
+      0.8842138648033142,
+      0.8916735053062439,
+      0.8941606879234314
+    ]
+  },
+  "selected": {
+    "mean_loss": 0.8896179596583048,
+    "loss_std": 0.0034549478536174236,
+    "selection_loss": 0.8930729075119223,
+    "per_seed_loss": [
+      0.8869068026542664,
+      0.8884389996528625,
+      0.8935080766677856
+    ]
+  },
+  "selection_loss_improvement_vs_hand": 0.0021195263570743528,
+  "primary_seed_comparison": [
+    {
+      "configuration": "fixed",
+      "shift_interval": 0,
+      "shift_cells": 4,
+      "loss_oe_lower_is_better": 0.892403781414032,
+      "temporal_novelty_display": 0.00759621858596804,
+      "energy_delivered": 6767.999803304151,
+      "initial_occupied": 460,
+      "final_occupied": 1199,
+      "minimum_sampled_occupied": 460,
+      "mean_sampled_occupied_excluding_initial": 1062.9,
+      "final_cells_changed_from_initial": 1117
+    },
+    {
+      "configuration": "hand",
+      "shift_interval": 25,
+      "shift_cells": 4,
+      "loss_oe_lower_is_better": 0.8842138648033142,
+      "temporal_novelty_display": 0.015786135196685813,
+      "energy_delivered": 6767.999815148711,
+      "initial_occupied": 460,
+      "final_occupied": 1690,
+      "minimum_sampled_occupied": 460,
+      "mean_sampled_occupied_excluding_initial": 1326.1,
+      "final_cells_changed_from_initial": 1466
+    },
+    {
+      "configuration": "selected",
+      "shift_interval": 26,
+      "shift_cells": 6,
+      "loss_oe_lower_is_better": 0.8869068026542664,
+      "temporal_novelty_display": 0.013093197345733665,
+      "energy_delivered": 6767.999849469562,
+      "initial_occupied": 460,
+      "final_occupied": 1691,
+      "minimum_sampled_occupied": 460,
+      "mean_sampled_occupied_excluding_initial": 1355.2,
+      "final_cells_changed_from_initial": 1481
+    }
+  ]
+}

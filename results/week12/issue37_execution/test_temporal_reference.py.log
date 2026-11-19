@@ -1,0 +1,13 @@
+test_all_effective_configuration_fields_are_checked (test_temporal_reference.TemporalReferenceTests.test_all_effective_configuration_fields_are_checked) ... ok
+test_changed_uncommitted_simulator_content_is_rejected (test_temporal_reference.TemporalReferenceTests.test_changed_uncommitted_simulator_content_is_rejected) ... ok
+test_fingerprint_hashes_working_files_without_git_metadata (test_temporal_reference.TemporalReferenceTests.test_fingerprint_hashes_working_files_without_git_metadata) ... ok
+test_fresh_reference_option_bypasses_an_existing_legacy_directory (test_temporal_reference.TemporalReferenceTests.test_fresh_reference_option_bypasses_an_existing_legacy_directory) ... ok
+test_matching_content_config_model_and_sampling_are_accepted (test_temporal_reference.TemporalReferenceTests.test_matching_content_config_model_and_sampling_are_accepted) ... ok
+test_matching_head_and_configuration_cannot_validate_legacy_reference (test_temporal_reference.TemporalReferenceTests.test_matching_head_and_configuration_cannot_validate_legacy_reference) ... ok
+test_sampling_and_capture_integrity_are_checked (test_temporal_reference.TemporalReferenceTests.test_sampling_and_capture_integrity_are_checked) ... ok
+test_scoring_view_model_revision_weights_and_implementation_are_checked (test_temporal_reference.TemporalReferenceTests.test_scoring_view_model_revision_weights_and_implementation_are_checked) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.204s
+
+OK

@@ -1,0 +1,23 @@
+[W 11/18/26 20:13:09.248 17529] Environment variable TI_CPU_MAX_NUM_THREADS=1 overridden by ti.init argument "cpu_max_num_threads"
+test_controlled_colonization_and_bid_accounting (test_controller_integration.ControllerIntegrationTests.test_controlled_colonization_and_bid_accounting) ... [W 11/18/26 20:13:11.610 17529] TaichiWarning
+While compiling `explore_c88_0`, File "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue37-novelty-multiseed/external/coralai/experiments/coral_dev/physics.py", line 90, in explore:
+                    win_x = neigh_x
+                    ^^^^^^^^^^^^^^^
+Assign may lose precision: i32 <- i64
+[W 11/18/26 20:13:11.610 17529] TaichiWarning
+While compiling `explore_c88_0`, File "/home/sparky/Documents/School/CSC 4880/coralai-asal-4880-issue37-novelty-multiseed/external/coralai/experiments/coral_dev/physics.py", line 91, in explore:
+                    win_y = neigh_y
+                    ^^^^^^^^^^^^^^^
+Assign may lose precision: i32 <- i64
+ok
+test_event_observation_does_not_modify_state_or_rng (test_controller_integration.ControllerIntegrationTests.test_event_observation_does_not_modify_state_or_rng) ... ok
+test_pair_initial_state_comparison_uses_rng_values (test_controller_integration.ControllerIntegrationTests.test_pair_initial_state_comparison_uses_rng_values) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 2.709s
+
+OK
+[Taichi] version 1.7.4, llvm 15.0.4, commit b4b956fd, linux, python 3.11.18
+[Taichi] Starting on arch=x64
+  [checkpoint] step 0 → /tmp/tmpqophi3nv/fixed/run/checkpoint_0000000
+  [checkpoint] step 0 → /tmp/tmpqophi3nv/dynamic/run/checkpoint_0000000

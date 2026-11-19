@@ -1,0 +1,9 @@
+{
+  "candidate_worlds": 64,
+  "rollouts_per_world": 3,
+  "search_seconds": 860.9524143029994,
+  "total_seconds": 946.0071478000027,
+  "selected_id": "g02_c02",
+  "heldout_ran": true,
+  "heldout_held_up": false
+}
